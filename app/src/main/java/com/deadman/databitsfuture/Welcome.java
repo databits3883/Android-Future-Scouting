@@ -25,6 +25,12 @@ public class Welcome extends Fragment {
                              Bundle savedInstanceState) {
         View rootview = inflater.inflate(R.layout.welcome, container, false);
 
+        // Go Full screen and hide navbar
+        View decorView = getActivity().getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+        decorView.setSystemUiVisibility(uiOptions);
+
         Spinner spinner1 = rootview.findViewById(R.id.spinner1);
         List<String> list = new ArrayList<>();
         list.add("Practice Mode");
