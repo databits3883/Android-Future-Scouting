@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 
+import com.pedro.library.AutoPermissions;
 import com.shrikanthravi.customnavigationdrawer2.data.MenuItem;
 import com.shrikanthravi.customnavigationdrawer2.widget.SNavigationDrawer;
 
@@ -22,6 +23,8 @@ public class Drawer extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.drawer);
+
+        AutoPermissions.Companion.loadAllPermissions(this, 1);
 
         sNavigationDrawer = findViewById(R.id.navigationDrawer);
 
