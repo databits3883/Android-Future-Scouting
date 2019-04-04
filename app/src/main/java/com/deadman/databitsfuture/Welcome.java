@@ -36,7 +36,7 @@ public class Welcome extends Fragment {
         list.add("Blue 3");
         ArrayAdapter dataAdapter = new ArrayAdapter<>(getContext(),
                 android.R.layout.simple_spinner_item, list);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        dataAdapter.setDropDownViewResource(R.layout.spinner_item);
         spinner1.setAdapter(dataAdapter);
 
         spinner1.setOnItemSelectedListener(new CustomOnItemSelectedListener());
