@@ -8,4 +8,23 @@
     <!-- Position Selector Text -->
     <string name="position_title">Select the tablets position</string>
     <string name="choose_position">Choose the position for the tablet</string>
+
+    <!-- Pit Scouting Text -->
+    <string name="pit_general_info">General Info</string>
+    <string name="pit_expected_perf">Expected Performance</string>
+    <string name="pit_team_number">Team Number</string>
+    <string name="pit_person">Person entering data</string>
+    <string name="pit_drivetrain">Drive Train Style</string>
+    <string name="pit_wheel">Wheel Style</string>
+    <string name="pit_hatches">Hatches</string>
+    <string name="pit_cargo">Cargo</string>
+    <string name="pit_launch">Launch Position</string>
+    <string name="pit_vision">Type of Vision</string>
+    <string name="pit_sandstorm">Sandstorm Mode</string>
+    <string name="pit_max_rocket">Max Level Rocket</string>
+    <string name="pit_max_climb">Max Level Climb</string>
+    <string name="pit_comments">Comments</string>
+    <string name="pit_picture">Robot Picture</string>
+    <string name="pit_save">Save collected data</string>
+
 </resources>

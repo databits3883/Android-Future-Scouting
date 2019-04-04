@@ -86,7 +86,7 @@
         android:text="@string/pit_general_info"
         android:textAlignment="center"
         android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -101,7 +101,7 @@
         android:text="@string/pit_team_number"
         android:textAlignment="center"
         android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
+        android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline5" />
@@ -115,7 +115,7 @@
         android:text="@string/pit_person"
         android:textAlignment="center"
         android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
+        android:textSize="24sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/team_num"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline4" />
@@ -130,7 +130,7 @@
         android:text="@string/pit_drivetrain"
         android:textAlignment="center"
         android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
+        android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline6" />
@@ -144,7 +144,7 @@
         android:text="@string/pit_wheel"
         android:textAlignment="center"
         android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
+        android:textSize="24sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/pit_drivetrain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline4" />
@@ -159,7 +159,7 @@
         android:text="@string/pit_expected_perf"
         android:textAlignment="center"
         android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -174,7 +174,7 @@
         android:text="@string/pit_hatches"
         android:textAlignment="center"
         android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
+        android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline8" />
@@ -186,12 +186,12 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/pit_cargo"
+        android:textAlignment="center"
         android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
+        android:textSize="24sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/pit_hatches"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        android:textAlignment="center" />
+        app:layout_constraintStart_toStartOf="@+id/guideline4" />
 
     <TextView
         android:id="@+id/pit_launch"
@@ -203,7 +203,7 @@
         android:text="@string/pit_launch"
         android:textAlignment="center"
         android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
+        android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline9" />
@@ -217,7 +217,7 @@
         android:text="@string/pit_vision"
         android:textAlignment="center"
         android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
+        android:textSize="24sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/pit_launch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline4" />
@@ -232,7 +232,7 @@
         android:text="@string/pit_sandstorm"
         android:textAlignment="center"
         android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
+        android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline10" />
@@ -246,7 +246,7 @@
         android:text="@string/pit_max_rocket"
         android:textAlignment="center"
         android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
+        android:textSize="24sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/pit_sandstorm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline4" />
@@ -261,7 +261,7 @@
         android:text="@string/pit_max_climb"
         android:textAlignment="center"
         android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
+        android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline11" />
@@ -275,7 +275,7 @@
         android:text="@string/pit_comments"
         android:textAlignment="center"
         android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
+        android:textSize="24sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/pit_max_climb"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline4" />
@@ -290,7 +290,7 @@
         android:text="@string/pit_picture"
         android:textAlignment="center"
         android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
+        android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline12" />
@@ -304,7 +304,7 @@
         android:text="@string/pit_save"
         android:textAlignment="center"
         android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
+        android:textSize="24sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/pit_picture"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline4" />
