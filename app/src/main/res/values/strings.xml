@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Databits Future</string>
+
+    <!-- Welcome Page Text -->
+    <string name="Intro_text">Select the 3 lines in the top left to open the menu</string>
+    <string name="intro_welcome">Welcome to the Team 3883 Scouting App</string>
+
+    <!-- Position Selector Text -->
+    <string name="position_title">Select the tablets position</string>
+    <string name="choose_position">Choose the position for the tablet</string>
 </resources>
