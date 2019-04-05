@@ -35,7 +35,7 @@
         <item name="mnp_textColor">@android:color/white</item>
         <item name="mnp_textSize">25sp</item>
         <item name="mnp_paddingHorizontal">5dp</item>
-        <item name="mnp_paddingVertical">7dp</item>
+        <item name="mnp_paddingVertical">8dp</item>
         <item name="mv_enabled">true</item>
     </style>
 
@@ -45,6 +45,21 @@
         <item name="mv_numberOfSecond">2</item>
         <item name="mv_pickerStyle">@style/Phone_MeterNumberPickerStyle</item>
         <item name="mv_secondColor">@android:color/holo_red_dark</item>
+    </style>
+
+    <style name="dividerBase">
+        <item name="android:background">@android:color/darker_gray</item>
+    </style>
+
+    <style name="dividerHorizontal" parent="dividerBase">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">3dp</item>
+
+    </style>
+
+    <style name="dividerVertical" parent="dividerBase">
+        <item name="android:layout_width">3dp</item>
+        <item name="android:layout_height">match_parent</item>
     </style>
 
 </resources>

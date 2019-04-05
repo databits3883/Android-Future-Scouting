@@ -30,8 +30,7 @@ public class Pit extends Fragment {
 
         // Go Full screen and hide navbar
         View decorView = getActivity().getWindow().getDecorView();
-        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                | View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
         decorView.setSystemUiVisibility(uiOptions);
 
         Spinner spinner1 = rootview.findViewById(R.id.spinner1);
@@ -46,6 +45,7 @@ public class Pit extends Fragment {
         list.add("Octicanum");
         list.add("Posicanum");
         list.add("Butterfly");
+        list.add("Other (Put in comments)");
         ArrayAdapter dataAdapter = new ArrayAdapter<>(getContext(),
                 android.R.layout.simple_spinner_item, list);
         dataAdapter.setDropDownViewResource(R.layout.spinner_item);
