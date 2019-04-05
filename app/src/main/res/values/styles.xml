@@ -6,6 +6,9 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        // Workaround android bug so at least the statusbar stays hidden when you click a spinner
+        <item name="android:windowFullscreen">true</item>
     </style>
 
 </resources>
