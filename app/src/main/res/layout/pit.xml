@@ -135,19 +135,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline6" />
 
-    <TextView
-        android:id="@+id/pit_wheel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="200dp"
+        android:layout_height="43dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/pit_wheel"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/darker_gray"
+        android:prompt="@string/pit_style"
         android:textAlignment="center"
-        android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
-        app:layout_constraintBaseline_toBaselineOf="@+id/pit_drivetrain"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline4" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/perf_title"
