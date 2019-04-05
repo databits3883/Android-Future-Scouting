@@ -120,49 +120,53 @@
         app:layout_constraintTop_toTopOf="@+id/guideline5"
         app:layout_constraintVertical_bias="0.92" />
 
-    <TextView
-        android:id="@+id/pit_person"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+        android:id="@+id/text_field_boxes"
+        android:layout_width="156dp"
+        android:layout_height="55dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/pit_person"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
-        app:layout_constraintBaseline_toBaselineOf="@+id/team_num"
+        app:labelText="Enter your name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline4" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="@+id/guideline5">
+
+        <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+            android:id="@+id/extended_edit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="8sp" />
+
+    </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
 
     <TextView
         android:id="@+id/pit_drivetrain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="132dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/pit_drivetrain"
         android:textAlignment="center"
         android:textColor="@color/black"
         app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toTopOf="@+id/spinner1"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline6" />
+        app:layout_constraintTop_toTopOf="@+id/guideline6"
+        app:layout_constraintVertical_bias="0.7" />
 
     <Spinner
         android:id="@+id/spinner1"
         android:layout_width="100dp"
         android:layout_height="43dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="132dp"
+        android:layout_marginBottom="16dp"
         android:background="@android:color/darker_gray"
         android:prompt="@string/pit_style"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView

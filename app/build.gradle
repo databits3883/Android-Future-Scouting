@@ -28,4 +28,5 @@ dependencies {
     implementation 'com.github.shrikanth7698:Custom-Navigation-Drawer:v0.0.1'
     implementation 'com.github.pedroSG94:AutoPermissions:1.0.3'
     implementation 'com.alex-zaitsev:meternumberpicker:1.0.5'
+    implementation 'com.github.HITGIF:TextFieldBoxes:1.4.4'
 }
