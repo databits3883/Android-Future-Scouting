@@ -62,6 +62,7 @@ public class Drawer extends AppCompatActivity {
         menuItems.add(new MenuItem("Crowd",R.drawable.feed_bg));
         menuItems.add(new MenuItem("Pit",R.drawable.message_bg));
         menuItems.add(new MenuItem("Master",R.drawable.music_bg));
+        menuItems.add(new MenuItem("Settings",R.drawable.news_bg));
 
         // Add them to navigation drawer
 
@@ -99,6 +100,10 @@ public class Drawer extends AppCompatActivity {
                     }
                     case 3:{
                         fragmentClass = Master.class;
+                        break;
+                    }
+                    case 4:{
+                        fragmentClass = Settings.class;
                         break;
                     }
 
