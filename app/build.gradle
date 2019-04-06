@@ -18,6 +18,13 @@ android {
     }
 }
 
+android {
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0-alpha04'
@@ -29,4 +36,7 @@ dependencies {
     implementation 'com.github.pedroSG94:AutoPermissions:1.0.3'
     implementation 'com.alex-zaitsev:meternumberpicker:1.0.5'
     implementation 'com.github.HITGIF:TextFieldBoxes:1.4.4'
+    implementation 'com.github.addisonelliott:SegmentedButton:3.0.0'
+    implementation 'com.bitvale:switcher:1.0.0'
+    implementation 'com.github.Mohammed-Alaa:RangeSeekBar:1.0.2'
 }

@@ -21,30 +21,30 @@
         <item name="mv_enabled">true</item>
     </style>
 
-    <style name="Tablet_MeterViewStyle">
-        <item name="mv_firstColor">@android:color/black</item>
-        <item name="mv_numberOfFirst">2</item>
-        <item name="mv_numberOfSecond">2</item>
-        <item name="mv_pickerStyle">@style/Tablet_MeterNumberPickerStyle</item>
-        <item name="mv_secondColor">@android:color/holo_red_dark</item>
-    </style>
-
     <style name="Phone_MeterNumberPickerStyle">
         <item name="mnp_min">0</item>
         <item name="mnp_max">9</item>
         <item name="mnp_textColor">@android:color/white</item>
-        <item name="mnp_textSize">25sp</item>
+        <item name="mnp_textSize">15sp</item>
         <item name="mnp_paddingHorizontal">5dp</item>
         <item name="mnp_paddingVertical">8dp</item>
         <item name="mv_enabled">true</item>
     </style>
 
-    <style name="Phone_MeterViewStyle">
+    <style name="Tablet_team_MeterViewStyle">
+        <item name="mv_firstColor">@android:color/black</item>
+        <item name="mv_numberOfFirst">2</item>
+        <item name="mv_numberOfSecond">2</item>
+        <item name="mv_pickerStyle">@style/Tablet_MeterNumberPickerStyle</item>
+        <item name="mv_secondColor">@color/green_900</item>
+    </style>
+
+    <style name="Phone_team_MeterViewStyle">
         <item name="mv_firstColor">@android:color/black</item>
         <item name="mv_numberOfFirst">2</item>
         <item name="mv_numberOfSecond">2</item>
         <item name="mv_pickerStyle">@style/Phone_MeterNumberPickerStyle</item>
-        <item name="mv_secondColor">@android:color/holo_red_dark</item>
+        <item name="mv_secondColor">@color/green_900</item>
     </style>
 
     <style name="dividerBase">

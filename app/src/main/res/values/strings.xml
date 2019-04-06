@@ -20,11 +20,29 @@
     <string name="pit_cargo">Cargo</string>
     <string name="pit_launch">Launch Position</string>
     <string name="pit_vision">Type of Vision</string>
-    <string name="pit_sandstorm">Sandstorm Mode</string>
+    <string name="pit_sandstorm">Sandstorm Control Method</string>
     <string name="pit_max_rocket">Max Level Rocket</string>
     <string name="pit_max_climb">Max Level Climb</string>
     <string name="pit_comments">Comments</string>
     <string name="pit_picture">Robot Picture</string>
     <string name="pit_save">Save collected data</string>
+    <string name="levelone">Level 1</string>
+    <string name="leveltwo">Level 2</string>
+    <string name="levelthree">Level 3</string>
+    <string name="levelone_phone">Lvl 1</string>
+    <string name="leveltwo_phone">Lvl 2</string>
+    <string name="levelthree_phone">Lvl 3</string>
+    <string name="nothing">Nothing</string>
+    <string name="none">None</string>
+    <string name="auto">Autonomous</string>
+    <string name="auto_phone">Auto</string>
+    <string name="autocamera">Auto/Camera</string>
+    <string name="autocamera_phone">Both</string>
+    <string name="cam">Camera Only</string>
+    <string name="cams">Camera</string>
+    <string name="multicam">Multicam</string>
+    <string name="limelight">limelight</string>
+    <string name="station">Station</string>
+    <string name="ground">Ground</string>
 
 </resources>
