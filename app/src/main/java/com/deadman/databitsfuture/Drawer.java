@@ -4,8 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.content.Context;
+import android.graphics.Rect;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 
 import com.pedro.library.AutoPermissions;
 import com.shrikanthravi.customnavigationdrawer2.data.MenuItem;
@@ -19,6 +24,24 @@ public class Drawer extends AppCompatActivity {
     SNavigationDrawer sNavigationDrawer;
     Class fragmentClass;
     public static Fragment fragment;
+
+    // Dismisses the keyboard when you tap away from an edit text field
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            View v = getCurrentFocus();
+            if ( v instanceof EditText) {
+                Rect outRect = new Rect();
+                v.getGlobalVisibleRect(outRect);
+                if (!outRect.contains((int)event.getRawX(), (int)event.getRawY())) {
+                    v.clearFocus();
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                }
+            }
+        }
+        return super.dispatchTouchEvent( event );
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
