@@ -7,7 +7,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 
+import com.bitvale.switcher.SwitcherX;
 
 public class Crowd extends Fragment {
 
@@ -21,13 +23,15 @@ public class Crowd extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        View rootview = inflater.inflate(R.layout.crowd, container, false);
+
         // Go Full screen and hide navbar
         View decorView = getActivity().getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
         decorView.setSystemUiVisibility(uiOptions);
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.crowd, container, false);
+        return rootview;
     }
 
 }

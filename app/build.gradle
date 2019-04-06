@@ -39,4 +39,5 @@ dependencies {
     implementation 'com.github.addisonelliott:SegmentedButton:3.0.0'
     implementation 'com.bitvale:switcher:1.0.0'
     implementation 'com.github.Mohammed-Alaa:RangeSeekBar:1.0.2'
+    implementation 'com.github.travijuu:numberpicker:1.0.7'
 }

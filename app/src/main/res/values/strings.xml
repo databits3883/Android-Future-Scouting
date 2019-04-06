@@ -66,4 +66,7 @@
     <string name="moving_in_sandstorm">Moving in Sandstorm</string>
     <string name="Initial_name">Person who is entering info</string>
     <string name="comment_initial">Any extra info</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="team_hint">Enter your team number here</string>
 </resources>

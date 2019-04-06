@@ -551,13 +551,13 @@
         android:textAlignment="center"
         android:textColor="@color/black"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toTopOf="@+id/buttonGroup_sandstorm"
+        app:layout_constraintBottom_toTopOf="@+id/buttonGroup_pit_sandstorm"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline10" />
 
     <com.addisonelliott.segmentedbutton.SegmentedButtonGroup
-        android:id="@+id/buttonGroup_sandstorm"
+        android:id="@+id/buttonGroup_pit_sandstorm"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
