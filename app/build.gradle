@@ -40,4 +40,6 @@ dependencies {
     implementation 'com.bitvale:switcher:1.0.0'
     implementation 'com.github.Mohammed-Alaa:RangeSeekBar:1.0.2'
     implementation 'com.github.travijuu:numberpicker:1.0.7'
+    implementation 'com.github.SumiMakito:AwesomeQRCode:1.0.6'
+    implementation 'com.github.chathuralakmal:AndroidImagePopup:1.2.1'
 }
