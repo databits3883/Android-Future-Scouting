@@ -99,7 +99,6 @@ public class Crowd extends Fragment {
                                             Log.i("ExternalStorage", "Scanned " + path + ":");
                                             Log.i("ExternalStorage", "-> uri=" + uri);
                                         });
-                                incrementmatch();
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -113,8 +112,10 @@ public class Crowd extends Fragment {
                                         ImagePopup imagePopup = new ImagePopup(getContext());
                                         imagePopup.setImageOnClickClose(true);
                                         imagePopup.setHideCloseIcon(true);
+                                        imagePopup.setFullScreen(true);
                                         imagePopup.initiatePopup(d);
                                         imagePopup.viewPopup();
+                                        incrementmatch();
 
                                     })
                                     .setNegativeButton(R.string.cancel, (dialog, id) -> {
