@@ -572,8 +572,8 @@
         app:layout_constraintStart_toEndOf="@+id/match"
         numberpicker:custom_layout="@layout/number_picker_match_layout"
         numberpicker:focusable="false"
-        numberpicker:max="4"
-        numberpicker:min="0"
+        numberpicker:max="99"
+        numberpicker:min="1"
         numberpicker:unit="1"
         numberpicker:value="0" />
 
