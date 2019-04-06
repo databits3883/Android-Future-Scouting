@@ -45,4 +45,25 @@
     <string name="station">Station</string>
     <string name="ground">Ground</string>
 
+    <!-- Crowd Scouting Text -->
+    <string name="playing_defense">Playing Defense</string>
+    <string name="failed">Failed</string>
+    <string name="comments">Comments</string>
+    <string name="export_to_master_device">Export to Master Device</string>
+    <string name="cargo_ship_cargo">Cargo Ship Cargo</string>
+    <string name="rocket_top_cargo">Rocket Top Cargo</string>
+    <string name="rocket_middle_cargo">Rocket Middle Cargo</string>
+    <string name="rocket_bottom_cargo">Rocket Bottom Cargo</string>
+    <string name="climb_level">Climb Level</string>
+    <string name="name">Name</string>
+    <string name="team">Team</string>
+    <string name="match">Match</string>
+    <string name="launch_position">Launch Position</string>
+    <string name="rocket_top_hatch">Rocket Top Hatch</string>
+    <string name="rocket_middle_hatch">Rocket Middle Hatch</string>
+    <string name="rocket_bottom_hatch">Rocket Bottom Hatch</string>
+    <string name="cargo_ship_hatch">Cargo Ship Hatch</string>
+    <string name="moving_in_sandstorm">Moving in Sandstorm</string>
+    <string name="Initial_name">Person who is entering info</string>
+    <string name="comment_initial">Any extra info</string>
 </resources>
