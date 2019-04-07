@@ -135,6 +135,9 @@ public class Crowd extends Fragment {
                                         // Write to the backup CSV file
                                         write_data();
 
+                                        // Reset all fields to defaults
+                                        reset_info();
+
                                         // Increment the match number
                                         incrementmatch();
 
@@ -282,10 +285,10 @@ public class Crowd extends Fragment {
 
     // All cargo data added together for a match
     private String total_cargo (){
-        NumberPicker top = getView().findViewById(R.id.rocket_top_hatch_counter);
-        NumberPicker mid = getView().findViewById(R.id.rocket_middle_hatch_counter);
-        NumberPicker bot = getView().findViewById(R.id.rocket_bottom_hatch_counter);
-        NumberPicker ship = getView().findViewById(R.id.cargo_ship_hatch_counter);
+        NumberPicker top = getView().findViewById(R.id.rocket_top_cargo_counter);
+        NumberPicker mid = getView().findViewById(R.id.rocket_middle_cargo_counter);
+        NumberPicker bot = getView().findViewById(R.id.rocket_bottom_cargo_counter);
+        NumberPicker ship = getView().findViewById(R.id.cargo_ship_cargo_counter);
         int total = top.getValue() + mid.getValue() + bot.getValue() + ship.getValue();
         return Integer.toString(total);
     }
@@ -323,5 +326,38 @@ public class Crowd extends Fragment {
                     Log.i("ExternalStorage", "Scanned " + path + ":");
                     Log.i("ExternalStorage", "-> uri=" + uri);
                 });
+    }
+
+    // Resets all the fields on the page
+    public void reset_info(){
+        EditText comment_field = getView().findViewById(R.id.comment_field);
+        SwitchView climb_failed = getView().findViewById(R.id.climb_failed);
+        SegmentedButtonGroup launch = getView().findViewById(R.id.buttonGroup_crowd_launch);
+        SegmentedButtonGroup climb = getView().findViewById(R.id.buttonGroup_climb);
+        SegmentedButtonGroup sandstorm = getView().findViewById(R.id.buttonGroup_sandstorm);
+        SegmentedButtonGroup defense = getView().findViewById(R.id.buttonGroup_crowd_defense);
+        NumberPicker top_hatch = getView().findViewById(R.id.rocket_top_hatch_counter);
+        NumberPicker mid_hatch = getView().findViewById(R.id.rocket_middle_hatch_counter);
+        NumberPicker bot_hatch = getView().findViewById(R.id.rocket_bottom_hatch_counter);
+        NumberPicker ship_hatch = getView().findViewById(R.id.cargo_ship_hatch_counter);
+        NumberPicker top_cargo = getView().findViewById(R.id.rocket_top_cargo_counter);
+        NumberPicker mid_cargo = getView().findViewById(R.id.rocket_middle_cargo_counter);
+        NumberPicker bot_cargo = getView().findViewById(R.id.rocket_bottom_cargo_counter);
+        NumberPicker ship_cargo = getView().findViewById(R.id.cargo_ship_cargo_counter);
+
+        comment_field.setText("");
+        climb_failed.setChecked(false);
+        launch.setPosition(0,true);
+        climb.setPosition(0,true);
+        sandstorm.setPosition(0,true);
+        defense.setPosition(0,true);
+        top_hatch.setValue(0);
+        mid_hatch.setValue(0);
+        bot_hatch.setValue(0);
+        ship_hatch.setValue(0);
+        top_cargo.setValue(0);
+        mid_cargo.setValue(0);
+        bot_cargo.setValue(0);
+        ship_cargo.setValue(0);
     }
 }
