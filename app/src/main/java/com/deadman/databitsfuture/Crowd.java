@@ -3,6 +3,7 @@ package com.deadman.databitsfuture;
 import android.app.AlertDialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.MediaScannerConnection;
@@ -22,6 +23,7 @@ import android.widget.Toast;
 
 import com.addisonelliott.segmentedbutton.SegmentedButtonGroup;
 import com.ceylonlabs.imageviewpopup.ImagePopup;
+import com.github.kimkevin.cachepot.CachePot;
 import com.github.sumimakito.awesomeqr.AwesomeQRCode;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
@@ -39,6 +41,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class Crowd extends Fragment {
 
+    int pos = CachePot.getInstance().pop(1);
 
     public Crowd() {
         // Required empty public constructor
@@ -66,6 +69,10 @@ public class Crowd extends Fragment {
         qrButton.setOnClickListener(v -> showQrCode());
 
         teams();
+
+        button_transform();
+
+        reset_info();
     }
 
     private int getmatch(){
@@ -189,7 +196,6 @@ public class Crowd extends Fragment {
 
     // Read the team data from teams.csv
     private String read_teams(){
-        int pos = 1;
         int match = getmatch();
         String[][] dataArr;
         String test = "";
@@ -359,5 +365,40 @@ public class Crowd extends Fragment {
         mid_cargo.setValue(0);
         bot_cargo.setValue(0);
         ship_cargo.setValue(0);
+    }
+
+    private void button_transform(){
+        Button export = getView().findViewById(R.id.export);
+        String Position = "";
+        if (pos == 0) {
+            Position = " Practice Mode";
+            export.setBackgroundColor(Color.GREEN);
+        } else if (pos == 1) {
+            Position = " Red 1";
+            export.setBackgroundColor(Color.RED);
+            export.setTextColor(Color.WHITE);
+        } else if (pos == 2) {
+            Position = " Red 2";
+            export.setBackgroundColor(Color.RED);
+            export.setTextColor(Color.WHITE);
+        } else if (pos == 3) {
+            Position = " Red 3";
+            export.setBackgroundColor(Color.RED);
+            export.setTextColor(Color.WHITE);
+        } else if (pos == 4) {
+            Position = " Blue 1";
+            export.setBackgroundColor(Color.BLUE);
+            export.setTextColor(Color.WHITE);
+        } else if (pos == 5) {
+            Position = " Blue 2";
+            export.setBackgroundColor(Color.BLUE);
+            export.setTextColor(Color.WHITE);
+        } else if (pos == 6) {
+            Position = " Blue 3";
+            export.setBackgroundColor(Color.BLUE);
+            export.setTextColor(Color.WHITE);
+        }
+
+        export.setText("Export to Master Device\n" + Position);
     }
 }
