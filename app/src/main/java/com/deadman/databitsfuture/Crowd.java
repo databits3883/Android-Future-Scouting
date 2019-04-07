@@ -261,9 +261,10 @@ public class Crowd extends Fragment {
         return result.get();
     }
 
+    // Selectors start at 0 we want it to start at 1 so the data is easier to read
     private String selector(int id){
         SegmentedButtonGroup button = getView().findViewById(id);
-        return String.valueOf(button.getPosition());
+        return String.valueOf(button.getPosition() + 1);
     }
 
     private String getselectors(){
