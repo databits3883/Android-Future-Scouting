@@ -74,7 +74,7 @@
     <string name="confirm_export_dialog_title">Exporting your collected data</string>
     <string name="confirm_export">Yes i am ready</string>
     <string name="cancel">I have more data to enter</string>
-
+    <string name="crowd_header">Team,Match,Top Hatch,Middle Hatch,Bottom Hatch,Ship Hatch,Top Cargo,Middle Cargo,Bottom Cargo,Ship Cargo,Total Hatches,Total Cargo,All Cargo/Hatches,Launch Position,Climb Level,Moving in Sandstorm,Played Defense,Failed to climb,Data Entered by,Match Comments</string>
 
     <!-- Settings Text -->
     <string name="pressing_this_button_will_wupe_all_scouting_data_on_this_device">Pressing this button will wipe all scouting data on this device</string>

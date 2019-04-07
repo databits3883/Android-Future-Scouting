@@ -24,12 +24,14 @@ import com.addisonelliott.segmentedbutton.SegmentedButtonGroup;
 import com.ceylonlabs.imageviewpopup.ImagePopup;
 import com.github.sumimakito.awesomeqr.AwesomeQRCode;
 import com.opencsv.CSVReader;
+import com.opencsv.CSVWriter;
 import com.travijuu.numberpicker.library.NumberPicker;
 import vn.luongvo.widget.iosswitchview.SwitchView;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -84,6 +86,7 @@ public class Crowd extends Fragment {
         ImagePopup imagePopup = new ImagePopup(getContext());
         imagePopup.setImageOnClickClose(true);
         imagePopup.setHideCloseIcon(true);
+        imagePopup.setFullScreen(true);
         imagePopup.initiatePopup(d);
         imagePopup.viewPopup();
     }
@@ -129,6 +132,9 @@ public class Crowd extends Fragment {
                                         imagePopup.initiatePopup(d);
                                         imagePopup.viewPopup();
 
+                                        // Write to the backup CSV file
+                                        write_data();
+
                                         // Increment the match number
                                         incrementmatch();
 
@@ -150,8 +156,36 @@ public class Crowd extends Fragment {
                 });
     }
 
+    // Function to create the backup csv file
+    public void write_data(){
+        String results = datastring();
+        String header = getResources().getString(R.string.crowd_header);
+        File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator + "FRC" + File.separator + "crowd_data.csv");
+        try {
+            FileWriter output = new FileWriter(file, true);
+
+            CSVWriter writer = new CSVWriter(output, ',',
+                    CSVWriter.NO_QUOTE_CHARACTER,
+                    CSVWriter.DEFAULT_ESCAPE_CHARACTER,
+                    "\r\n");
+            List<String[]> data = new ArrayList<>();
+            if (file.length() == 0) {
+                data.add(new String[] {header});
+            }
+            data.add(new String[] {results});
+            writer.writeAll(data);
+            writer.flush();
+            writer.close();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        rescan(file.getAbsolutePath());
+    }
+
     // Read the team data from teams.csv
-    public String read_teams(){
+    private String read_teams(){
         int pos = 1;
         int match = getmatch();
         String[][] dataArr;
@@ -179,16 +213,16 @@ public class Crowd extends Fragment {
         team_num.setText(read_teams());
     }
 
-    public String datastring(){
+    private String datastring(){
         EditText team_num = getView().findViewById(R.id.team_field);
         String final_string =
                 team_num.getText().toString() + ","
-                + getselectors()
-                + climb_failed()
                 + getcounters()
                 + total_hatch() + ","
                 + total_cargo() + ","
                 + all_total()
+                + getselectors()
+                + climb_failed()
                 + name()
                 + comments();
         return final_string;
@@ -281,4 +315,13 @@ public class Crowd extends Fragment {
         return comment_string.replaceAll(",", " ");
     }
 
+    // Function to scan the edited file so it shows up right away in MTP/OTG
+    private void rescan(String file){
+        MediaScannerConnection.scanFile(getContext(),
+                new String[] {file}, null,
+                (path, uri) -> {
+                    Log.i("ExternalStorage", "Scanned " + path + ":");
+                    Log.i("ExternalStorage", "-> uri=" + uri);
+                });
+    }
 }
