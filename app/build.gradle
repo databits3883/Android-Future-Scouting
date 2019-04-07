@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.deadman.databitsfuture"
-        minSdkVersion 23
+        minSdkVersion 24
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -37,7 +37,7 @@ dependencies {
     implementation 'com.alex-zaitsev:meternumberpicker:1.0.5'
     implementation 'com.github.HITGIF:TextFieldBoxes:1.4.4'
     implementation 'com.github.addisonelliott:SegmentedButton:3.0.0'
-    implementation 'com.bitvale:switcher:1.0.0'
+    implementation 'com.github.luongvo:iOS-SwitchView:1.0.2'
     implementation 'com.github.Mohammed-Alaa:RangeSeekBar:1.0.2'
     implementation 'com.github.travijuu:numberpicker:1.0.7'
     implementation 'com.github.SumiMakito:AwesomeQRCode:1.0.6'

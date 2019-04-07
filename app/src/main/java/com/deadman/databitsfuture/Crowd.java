@@ -20,16 +20,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.addisonelliott.segmentedbutton.SegmentedButtonGroup;
 import com.ceylonlabs.imageviewpopup.ImagePopup;
 import com.github.sumimakito.awesomeqr.AwesomeQRCode;
 import com.opencsv.CSVReader;
 import com.travijuu.numberpicker.library.NumberPicker;
+import vn.luongvo.widget.iosswitchview.SwitchView;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class Crowd extends Fragment {
 
@@ -87,7 +91,7 @@ public class Crowd extends Fragment {
     private void generateQrCode(){
         Bitmap logo = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.logo);
         new AwesomeQRCode.Renderer()
-                .contents("4225,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,1,1,0,0,0,0,jacob Nelsen,is a very slow moving robot and cant really do much")
+                .contents(datastring())
                 .size(800).margin(20)
                 .logo(logo)
                 .logoScale(0.3f)
@@ -170,9 +174,111 @@ public class Crowd extends Fragment {
     }
 
     // Sets the team number based on Teams.csv file
-    public void teams(){
+    private void teams(){
         EditText team_num = getView().findViewById(R.id.team_field);
         team_num.setText(read_teams());
+    }
+
+    public String datastring(){
+        EditText team_num = getView().findViewById(R.id.team_field);
+        String final_string =
+                team_num.getText().toString() + ","
+                + getselectors()
+                + climb_failed()
+                + getcounters()
+                + total_hatch() + ","
+                + total_cargo() + ","
+                + all_total()
+                + name()
+                + comments();
+        return final_string;
+    }
+
+    private String counter(int id){
+        NumberPicker picker = getView().findViewById(id);
+        return String.valueOf(picker.getValue());
+    }
+
+    // Create the string for most of the data
+    private String getcounters (){
+        AtomicReference<String> result = new AtomicReference<>("");
+        List<Integer> list = new ArrayList<>();
+        list.add(R.id.match_counter);
+        list.add(R.id.rocket_top_hatch_counter);
+        list.add(R.id.rocket_middle_hatch_counter);
+        list.add(R.id.rocket_bottom_hatch_counter);
+        list.add(R.id.cargo_ship_hatch_counter);
+        list.add(R.id.rocket_top_cargo_counter);
+        list.add(R.id.rocket_middle_cargo_counter);
+        list.add(R.id.rocket_bottom_cargo_counter);
+        list.add(R.id.cargo_ship_cargo_counter);
+        list.forEach(
+                (name) -> result.set(result + counter(name) + ",")
+        );
+        return result.get();
+    }
+
+    private String selector(int id){
+        SegmentedButtonGroup button = getView().findViewById(id);
+        return String.valueOf(button.getPosition());
+    }
+
+    private String getselectors(){
+        AtomicReference<String> result = new AtomicReference<>("");
+        List<Integer> list = new ArrayList<>();
+        list.add(R.id.buttonGroup_crowd_launch);
+        list.add(R.id.buttonGroup_climb);
+        list.add(R.id.buttonGroup_sandstorm);
+        list.add(R.id.buttonGroup_crowd_defense);
+        list.forEach(
+                (name) -> result.set(result + selector(name) + ",")
+        );
+        return result.get();
+    }
+
+    // All hatch data added together for a match
+    private String total_hatch (){
+        NumberPicker top = getView().findViewById(R.id.rocket_top_hatch_counter);
+        NumberPicker mid = getView().findViewById(R.id.rocket_middle_hatch_counter);
+        NumberPicker bot = getView().findViewById(R.id.rocket_bottom_hatch_counter);
+        NumberPicker ship = getView().findViewById(R.id.cargo_ship_hatch_counter);
+        int total = top.getValue() + mid.getValue() + bot.getValue() + ship.getValue();
+        return Integer.toString(total);
+    }
+
+    // All cargo data added together for a match
+    private String total_cargo (){
+        NumberPicker top = getView().findViewById(R.id.rocket_top_hatch_counter);
+        NumberPicker mid = getView().findViewById(R.id.rocket_middle_hatch_counter);
+        NumberPicker bot = getView().findViewById(R.id.rocket_bottom_hatch_counter);
+        NumberPicker ship = getView().findViewById(R.id.cargo_ship_hatch_counter);
+        int total = top.getValue() + mid.getValue() + bot.getValue() + ship.getValue();
+        return Integer.toString(total);
+    }
+
+    // All cargo + hatch added together
+    private String all_total (){
+        return Integer.toString(Integer.parseInt(total_cargo()) + Integer.parseInt(total_hatch())) + ",";
+    }
+
+    private String climb_failed() {
+        SwitchView climb_failed = getView().findViewById(R.id.climb_failed);
+        if (climb_failed.isChecked()){
+            return "1,";
+        } else {
+            return "0,";
+        }
+    }
+
+    private String name() {
+        EditText team = getView().findViewById(R.id.name_field);
+        return team.getText().toString() + ",";
+    }
+
+    private String comments() {
+        EditText comments = getView().findViewById(R.id.comment_field);
+        String comment_string = comments.getText().toString();
+        return comment_string.replaceAll(",", " ");
     }
 
 }
