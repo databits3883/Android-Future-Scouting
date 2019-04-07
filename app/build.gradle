@@ -42,4 +42,5 @@ dependencies {
     implementation 'com.github.travijuu:numberpicker:1.0.7'
     implementation 'com.github.SumiMakito:AwesomeQRCode:1.0.6'
     implementation 'com.github.chathuralakmal:AndroidImagePopup:1.2.1'
+    implementation group: 'com.opencsv', name: 'opencsv', version: '3.3'
 }

@@ -17,13 +17,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.ceylonlabs.imageviewpopup.ImagePopup;
 import com.github.sumimakito.awesomeqr.AwesomeQRCode;
+import com.opencsv.CSVReader;
 import com.travijuu.numberpicker.library.NumberPicker;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.List;
 
 public class Crowd extends Fragment {
 
@@ -36,21 +42,24 @@ public class Crowd extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootview = inflater.inflate(R.layout.crowd, container, false);
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.crowd, container, false);
+    }
 
+    @Override
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         // Go Full screen and hide navbar
         View decorView = getActivity().getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
         decorView.setSystemUiVisibility(uiOptions);
 
-        final Button exportButton = rootview.findViewById(R.id.export);
-        exportButton.setOnClickListener(view -> generateQrCode());
+        final Button exportButton = view.findViewById(R.id.export);
+        exportButton.setOnClickListener(v -> generateQrCode());
 
-        final Button qrButton = rootview.findViewById(R.id.qr_display);
-        qrButton.setOnClickListener(view -> showQrCode());
+        final Button qrButton = view.findViewById(R.id.qr_display);
+        qrButton.setOnClickListener(v -> showQrCode());
 
-        // Inflate the layout for this fragment
-        return rootview;
+        teams();
     }
 
     private int getmatch(){
@@ -115,7 +124,12 @@ public class Crowd extends Fragment {
                                         imagePopup.setFullScreen(true);
                                         imagePopup.initiatePopup(d);
                                         imagePopup.viewPopup();
+
+                                        // Increment the match number
                                         incrementmatch();
+
+                                        // Set the team number based on the match number
+                                        teams();
 
                                     })
                                     .setNegativeButton(R.string.cancel, (dialog, id) -> {
@@ -130,6 +144,35 @@ public class Crowd extends Fragment {
                         e.printStackTrace();
                     }
                 });
+    }
+
+    // Read the team data from teams.csv
+    public String read_teams(){
+        int pos = 1;
+        int match = getmatch();
+        String[][] dataArr;
+        String test = "";
+        if (pos == 0){
+            Toast.makeText(getContext(), "Warning: You are in practice mode", Toast.LENGTH_SHORT).show();
+        } else {
+            try {
+                CSVReader csvReader = new CSVReader(new FileReader(new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "FRC" + File.separator + "teams.csv")));
+                List<String[]> list = csvReader.readAll();
+                dataArr = new String[list.size()][];
+                dataArr = list.toArray(dataArr);
+                test = dataArr[match][pos];
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return test;
+        }
+        return "";
+    }
+
+    // Sets the team number based on Teams.csv file
+    public void teams(){
+        EditText team_num = getView().findViewById(R.id.team_field);
+        team_num.setText(read_teams());
     }
 
 }

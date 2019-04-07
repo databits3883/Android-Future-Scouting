@@ -68,7 +68,7 @@
     <string name="comment_initial">Any extra info</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
-    <string name="team_hint">Enter your team number here</string>
+    <string name="team_hint">Enter your team</string>
     <string name="display_qr_code">Display the previous QR Code</string>
     <string name="confirm_export_dialog_message">Are you sure you want export the data?</string>
     <string name="confirm_export_dialog_title">Exporting your collected data</string>
