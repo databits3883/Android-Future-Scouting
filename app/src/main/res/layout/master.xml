@@ -29,7 +29,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="Scan QR Code"
@@ -121,7 +120,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Tablets for this match"
+        android:text="Teams for this match"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -217,5 +216,20 @@
         android:textSize="36sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/blue2"
         app:layout_constraintStart_toEndOf="@+id/blue2" />
+
+    <Button
+        android:id="@+id/upload_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Upload Data"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline22"
+        app:layout_constraintEnd_toStartOf="@+id/guideline29"
+        app:layout_constraintStart_toStartOf="@+id/guideline28"
+        app:layout_constraintTop_toBottomOf="@+id/scan_qr_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
