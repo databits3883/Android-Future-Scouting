@@ -27,6 +27,8 @@ import com.github.kimkevin.cachepot.CachePot;
 import com.github.sumimakito.awesomeqr.AwesomeQRCode;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
+import com.travijuu.numberpicker.library.Enums.ActionEnum;
+import com.travijuu.numberpicker.library.Listener.DefaultValueChangedListener;
 import com.travijuu.numberpicker.library.NumberPicker;
 import vn.luongvo.widget.iosswitchview.SwitchView;
 
@@ -67,6 +69,12 @@ public class Crowd extends Fragment {
 
         final Button qrButton = view.findViewById(R.id.qr_display);
         qrButton.setOnClickListener(v -> showQrCode());
+
+        NumberPicker match_num =  getView().findViewById(R.id.match_counter);
+        match_num.setValueChangedListener(new DefaultValueChangedListener() {
+            public void valueChanged(int value, ActionEnum action) {
+                teams();
+            }});
 
         teams();
 
