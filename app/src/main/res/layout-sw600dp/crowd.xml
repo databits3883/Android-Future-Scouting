@@ -19,7 +19,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline13"
         app:layout_constraintTop_toBottomOf="@+id/cargo_ship_cargo"
-        numberpicker:custom_layout="@layout/phone_number_picker_custom_layout"
+        numberpicker:custom_layout="@layout/number_picker_custom_layout"
         numberpicker:focusable="false"
         numberpicker:max="8"
         numberpicker:min="0"
@@ -38,7 +38,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cargo_ship_hatch"
-        numberpicker:custom_layout="@layout/phone_number_picker_custom_layout"
+        numberpicker:custom_layout="@layout/number_picker_custom_layout"
         numberpicker:focusable="false"
         numberpicker:max="8"
         numberpicker:min="0"
@@ -57,7 +57,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline13"
         app:layout_constraintTop_toBottomOf="@+id/rocket_bottom_cargo"
-        numberpicker:custom_layout="@layout/phone_number_picker_custom_layout"
+        numberpicker:custom_layout="@layout/number_picker_custom_layout"
         numberpicker:focusable="false"
         numberpicker:max="4"
         numberpicker:min="0"
@@ -76,7 +76,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rocket_bottom_hatch"
-        numberpicker:custom_layout="@layout/phone_number_picker_custom_layout"
+        numberpicker:custom_layout="@layout/number_picker_custom_layout"
         numberpicker:focusable="false"
         numberpicker:max="4"
         numberpicker:min="0"
@@ -95,7 +95,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline13"
         app:layout_constraintTop_toBottomOf="@+id/rocket_middle_cargo"
-        numberpicker:custom_layout="@layout/phone_number_picker_custom_layout"
+        numberpicker:custom_layout="@layout/number_picker_custom_layout"
         numberpicker:focusable="false"
         numberpicker:max="4"
         numberpicker:min="0"
@@ -110,7 +110,7 @@
         android:layout_marginBottom="8dp"
         android:text="@string/comments"
         android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline20"
         app:layout_constraintStart_toStartOf="@+id/guideline13" />
 
@@ -124,8 +124,7 @@
         android:hint="@string/comment_initial"
         android:inputType="textPersonName"
         android:textColor="@color/black"
-        android:textSize="10sp"
-        app:autoSizeTextType="uniform"
+        android:textSize="14sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/comments"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/comments"
@@ -140,7 +139,7 @@
         android:layout_marginBottom="8dp"
         android:text="@string/name"
         android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/comments"
         app:layout_constraintStart_toStartOf="@+id/guideline13"
         app:layout_constraintTop_toTopOf="@+id/guideline19" />
@@ -154,8 +153,7 @@
         android:ems="10"
         android:hint="@string/Initial_name"
         android:inputType="textPersonName"
-        android:textSize="10sp"
-        app:autoSizeTextType="uniform"
+        android:textSize="14sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/name"
@@ -170,7 +168,7 @@
         android:layout_marginEnd="8dp"
         android:text="@string/moving_in_sandstorm"
         android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline13"
         app:layout_constraintTop_toTopOf="@+id/guideline18" />
@@ -208,7 +206,7 @@
             app:selectedTextColor="@color/white"
             app:text="@string/no"
             app:textColor="@color/black"
-            app:autoSizeTextType="uniform" />
+            app:textSize="13sp" />
 
         <com.addisonelliott.segmentedbutton.SegmentedButton
             android:layout_width="6dp"
@@ -218,7 +216,7 @@
             app:selectedTextColor="@color/white"
             app:text="@string/yes"
             app:textColor="@color/black"
-            app:autoSizeTextType="uniform" />
+            app:textSize="13sp" />
 
     </com.addisonelliott.segmentedbutton.SegmentedButtonGroup>
 
@@ -231,7 +229,7 @@
         android:layout_marginEnd="8dp"
         android:text="@string/playing_defense"
         android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
+        android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline19" />
@@ -268,7 +266,7 @@
             app:selectedTextColor="@color/white"
             app:text="@string/no"
             app:textColor="@color/black"
-            app:autoSizeTextType="uniform" />
+            app:textSize="13sp" />
 
         <com.addisonelliott.segmentedbutton.SegmentedButton
             android:layout_width="6dp"
@@ -278,7 +276,7 @@
             app:selectedTextColor="@color/white"
             app:text="@string/yes"
             app:textColor="@color/black"
-            app:autoSizeTextType="uniform" />
+            app:textSize="13sp" />
 
     </com.addisonelliott.segmentedbutton.SegmentedButtonGroup>
 
@@ -288,7 +286,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/failed"
-        app:autoSizeTextType="uniform"
+        android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintHorizontal_bias="0.55"
         app:layout_constraintStart_toEndOf="@+id/climb"
@@ -299,12 +297,12 @@
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         app:checked="false"
-        app:color_off="@color/switchon"
-        app:color_on="@color/switchoff"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
-        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintHorizontal_bias="0.921"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/failed" />
+        app:layout_constraintTop_toBottomOf="@+id/failed"
+        app:color_off="@color/switchon"
+        app:color_on="@color/switchoff" />
 
     <TextView
         android:id="@+id/climb"
@@ -315,7 +313,7 @@
         android:layout_marginEnd="8dp"
         android:text="@string/climb_level"
         android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
+        android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline18" />
@@ -352,7 +350,7 @@
             app:selectedTextColor="@color/white"
             app:text="@string/levelone"
             app:textColor="@color/black"
-            app:autoSizeTextType="uniform" />
+            app:textSize="13sp" />
 
         <com.addisonelliott.segmentedbutton.SegmentedButton
             android:layout_width="7dp"
@@ -362,7 +360,7 @@
             app:selectedTextColor="@color/white"
             app:text="@string/leveltwo"
             app:textColor="@color/black"
-            app:autoSizeTextType="uniform" />
+            app:textSize="13sp" />
 
         <com.addisonelliott.segmentedbutton.SegmentedButton
             android:layout_width="7dp"
@@ -372,7 +370,7 @@
             app:selectedTextColor="@color/white"
             app:text="@string/levelthree"
             app:textColor="@color/black"
-            app:autoSizeTextType="uniform" />
+            app:textSize="13sp" />
 
     </com.addisonelliott.segmentedbutton.SegmentedButtonGroup>
 
@@ -385,7 +383,7 @@
         android:layout_marginEnd="8dp"
         android:text="@string/cargo_ship_cargo"
         android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline13"
         app:layout_constraintTop_toTopOf="@+id/guideline17" />
@@ -399,7 +397,7 @@
         android:layout_marginEnd="8dp"
         android:text="@string/cargo_ship_hatch"
         android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
+        android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline17" />
@@ -413,7 +411,7 @@
         android:layout_marginEnd="8dp"
         android:text="@string/rocket_bottom_cargo"
         android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline13"
         app:layout_constraintTop_toTopOf="@+id/guideline16" />
@@ -427,7 +425,7 @@
         android:layout_marginEnd="8dp"
         android:text="@string/rocket_bottom_hatch"
         android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
+        android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline16" />
@@ -441,7 +439,7 @@
         android:layout_marginEnd="8dp"
         android:text="@string/rocket_middle_cargo"
         android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline13"
         app:layout_constraintTop_toTopOf="@+id/guideline15" />
@@ -455,7 +453,7 @@
         android:layout_marginEnd="8dp"
         android:text="@string/rocket_middle_hatch"
         android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
+        android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline15" />
@@ -472,7 +470,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rocket_middle_hatch"
-        numberpicker:custom_layout="@layout/phone_number_picker_custom_layout"
+        numberpicker:custom_layout="@layout/number_picker_custom_layout"
         numberpicker:focusable="false"
         numberpicker:max="4"
         numberpicker:min="0"
@@ -488,7 +486,7 @@
         android:layout_marginEnd="8dp"
         android:text="@string/rocket_top_hatch"
         android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
+        android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline14" />
@@ -505,7 +503,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rocket_top_hatch"
-        numberpicker:custom_layout="@layout/phone_number_picker_custom_layout"
+        numberpicker:custom_layout="@layout/number_picker_custom_layout"
         numberpicker:focusable="false"
         numberpicker:max="4"
         numberpicker:min="0"
@@ -521,7 +519,7 @@
         android:layout_marginEnd="8dp"
         android:text="@string/rocket_top_cargo"
         android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline13"
         app:layout_constraintTop_toTopOf="@+id/guideline14" />
@@ -538,7 +536,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline13"
         app:layout_constraintTop_toBottomOf="@+id/rocket_top_cargo"
-        numberpicker:custom_layout="@layout/phone_number_picker_custom_layout"
+        numberpicker:custom_layout="@layout/number_picker_custom_layout"
         numberpicker:focusable="false"
         numberpicker:max="4"
         numberpicker:min="0"
@@ -554,7 +552,7 @@
         android:layout_marginBottom="8dp"
         android:text="@string/match"
         android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline14"
         app:layout_constraintStart_toStartOf="@+id/guideline13"
         app:layout_constraintTop_toBottomOf="@+id/Team" />
@@ -570,7 +568,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.108"
         app:layout_constraintStart_toEndOf="@+id/match"
-        numberpicker:custom_layout="@layout/phone_number_picker_match_layout"
+        numberpicker:custom_layout="@layout/number_picker_match_layout"
         numberpicker:focusable="false"
         numberpicker:max="99"
         numberpicker:min="1"
@@ -585,7 +583,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/team"
         android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/guideline13"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -599,8 +597,7 @@
         android:ems="10"
         android:hint="@string/team_hint"
         android:inputType="textPersonName"
-        android:textSize="12sp"
-        app:autoSizeTextType="uniform"
+        android:textSize="30sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/Team"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -617,7 +614,7 @@
         android:layout_marginEnd="8dp"
         android:text="@string/launch_position"
         android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
+        android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -754,7 +751,6 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/export_to_master_device"
-        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintStart_toStartOf="parent"
@@ -855,7 +851,6 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/display_qr_code"
-        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline13"
