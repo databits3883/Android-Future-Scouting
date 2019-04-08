@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:numberpicker="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:numberpicker="http://schemas.android.com/apk/res-auto"
     tools:context=".Master">
 
     <com.travijuu.numberpicker.library.NumberPicker
         android:id="@+id/match_counter"
-        numberpicker:custom_layout="@layout/number_picker_match_layout"
-        numberpicker:focusable="false"
-        numberpicker:max="99"
-        numberpicker:min="1"
-        numberpicker:unit="1"
-        numberpicker:value="0"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
@@ -22,7 +16,13 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline29"
         app:layout_constraintStart_toStartOf="@+id/guideline28"
-        app:layout_constraintTop_toTopOf="@+id/guideline23" />
+        app:layout_constraintTop_toTopOf="@+id/guideline23"
+        numberpicker:custom_layout="@layout/number_picker_match_layout"
+        numberpicker:focusable="false"
+        numberpicker:max="99"
+        numberpicker:min="1"
+        numberpicker:unit="1"
+        numberpicker:value="0" />
 
     <Button
         android:id="@+id/scan_qr_button"
@@ -98,6 +98,22 @@
         app:layout_constraintGuide_begin="20dp"
         app:layout_constraintGuide_percent="0.75" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintGuide_percent="0.65" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintGuide_percent="0.75" />
+
     <TextView
         android:id="@+id/remaining_title"
         android:layout_width="wrap_content"
@@ -143,7 +159,7 @@
         app:layout_constraintBottom_toTopOf="@+id/blue2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline23" />
+        app:layout_constraintTop_toTopOf="@+id/guideline30" />
 
     <TextView
         android:id="@+id/red3"
@@ -187,7 +203,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/remaining_title" />
+        app:layout_constraintTop_toTopOf="@+id/guideline31" />
 
     <TextView
         android:id="@+id/blue3"
