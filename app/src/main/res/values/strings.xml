@@ -79,4 +79,8 @@
     <!-- Settings Text -->
     <string name="pressing_this_button_will_wupe_all_scouting_data_on_this_device">Pressing this button will wipe all scouting data on this device</string>
     <string name="remove_all_data">Remove all data</string>
+    <string name="confirm_dialog_message">Are you sure you want to do this? Make sure all collected data
+    has been saved elsewhere before doing this</string>
+    <string name="confirm_dialog_title">Remove all collected scouting data</string>
+    <string name="confirm">I\'m Sorry</string>
 </resources>
