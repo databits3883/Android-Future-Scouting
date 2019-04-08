@@ -6,7 +6,7 @@
     <string name="intro_welcome">Welcome to the Team 3883 Scouting App</string>
 
     <!-- Position Selector Text -->
-    <string name="position_title">Select the tablets position</string>
+    <string name="position_title">Select the devices position</string>
     <string name="choose_position">Choose the position for the tablet</string>
 
     <!-- Pit Scouting Text -->
