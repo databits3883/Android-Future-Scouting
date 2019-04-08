@@ -44,6 +44,7 @@
     <string name="limelight">limelight</string>
     <string name="station">Station</string>
     <string name="ground">Ground</string>
+    <string name="pit_header">Team,Drive Train,Launch Position,Type of Vision,Sandstorm Control Method,Max level on the rocket,Max climb level,Hatch from Ground, Hatch from station,Cargo from ground, Cargo from station, Number of hatches,Number of cargo,Person Entering data, Comments</string>
 
     <!-- Crowd Scouting Text -->
     <string name="playing_defense">Playing Defense</string>
