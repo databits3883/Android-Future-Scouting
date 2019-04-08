@@ -44,4 +44,5 @@ dependencies {
     implementation 'com.github.chathuralakmal:AndroidImagePopup:1.2.1'
     implementation 'com.github.kimkevin:cachepot:1.2.0'
     implementation group: 'com.opencsv', name: 'opencsv', version: '3.3'
+    implementation 'me.dm7.barcodescanner:zxing:1.9.8'
 }
