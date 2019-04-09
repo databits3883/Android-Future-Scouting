@@ -77,7 +77,7 @@ public class Scanner extends Activity implements ZXingScannerView.ResultHandler 
         String team = splitted[0];
         File team_num = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator +"FRC"+File.separator+"temp.csv");
         try {
-            FileWriter outputfile = new FileWriter(team_num, true);
+            FileWriter outputfile = new FileWriter(team_num, false);
 
             CSVWriter writer = new CSVWriter(outputfile, ',',
                     CSVWriter.NO_QUOTE_CHARACTER,
