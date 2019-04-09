@@ -52,10 +52,16 @@ public class Scanner extends Activity implements ZXingScannerView.ResultHandler 
 
         String results = rawResult.getText();
         File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator +"FRC"+File.separator+"stats.csv");
+        File upload = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator +"FRC"+File.separator+"upload.csv");
         try {
             FileWriter outputfile = new FileWriter(file, true);
+            FileWriter uploadfile = new FileWriter(upload, true);
 
             CSVWriter writer = new CSVWriter(outputfile, ',',
+                    CSVWriter.NO_QUOTE_CHARACTER,
+                    CSVWriter.DEFAULT_ESCAPE_CHARACTER,
+                    "\r\n");
+            CSVWriter uploader = new CSVWriter(uploadfile, ',',
                     CSVWriter.NO_QUOTE_CHARACTER,
                     CSVWriter.DEFAULT_ESCAPE_CHARACTER,
                     "\r\n");
@@ -65,8 +71,11 @@ public class Scanner extends Activity implements ZXingScannerView.ResultHandler 
             }
             data.add(new String[] {results});
             writer.writeAll(data);
+            uploader.writeAll(data);
             writer.flush();
+            uploader.flush();
             writer.close();
+            uploader.close();
 
         }
         catch (IOException e)
@@ -96,6 +105,7 @@ public class Scanner extends Activity implements ZXingScannerView.ResultHandler 
         }
 
         rescan(file.getAbsolutePath());
+        rescan(upload.getAbsolutePath());
         rescan(team_num.getAbsolutePath());
 
         this.onBackPressed();

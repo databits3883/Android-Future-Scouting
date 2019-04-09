@@ -350,26 +350,29 @@ public class Master extends Fragment {
             ValueRange valueRange = new ValueRange();
             try {
                 // Reading CSV into a list
-                File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator +"FRC"+File.separator+"stats.csv");
-                CSVReader csvReader = new CSVReader(new FileReader(file));
-                List<String[]> list = csvReader.readAll();
+                File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator +"FRC"+File.separator+"upload.csv");
+                if (file.exists()) {
+                    CSVReader csvReader = new CSVReader(new FileReader(file));
+                    List<String[]> list = csvReader.readAll();
 
-                // Make sure the list has values
-                if (list.size() > 0){
-                    List upload = new ArrayList<String>();
+                    // Make sure the list has values
+                    if (list.size() > 0) {
+                        List upload = new ArrayList<String>();
 
-                    // Reformatting from String Array to Array of Strings
-                    for (String[] aDataArr : list) {
-                        upload.add(Arrays.asList(aDataArr));
+                        // Reformatting from String Array to Array of Strings
+                        for (String[] aDataArr : list) {
+                            upload.add(Arrays.asList(aDataArr));
+                        }
+
+                        // Set the value range to our data
+                        valueRange.setValues(upload);
+
+                        // Command to upload the data to google sheets
+                        this.mService.spreadsheets().values().append(spreadsheetId, range, valueRange)
+                                .setValueInputOption("RAW")
+                                .execute();
+                        file.delete();
                     }
-
-                    // Set the value range to our data
-                    valueRange.setValues(upload);
-
-                    // Command to upload the data to google sheets
-                    this.mService.spreadsheets().values().update(spreadsheetId, range, valueRange)
-                            .setValueInputOption("RAW")
-                            .execute();
                 }
 
             } catch (IOException e) {
