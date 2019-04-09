@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Databits Future</string>
+    <string name="app_name">Databits Scouting</string>
 
     <!-- Welcome Page Text -->
     <string name="Intro_text">Select the 3 lines in the top left to open the menu</string>
