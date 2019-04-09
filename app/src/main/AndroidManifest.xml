@@ -18,7 +18,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".Drawer">
+        <activity
+            android:name=".Drawer"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,7 +30,11 @@
             <meta-data android:name="@string/permissions_loader_meta_key"
                 android:value="android.permission.WRITE_EXTERNAL_STORAGE, android.permission.WRITE_EXTERNAL_STORAGE, android.permission.CAMERA, android.permission.GET_ACCOUNTS, android.permission.ACCESS_NETWORK_STATE, android.permission.INTERNET"/>
         </activity>
-        <activity android:name=".Scanner" />
+        <activity
+            android:name=".Scanner"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden">
+        </activity>
     </application>
 
 </manifest>
