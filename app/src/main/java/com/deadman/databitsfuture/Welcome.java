@@ -88,7 +88,13 @@ public class Welcome extends Fragment {
         CachePot.getInstance().push(2,intobj);
     }
 
+    private boolean practice_mode(){
+        Spinner spinner1 =  Objects.requireNonNull(getView()).findViewById(R.id.spinner1);
+        return spinner1.getSelectedItemPosition() == 0;
+    }
+
     private void mkdirs(){
+
         // Create the FRC folders in case they are missing, complain if teams.csv is missing as well
         File frc = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC");
         File robots = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC" + File.separator + "Robots");
@@ -103,7 +109,7 @@ public class Welcome extends Fragment {
         if (!qr.exists()) {
             qr.mkdirs();
         }
-        if(!teams.exists()){
+        if(!teams.exists() & (practice_mode())){
             new AlertDialog.Builder(getContext())
                     .setMessage(R.string.confirm_missing_team_dialog_message)
                     .setTitle(R.string.confirm_missing_team_dialog_title)
