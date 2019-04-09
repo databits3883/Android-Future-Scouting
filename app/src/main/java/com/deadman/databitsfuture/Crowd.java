@@ -62,7 +62,7 @@ public class Crowd extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         // Go Full screen and hide navbar
         View decorView = Objects.requireNonNull(getActivity()).getWindow().getDecorView();
-        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION;
         decorView.setSystemUiVisibility(uiOptions);
 
         final Button exportButton = view.findViewById(R.id.export);

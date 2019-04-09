@@ -164,13 +164,15 @@
     <TextView
         android:id="@+id/sandstorm"
         android:layout_width="wrap_content"
-        android:layout_height="32dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/moving_in_sandstorm"
         android:textColor="@color/black"
         app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@+id/buttonGroup_sandstorm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline13"
         app:layout_constraintTop_toTopOf="@+id/guideline18" />
@@ -181,8 +183,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:elevation="2dp"
         app:background="@color/White"
         app:divider="@color/grey_900"
@@ -191,7 +193,6 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline19"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline13"
-        app:layout_constraintTop_toBottomOf="@+id/sandstorm"
         app:position="1"
         app:radius="2dp"
         app:ripple="true"
@@ -205,33 +206,35 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="8dp"
+            app:autoSizeTextType="uniform"
             app:selectedTextColor="@color/white"
             app:text="@string/no"
-            app:textColor="@color/black"
-            app:autoSizeTextType="uniform" />
+            app:textColor="@color/black" />
 
         <com.addisonelliott.segmentedbutton.SegmentedButton
             android:layout_width="6dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="8dp"
+            app:autoSizeTextType="uniform"
             app:selectedTextColor="@color/white"
             app:text="@string/yes"
-            app:textColor="@color/black"
-            app:autoSizeTextType="uniform" />
+            app:textColor="@color/black" />
 
     </com.addisonelliott.segmentedbutton.SegmentedButtonGroup>
 
     <TextView
         android:id="@+id/defense"
         android:layout_width="wrap_content"
-        android:layout_height="32dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/playing_defense"
         android:textColor="@color/black"
         app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@+id/buttonGroup_crowd_defense"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline19" />
@@ -286,11 +289,16 @@
         android:id="@+id/failed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/failed"
+        android:textSize="12sp"
         app:autoSizeTextType="uniform"
-        app:layout_constraintEnd_toStartOf="@+id/guideline13"
-        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintBottom_toTopOf="@+id/buttonGroup_climb"
+        app:layout_constraintEnd_toStartOf="@+id/climb_failed"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/climb"
         app:layout_constraintTop_toTopOf="@+id/guideline18" />
 
@@ -298,25 +306,28 @@
         android:id="@+id/climb_failed"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         app:checked="false"
         app:color_off="@color/switchon"
         app:color_on="@color/switchoff"
+        app:layout_constraintBottom_toTopOf="@+id/buttonGroup_climb"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/failed" />
+        app:layout_constraintTop_toTopOf="@+id/guideline18" />
 
     <TextView
         android:id="@+id/climb"
         android:layout_width="wrap_content"
-        android:layout_height="32dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/climb_level"
         android:textColor="@color/black"
         app:autoSizeTextType="uniform"
-        app:layout_constraintEnd_toStartOf="@+id/guideline13"
+        app:layout_constraintBottom_toTopOf="@+id/buttonGroup_climb"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline18" />
 
@@ -350,7 +361,7 @@
             android:layout_weight="1"
             android:padding="8dp"
             app:selectedTextColor="@color/white"
-            app:text="@string/levelone"
+            app:text="@string/levelone_phone"
             app:textColor="@color/black"
             app:autoSizeTextType="uniform" />
 
@@ -360,7 +371,7 @@
             android:layout_weight="1"
             android:padding="8dp"
             app:selectedTextColor="@color/white"
-            app:text="@string/leveltwo"
+            app:text="@string/leveltwo_phone"
             app:textColor="@color/black"
             app:autoSizeTextType="uniform" />
 
@@ -370,7 +381,7 @@
             android:layout_weight="1"
             android:padding="8dp"
             app:selectedTextColor="@color/white"
-            app:text="@string/levelthree"
+            app:text="@string/levelthree_phone"
             app:textColor="@color/black"
             app:autoSizeTextType="uniform" />
 
@@ -570,6 +581,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.108"
         app:layout_constraintStart_toEndOf="@+id/match"
+        app:layout_constraintTop_toBottomOf="@+id/team_field"
         numberpicker:custom_layout="@layout/phone_number_picker_match_layout"
         numberpicker:focusable="false"
         numberpicker:max="99"
@@ -654,7 +666,7 @@
             android:layout_weight="1"
             android:padding="8dp"
             app:selectedTextColor="@color/white"
-            app:text="@string/levelone"
+            app:text="@string/levelone_phone"
             app:textColor="@color/black"
             app:textSize="13sp" />
 
@@ -664,7 +676,7 @@
             android:layout_weight="1"
             android:padding="8dp"
             app:selectedTextColor="@color/white"
-            app:text="@string/leveltwo"
+            app:text="@string/leveltwo_phone"
             app:textColor="@color/black"
             app:textSize="13sp" />
 
@@ -674,7 +686,7 @@
             android:layout_weight="1"
             android:padding="8dp"
             app:selectedTextColor="@color/white"
-            app:text="@string/levelthree"
+            app:text="@string/levelthree_phone"
             app:textColor="@color/black"
             app:textSize="13sp" />
 
@@ -849,7 +861,7 @@
     <Button
         android:id="@+id/qr_display"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"

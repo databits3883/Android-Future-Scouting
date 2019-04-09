@@ -13,6 +13,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         app:hasClearButton="true"
         app:labelText="Any comments"
         app:layout_constraintBottom_toTopOf="@+id/guideline12"
@@ -118,9 +119,10 @@
         android:id="@+id/meterView"
         style="@style/Tablet_team_MeterViewStyle"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline6"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="parent"
@@ -132,7 +134,9 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         app:hasClearButton="true"
         app:labelText="Enter your name"
         app:layout_constraintBottom_toTopOf="@+id/guideline6"
@@ -216,10 +220,10 @@
         app:color_on="@color/switchoff"
         app:layout_constraintBottom_toTopOf="@+id/guideline9"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="0.841"
+        app:layout_constraintHorizontal_bias="0.83"
         app:layout_constraintStart_toEndOf="@+id/hatch_ground_switch"
         app:layout_constraintTop_toBottomOf="@+id/hatch_station"
-        app:layout_constraintVertical_bias="0.253" />
+        app:layout_constraintVertical_bias="0.100000024" />
 
     <TextView
         android:id="@+id/hatch_ground"
@@ -257,10 +261,10 @@
         app:color_on="@color/switchoff"
         app:layout_constraintBottom_toTopOf="@+id/guideline9"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="0.116"
+        app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hatch_ground"
-        app:layout_constraintVertical_bias="0.253" />
+        app:layout_constraintVertical_bias="0.100000024" />
 
     <com.mohammedalaa.seekbar.RangeSeekBarView
         android:id="@+id/hatch_seekbar"
@@ -269,7 +273,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         app:barHeight="@dimen/value_bar_barHeight"
         app:baseColor="@color/navy"
         app:circleRadius="@dimen/value_bar_circleRadius"
@@ -309,10 +312,10 @@
         app:color_on="@color/switchoff"
         app:layout_constraintBottom_toTopOf="@+id/guideline9"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.148"
+        app:layout_constraintHorizontal_bias="0.12"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toBottomOf="@+id/cargo_ground"
-        app:layout_constraintVertical_bias="0.253" />
+        app:layout_constraintVertical_bias="0.100000024" />
 
     <TextView
         android:id="@+id/cargo_station"
@@ -335,10 +338,10 @@
         app:color_on="@color/switchoff"
         app:layout_constraintBottom_toTopOf="@+id/guideline9"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.792"
+        app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toEndOf="@+id/cargo_ground_switch"
         app:layout_constraintTop_toBottomOf="@+id/cargo_station"
-        app:layout_constraintVertical_bias="0.253" />
+        app:layout_constraintVertical_bias="0.100000024" />
 
     <com.mohammedalaa.seekbar.RangeSeekBarView
         android:id="@+id/cargo_seekbar"
@@ -347,7 +350,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         app:barHeight="@dimen/value_bar_barHeight"
         app:baseColor="@color/navy"
         app:circleRadius="@dimen/value_bar_circleRadius"
@@ -498,8 +500,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="4dp"
+            android:textAlignment="center"
             app:selectedTextColor="@color/white"
-            app:text="@string/nothing"
+            app:text="@string/none_newline"
             app:textColor="@color/black"
             app:textSize="13sp" />
 
@@ -509,9 +512,9 @@
             android:layout_weight="1"
             android:padding="4dp"
             app:selectedTextColor="@color/white"
-            app:text="@string/cams"
+            app:text="@string/cam"
             app:textColor="@color/black"
-            app:textSize="13sp" />
+            app:textSize="12sp" />
 
         <com.addisonelliott.segmentedbutton.SegmentedButton
             android:layout_width="7dp"
