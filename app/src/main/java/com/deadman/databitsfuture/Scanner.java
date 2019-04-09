@@ -66,12 +66,14 @@ public class Scanner extends Activity implements ZXingScannerView.ResultHandler 
                     CSVWriter.DEFAULT_ESCAPE_CHARACTER,
                     "\r\n");
             List<String[]> data = new ArrayList<>();
+            List<String[]> upload_data = new ArrayList<>();
             if (file.length() == 0) {
                 data.add(new String[] {getResources().getString(R.string.crowd_header)});
             }
             data.add(new String[] {results});
+            upload_data.add(new String[] {results});
             writer.writeAll(data);
-            uploader.writeAll(data);
+            uploader.writeAll(upload_data);
             writer.flush();
             uploader.flush();
             writer.close();
