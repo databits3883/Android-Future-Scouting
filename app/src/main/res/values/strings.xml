@@ -4,6 +4,9 @@
     <!-- Welcome Page Text -->
     <string name="Intro_text">Select the 3 lines in the top left to open the menu</string>
     <string name="intro_welcome">Welcome to the Team 3883 Scouting App</string>
+    <string name="confirm_missing_team_dialog_title">Missing file!</string>
+    <string name="confirm_missing_team_dialog_message">You are missing the teams.csv file in /sdcard/FRC, please fix this</string>
+    <string name="missing_team_export">OK Sounds good</string>
 
     <!-- Position Selector Text -->
     <string name="position_title">Select the devices position</string>

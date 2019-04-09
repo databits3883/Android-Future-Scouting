@@ -1,10 +1,13 @@
 package com.deadman.databitsfuture;
 
+import android.app.AlertDialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +16,7 @@ import android.widget.Spinner;
 
 import com.github.kimkevin.cachepot.CachePot;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -41,6 +45,7 @@ public class Welcome extends Fragment {
         decorView.setSystemUiVisibility(uiOptions);
 
         spinnerinit();
+        mkdirs();
 
     }
 
@@ -83,4 +88,28 @@ public class Welcome extends Fragment {
         CachePot.getInstance().push(2,intobj);
     }
 
+    private void mkdirs(){
+        // Create the FRC folders in case they are missing, complain if teams.csv is missing as well
+        File frc = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC");
+        File robots = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC" + File.separator + "Robots");
+        File qr = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC" + File.separator + "QR");
+        File teams = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC" + File.separator + "teams.csv");
+        if (!frc.exists()) {
+            frc.mkdirs();
+        }
+        if (!robots.exists()) {
+            robots.mkdirs();
+        }
+        if (!qr.exists()) {
+            qr.mkdirs();
+        }
+        if(!teams.exists()){
+            new AlertDialog.Builder(getContext())
+                    .setMessage(R.string.confirm_missing_team_dialog_message)
+                    .setTitle(R.string.confirm_missing_team_dialog_title)
+                    .setPositiveButton(R.string.missing_team_export, (dialog, id) -> {
+                    })
+                    .show();
+        }
+    }
 }
