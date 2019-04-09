@@ -209,7 +209,7 @@ public class Crowd extends Fragment {
         String[][] dataArr;
         String test = "";
         if (pos == 0){
-            Toast.makeText(getContext(), "Warning: You are in practice mode", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getContext(), "Warning: You are in practice mode", Toast.LENGTH_SHORT).show();
         } else {
             try {
                 CSVReader csvReader = new CSVReader(new FileReader(new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "FRC" + File.separator + "teams.csv")));
