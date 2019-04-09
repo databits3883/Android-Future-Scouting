@@ -46,18 +46,19 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 import static android.app.Activity.RESULT_OK;
 
 
 public class Master extends Fragment {
 
-    GoogleAccountCredential mCredential;
-    ProgressDialog mProgress;
+    private GoogleAccountCredential mCredential;
+    private ProgressDialog mProgress;
 
-    static final int REQUEST_ACCOUNT_PICKER = 1000;
-    static final int REQUEST_AUTHORIZATION = 1001;
-    static final int REQUEST_GOOGLE_PLAY_SERVICES = 1002;
+    private static final int REQUEST_ACCOUNT_PICKER = 1000;
+    private static final int REQUEST_AUTHORIZATION = 1001;
+    private static final int REQUEST_GOOGLE_PLAY_SERVICES = 1002;
 
     private static final String PREF_ACCOUNT_NAME = "accountName";
     private static final String[] SCOPES = { SheetsScopes.SPREADSHEETS };
@@ -71,7 +72,7 @@ public class Master extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        Object obj = "";
+        String obj = "";
         CachePot.getInstance().push(3,obj);
 
         // Inflate the layout for this fragment
@@ -81,11 +82,11 @@ public class Master extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         // Go Full screen and hide navbar
-        View decorView = getActivity().getWindow().getDecorView();
+        View decorView = Objects.requireNonNull(getActivity()).getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
         decorView.setSystemUiVisibility(uiOptions);
 
-        NumberPicker match_num =  getView().findViewById(R.id.match_counter);
+        NumberPicker match_num =  Objects.requireNonNull(getView()).findViewById(R.id.match_counter);
         match_num.setValueChangedListener(new DefaultValueChangedListener() {
             public void valueChanged(int value, ActionEnum action) {
                 read_teams();
@@ -114,7 +115,7 @@ public class Master extends Fragment {
     }
 
     private void incrementmatch(){
-        NumberPicker match =  getView().findViewById(R.id.match_counter);
+        NumberPicker match =  Objects.requireNonNull(getView()).findViewById(R.id.match_counter);
         match.setValue(match.getValue() + 1);
         read_teams();
     }
@@ -126,8 +127,8 @@ public class Master extends Fragment {
     }
 
     // Read the team data from teams.csv
-    private String read_teams(){
-        NumberPicker match_num =  getView().findViewById(R.id.match_counter);
+    private void read_teams(){
+        NumberPicker match_num =  Objects.requireNonNull(getView()).findViewById(R.id.match_counter);
         TextView redone = getView().findViewById(R.id.red1);
         TextView redtwo = getView().findViewById(R.id.red2);
         TextView redthree = getView().findViewById(R.id.red3);
@@ -136,7 +137,6 @@ public class Master extends Fragment {
         TextView bluethree = getView().findViewById(R.id.blue3);
         int match = match_num.getValue();
         String[][] dataArr;
-        String test = "";
         try {
             File teams = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "FRC" + File.separator + "teams.csv");
             CSVReader csvReader = new CSVReader(new FileReader(teams));
@@ -149,22 +149,21 @@ public class Master extends Fragment {
             blueone.setText(dataArr[match][4]);
             bluetwo.setText(dataArr[match][5]);
             bluethree.setText(dataArr[match][6]);
-            redone.setBackgroundTintList(getResources().getColorStateList(R.color.red));
-            redtwo.setBackgroundTintList(getResources().getColorStateList(R.color.red));
-            redthree.setBackgroundTintList(getResources().getColorStateList(R.color.red));
-            blueone.setBackgroundTintList(getResources().getColorStateList(R.color.blue));
-            bluetwo.setBackgroundTintList(getResources().getColorStateList(R.color.blue));
-            bluethree.setBackgroundTintList(getResources().getColorStateList(R.color.blue));
+            redone.setBackgroundTintList(getResources().getColorStateList(R.color.red,null));
+            redtwo.setBackgroundTintList(getResources().getColorStateList(R.color.red,null));
+            redthree.setBackgroundTintList(getResources().getColorStateList(R.color.red,null));
+            blueone.setBackgroundTintList(getResources().getColorStateList(R.color.blue,null));
+            bluetwo.setBackgroundTintList(getResources().getColorStateList(R.color.blue,null));
+            bluethree.setBackgroundTintList(getResources().getColorStateList(R.color.blue,null));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return test;
     }
 
     private void color_teams() {
         try {
-            TextView redone = getView().findViewById(R.id.red1);
+            TextView redone = Objects.requireNonNull(getView()).findViewById(R.id.red1);
             TextView redtwo = getView().findViewById(R.id.red2);
             TextView redthree = getView().findViewById(R.id.red3);
             TextView blueone = getView().findViewById(R.id.blue1);
@@ -180,25 +179,24 @@ public class Master extends Fragment {
                 String team = (dataArr[0][0]);
 
                 if (team.contentEquals(redone.getText())) {
-                    redone.setBackgroundTintList(getResources().getColorStateList(R.color.green));
+                    redone.setBackgroundTintList(getResources().getColorStateList(R.color.green,null));
 
-                } else if (team.contentEquals(redtwo.getText())) {
-                    redtwo.setBackgroundTintList(getResources().getColorStateList(R.color.green));
-                } else if (team.contentEquals(redthree.getText())) {
-                    redthree.setBackgroundTintList(getResources().getColorStateList(R.color.green));
-                } else if (team.contentEquals(blueone.getText())) {
-                    blueone.setBackgroundTintList(getResources().getColorStateList(R.color.green));
-                } else if (team.contentEquals(bluetwo.getText())) {
-                    bluetwo.setBackgroundTintList(getResources().getColorStateList(R.color.green));
-                } else if (team.contentEquals(bluethree.getText())) {
-                    bluethree.setBackgroundTintList(getResources().getColorStateList(R.color.green));
-                }
-                if (blueone.getBackgroundTintList() == getResources().getColorStateList(R.color.green)
-                        & bluetwo.getBackgroundTintList() == getResources().getColorStateList(R.color.green)
-                        & bluethree.getBackgroundTintList() == getResources().getColorStateList(R.color.green)
-                        & redone.getBackgroundTintList() == getResources().getColorStateList(R.color.green)
-                        & redtwo.getBackgroundTintList() == getResources().getColorStateList(R.color.green)
-                        & redthree.getBackgroundTintList() == getResources().getColorStateList(R.color.green)) {
+                } else if (team.contentEquals(redtwo.getText()))
+                    redtwo.setBackgroundTintList(getResources().getColorStateList(R.color.green,null));
+                else if (team.contentEquals(redthree.getText()))
+                    redthree.setBackgroundTintList(getResources().getColorStateList(R.color.green,null));
+                else if (team.contentEquals(blueone.getText()))
+                    blueone.setBackgroundTintList(getResources().getColorStateList(R.color.green,null));
+                else if (team.contentEquals(bluetwo.getText()))
+                    bluetwo.setBackgroundTintList(getResources().getColorStateList(R.color.green,null));
+                else if (team.contentEquals(bluethree.getText()))
+                    bluethree.setBackgroundTintList(getResources().getColorStateList(R.color.green,null));
+                if (blueone.getBackgroundTintList() == getResources().getColorStateList(R.color.green,null)
+                        & bluetwo.getBackgroundTintList() == getResources().getColorStateList(R.color.green,null)
+                        & bluethree.getBackgroundTintList() == getResources().getColorStateList(R.color.green,null)
+                        & redone.getBackgroundTintList() == getResources().getColorStateList(R.color.green,null)
+                        & redtwo.getBackgroundTintList() == getResources().getColorStateList(R.color.green,null)
+                        & redthree.getBackgroundTintList() == getResources().getColorStateList(R.color.green,null)) {
                     incrementmatch();
                     temp.delete();
                 }
@@ -237,7 +235,7 @@ public class Master extends Fragment {
      * is granted.
      */
     private void chooseAccount() { {
-        String accountName = getActivity().getPreferences(Context.MODE_PRIVATE)
+        String accountName = Objects.requireNonNull(getActivity()).getPreferences(Context.MODE_PRIVATE)
                 .getString(PREF_ACCOUNT_NAME, null);
         if (accountName != null) {
             mCredential.setSelectedAccountName(accountName);
@@ -276,7 +274,7 @@ public class Master extends Fragment {
                             data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
                     if (accountName != null) {
                         SharedPreferences settings =
-                               getActivity().getPreferences(Context.MODE_PRIVATE);
+                               Objects.requireNonNull(getActivity()).getPreferences(Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = settings.edit();
                         editor.putString(PREF_ACCOUNT_NAME, accountName);
                         editor.apply();
@@ -300,7 +298,7 @@ public class Master extends Fragment {
      */
     private boolean isDeviceOnline() {
         ConnectivityManager connMgr =
-                (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+                (ConnectivityManager) Objects.requireNonNull(getActivity()).getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         return (networkInfo != null && networkInfo.isConnected());
     }
@@ -342,7 +340,7 @@ public class Master extends Fragment {
         /**
          * Write to the sheet
          */
-        private List<String> writeDatatoApi() throws IOException {
+        private List<String> writeDatatoApi() {
             String spreadsheetId = "1prtvkrh64TG_9wgz51o2N6GwJhwGK3-03Jcuw0HvMJo";
             String range = "Sheet1!A1:T700";
 

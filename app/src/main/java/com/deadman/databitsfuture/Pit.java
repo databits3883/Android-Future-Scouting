@@ -28,6 +28,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicReference;
 
 
@@ -50,7 +51,7 @@ public class Pit extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         // Go Full screen and hide navbar
-        View decorView = getActivity().getWindow().getDecorView();
+        View decorView = Objects.requireNonNull(getActivity()).getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
         decorView.setSystemUiVisibility(uiOptions);
 
@@ -114,7 +115,7 @@ public class Pit extends Fragment {
     }
 
     private void spinnerinit(){
-        Spinner spinner1 = getView().findViewById(R.id.spinner1);
+        Spinner spinner1 = Objects.requireNonNull(getView()).findViewById(R.id.spinner1);
         List<String> list = new ArrayList<>();
         list.add("Choose one");
         list.add("Kit of parts (KoP)");
@@ -127,7 +128,7 @@ public class Pit extends Fragment {
         list.add("Posicanum");
         list.add("Butterfly");
         list.add("Other (Put in comments)");
-        ArrayAdapter dataAdapter = new ArrayAdapter<>(getContext(),
+        ArrayAdapter dataAdapter = new ArrayAdapter<>(Objects.requireNonNull(getContext()),
                 android.R.layout.simple_spinner_item, list);
         dataAdapter.setDropDownViewResource(R.layout.spinner_item);
         spinner1.setAdapter(dataAdapter);
@@ -138,39 +139,37 @@ public class Pit extends Fragment {
     }
 
     private String spinnerget(){
-        Spinner spinner1 = getView().findViewById(R.id.spinner1);
+        Spinner spinner1 = Objects.requireNonNull(getView()).findViewById(R.id.spinner1);
         return spinner1.getSelectedItem().toString() + ",";
     }
 
     private String datastring(){
-        String final_string =
-                        team()
-                        + spinnerget()
-                        + getselectors()
-                        + getswitches()
-                        + seekbars()
-                        + name()
-                        + comments();
-        return final_string;
+        return team()
+        + spinnerget()
+        + getselectors()
+        + getswitches()
+        + seekbars()
+        + name()
+        + comments();
     }
 
     private String team(){
-        MeterView team = getView().findViewById(R.id.meterView);
+        MeterView team = Objects.requireNonNull(getView()).findViewById(R.id.meterView);
         return Integer.toString(team.getValue())+ ",";
     }
 
     public String name(){
-        TextView name = getView().findViewById(R.id.extended_edit_text);
+        TextView name = Objects.requireNonNull(getView()).findViewById(R.id.extended_edit_text);
         return name.getText().toString() + ",";
     }
     private String comments(){
-        TextView name = getView().findViewById(R.id.comment_extended_edit_text);
+        TextView name = Objects.requireNonNull(getView()).findViewById(R.id.comment_extended_edit_text);
         return name.getText().toString();
     }
 
     // Selectors start at 0 we want it to start at 1 so the data is easier to read
     private String selector(int id){
-        SegmentedButtonGroup button = getView().findViewById(id);
+        SegmentedButtonGroup button = Objects.requireNonNull(getView()).findViewById(id);
         return String.valueOf(button.getPosition() + 1);
     }
 
@@ -190,7 +189,7 @@ public class Pit extends Fragment {
 
     // Selectors start at 0 we want it to start at 1 so the data is easier to read
     private String switchy(int id){
-        SwitchView switches = getView().findViewById(id);
+        SwitchView switches = Objects.requireNonNull(getView()).findViewById(id);
         if (switches.isChecked()){
             return "1";
         } else {
@@ -212,14 +211,14 @@ public class Pit extends Fragment {
     }
 
     private String seekbars(){
-        RangeSeekBarView hatchbar = getView().findViewById(R.id.hatch_seekbar);
+        RangeSeekBarView hatchbar = Objects.requireNonNull(getView()).findViewById(R.id.hatch_seekbar);
         RangeSeekBarView cargobar = getView().findViewById(R.id.cargo_seekbar);
         return hatchbar.getValue() + "," + cargobar.getValue() + ",";
     }
 
     // Resets all the fields on the page
     private void reset_info_pit(){
-        TextView comment_field = getView().findViewById(R.id.comment_extended_edit_text);
+        TextView comment_field = Objects.requireNonNull(getView()).findViewById(R.id.comment_extended_edit_text);
         SwitchView hatch_ground = getView().findViewById(R.id.hatch_ground_switch);
         SwitchView hatch_station = getView().findViewById(R.id.hatch_station_switch);
         SwitchView cargo_ground = getView().findViewById(R.id.cargo_ground_switch);

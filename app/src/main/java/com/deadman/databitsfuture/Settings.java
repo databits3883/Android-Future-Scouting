@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import java.io.File;
+import java.util.Objects;
 
 
 public class Settings extends Fragment {
@@ -32,7 +33,7 @@ public class Settings extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         // Go Full screen and hide navbar
-        View decorView = getActivity().getWindow().getDecorView();
+        View decorView = Objects.requireNonNull(getActivity()).getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
         decorView.setSystemUiVisibility(uiOptions);
 
@@ -49,8 +50,8 @@ public class Settings extends Fragment {
                 .setPositiveButton(R.string.confirm, (dialog, id) -> {
                     File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator +"Download"+File.separator+"stats.csv");
                     File file2 = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator +"Download"+File.separator+"crowd_data.csv");
-                    boolean deleted = file.delete();
-                    boolean deleted2 = file2.delete();
+                    file.delete();
+                    file2.delete();
                 })
                 .setNegativeButton(R.string.cancel, (dialog, id) -> {
                     // CANCEL

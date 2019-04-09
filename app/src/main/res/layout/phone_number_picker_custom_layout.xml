@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
@@ -12,19 +13,19 @@
         android:id="@+id/decrement"
         android:textStyle="bold"
         android:textSize="24sp"
-        android:text="-"/>
+        android:text="@string/minus"/>
 
 
     <EditText
         android:layout_width="70dp"
         android:layout_height="match_parent"
-        android:text="1"
+        android:text="@string/one"
         android:textColor="@android:color/black"
         android:inputType="number"
         android:id="@+id/display"
         android:gravity="center"
         android:textSize="24sp"
-        />
+        tools:ignore="Autofill,LabelFor" />
 
     <Button
         android:layout_width="60dp"
@@ -33,6 +34,6 @@
         android:id="@+id/increment"
         android:textStyle="bold"
         android:textSize="24sp"
-        android:text="+"/>
+        android:text="@string/plus"/>
 
 </LinearLayout>

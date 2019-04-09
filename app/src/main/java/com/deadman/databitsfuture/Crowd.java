@@ -39,11 +39,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class Crowd extends Fragment {
 
-    int pos = CachePot.getInstance().pop(1);
+    private int pos = CachePot.getInstance().pop(1);
 
     public Crowd() {
         // Required empty public constructor
@@ -60,7 +61,7 @@ public class Crowd extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         // Go Full screen and hide navbar
-        View decorView = getActivity().getWindow().getDecorView();
+        View decorView = Objects.requireNonNull(getActivity()).getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
         decorView.setSystemUiVisibility(uiOptions);
 
@@ -70,7 +71,7 @@ public class Crowd extends Fragment {
         final Button qrButton = view.findViewById(R.id.qr_display);
         qrButton.setOnClickListener(v -> showQrCode());
 
-        NumberPicker match_num =  getView().findViewById(R.id.match_counter);
+        NumberPicker match_num =  Objects.requireNonNull(getView()).findViewById(R.id.match_counter);
         match_num.setValueChangedListener(new DefaultValueChangedListener() {
             public void valueChanged(int value, ActionEnum action) {
                 teams();
@@ -84,12 +85,12 @@ public class Crowd extends Fragment {
     }
 
     private int getmatch(){
-        NumberPicker match =  getView().findViewById(R.id.match_counter);
+        NumberPicker match =  Objects.requireNonNull(getView()).findViewById(R.id.match_counter);
         return match.getValue();
     }
 
     private void incrementmatch(){
-        NumberPicker match =  getView().findViewById(R.id.match_counter);
+        NumberPicker match =  Objects.requireNonNull(getView()).findViewById(R.id.match_counter);
         match.setValue(match.getValue() + 1);
     }
 
@@ -107,7 +108,7 @@ public class Crowd extends Fragment {
     }
 
     private void generateQrCode(){
-        Bitmap logo = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.logo);
+        Bitmap logo = BitmapFactory.decodeResource(Objects.requireNonNull(getContext()).getResources(), R.drawable.logo);
         new AwesomeQRCode.Renderer()
                 .contents(datastring())
                 .size(800).margin(20)
@@ -116,7 +117,7 @@ public class Crowd extends Fragment {
                 .renderAsync(new AwesomeQRCode.Callback() {
                     @Override
                     public void onRendered(AwesomeQRCode.Renderer renderer, final Bitmap bitmap) {
-                        getActivity().runOnUiThread(() -> {
+                        Objects.requireNonNull(getActivity()).runOnUiThread(() -> {
                             // Tip: here we use runOnUiThread(...) to avoid the problems caused by operating UI elements from a non-UI thread.
                             File f = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC" + File.separator + "QR" + File.separator + Integer.toString(getmatch()) + ".png");
                             try {
@@ -175,7 +176,7 @@ public class Crowd extends Fragment {
     }
 
     // Function to create the backup csv file
-    public void write_data(){
+    private void write_data(){
         String results = datastring();
         String header = getResources().getString(R.string.crowd_header);
         File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator + "FRC" + File.separator + "crowd_data.csv");
@@ -226,27 +227,25 @@ public class Crowd extends Fragment {
 
     // Sets the team number based on Teams.csv file
     private void teams(){
-        EditText team_num = getView().findViewById(R.id.team_field);
+        EditText team_num = Objects.requireNonNull(getView()).findViewById(R.id.team_field);
         team_num.setText(read_teams());
     }
 
     private String datastring(){
-        EditText team_num = getView().findViewById(R.id.team_field);
-        String final_string =
-                team_num.getText().toString() + ","
-                + getcounters()
-                + total_hatch() + ","
-                + total_cargo() + ","
-                + all_total()
-                + getselectors()
-                + climb_failed()
-                + name()
-                + comments();
-        return final_string;
+        EditText team_num = Objects.requireNonNull(getView()).findViewById(R.id.team_field);
+        return team_num.getText().toString() + ","
+        + getcounters()
+        + total_hatch() + ","
+        + total_cargo() + ","
+        + all_total()
+        + getselectors()
+        + climb_failed()
+        + name()
+        + comments();
     }
 
     private String counter(int id){
-        NumberPicker picker = getView().findViewById(id);
+        NumberPicker picker = Objects.requireNonNull(getView()).findViewById(id);
         return String.valueOf(picker.getValue());
     }
 
@@ -271,7 +270,7 @@ public class Crowd extends Fragment {
 
     // Selectors start at 0 we want it to start at 1 so the data is easier to read
     private String selector(int id){
-        SegmentedButtonGroup button = getView().findViewById(id);
+        SegmentedButtonGroup button = Objects.requireNonNull(getView()).findViewById(id);
         return String.valueOf(button.getPosition() + 1);
     }
 
@@ -290,7 +289,7 @@ public class Crowd extends Fragment {
 
     // All hatch data added together for a match
     private String total_hatch (){
-        NumberPicker top = getView().findViewById(R.id.rocket_top_hatch_counter);
+        NumberPicker top = Objects.requireNonNull(getView()).findViewById(R.id.rocket_top_hatch_counter);
         NumberPicker mid = getView().findViewById(R.id.rocket_middle_hatch_counter);
         NumberPicker bot = getView().findViewById(R.id.rocket_bottom_hatch_counter);
         NumberPicker ship = getView().findViewById(R.id.cargo_ship_hatch_counter);
@@ -300,7 +299,7 @@ public class Crowd extends Fragment {
 
     // All cargo data added together for a match
     private String total_cargo (){
-        NumberPicker top = getView().findViewById(R.id.rocket_top_cargo_counter);
+        NumberPicker top = Objects.requireNonNull(getView()).findViewById(R.id.rocket_top_cargo_counter);
         NumberPicker mid = getView().findViewById(R.id.rocket_middle_cargo_counter);
         NumberPicker bot = getView().findViewById(R.id.rocket_bottom_cargo_counter);
         NumberPicker ship = getView().findViewById(R.id.cargo_ship_cargo_counter);
@@ -314,7 +313,7 @@ public class Crowd extends Fragment {
     }
 
     private String climb_failed() {
-        SwitchView climb_failed = getView().findViewById(R.id.climb_failed);
+        SwitchView climb_failed = Objects.requireNonNull(getView()).findViewById(R.id.climb_failed);
         if (climb_failed.isChecked()){
             return "1,";
         } else {
@@ -323,12 +322,12 @@ public class Crowd extends Fragment {
     }
 
     private String name() {
-        EditText team = getView().findViewById(R.id.name_field);
+        EditText team = Objects.requireNonNull(getView()).findViewById(R.id.name_field);
         return team.getText().toString() + ",";
     }
 
     private String comments() {
-        EditText comments = getView().findViewById(R.id.comment_field);
+        EditText comments = Objects.requireNonNull(getView()).findViewById(R.id.comment_field);
         String comment_string = comments.getText().toString();
         return comment_string.replaceAll(",", " ");
     }
@@ -344,8 +343,8 @@ public class Crowd extends Fragment {
     }
 
     // Resets all the fields on the page
-    public void reset_info(){
-        EditText comment_field = getView().findViewById(R.id.comment_field);
+    private void reset_info(){
+        EditText comment_field = Objects.requireNonNull(getView()).findViewById(R.id.comment_field);
         SwitchView climb_failed = getView().findViewById(R.id.climb_failed);
         SegmentedButtonGroup launch = getView().findViewById(R.id.buttonGroup_crowd_launch);
         SegmentedButtonGroup climb = getView().findViewById(R.id.buttonGroup_climb);
@@ -377,7 +376,7 @@ public class Crowd extends Fragment {
     }
 
     private void button_transform(){
-        Button export = getView().findViewById(R.id.export);
+        Button export = Objects.requireNonNull(getView()).findViewById(R.id.export);
         String Position = "";
         if (pos == 0) {
             Position = " Practice Mode";
@@ -408,6 +407,6 @@ public class Crowd extends Fragment {
             export.setTextColor(Color.WHITE);
         }
 
-        export.setText("Export to Master Device\n" + Position);
+        export.setText(getString(R.string.export_to_master_device, Position));
     }
 }

@@ -80,76 +80,73 @@ public class Drawer extends AppCompatActivity {
 
         // Listener to handle the menu item click. It returns the position of the menu item clicked. Based on that you can switch between the fragments.
 
-        sNavigationDrawer.setOnMenuItemClickListener(new SNavigationDrawer.OnMenuItemClickListener() {
-            @Override
-            public void onMenuItemClicked(int position) {
-                System.out.println("Position "+position);
+        sNavigationDrawer.setOnMenuItemClickListener(position -> {
+            System.out.println("Position "+position);
 
-                switch (position){
-                    case 0:{
-                        fragmentClass = Welcome.class;
-                        break;
-                    }
-                    case 1:{
-                        fragmentClass = Crowd.class;
-                        break;
-                    }
-                    case 2:{
-                        fragmentClass = Pit.class;
-                        break;
-                    }
-                    case 3:{
-                        fragmentClass = Master.class;
-                        break;
-                    }
-                    case 4:{
-                        fragmentClass = Settings.class;
-                        break;
-                    }
+            switch (position){
+                case 0:{
+                    fragmentClass = Welcome.class;
+                    break;
+                }
+                case 1:{
+                    fragmentClass = Crowd.class;
+                    break;
+                }
+                case 2:{
+                    fragmentClass = Pit.class;
+                    break;
+                }
+                case 3:{
+                    fragmentClass = Master.class;
+                    break;
+                }
+                case 4:{
+                    fragmentClass = Settings.class;
+                    break;
+                }
+
+            }
+
+            // Listener for drawer events such as opening and closing.
+            sNavigationDrawer.setDrawerListener(new SNavigationDrawer.DrawerListener() {
+
+                @Override
+                public void onDrawerOpened() {
 
                 }
 
-                // Listener for drawer events such as opening and closing.
-                sNavigationDrawer.setDrawerListener(new SNavigationDrawer.DrawerListener() {
+                @Override
+                public void onDrawerOpening(){
 
-                    @Override
-                    public void onDrawerOpened() {
+                }
 
+                @Override
+                public void onDrawerClosing(){
+                    System.out.println("Drawer closed");
+
+                    try {
+                        fragment = (Fragment) fragmentClass.newInstance();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
 
-                    @Override
-                    public void onDrawerOpening(){
+                    if (fragment != null) {
+                        FragmentManager fragmentManager = getSupportFragmentManager();
+                        fragmentManager.beginTransaction().setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out).replace(R.id.frameLayout, fragment).commit();
 
                     }
+                }
 
-                    @Override
-                    public void onDrawerClosing(){
-                        System.out.println("Drawer closed");
+                @Override
+                public void onDrawerClosed() {
 
-                        try {
-                            fragment = (Fragment) fragmentClass.newInstance();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
+                }
 
-                        if (fragment != null) {
-                            FragmentManager fragmentManager = getSupportFragmentManager();
-                            fragmentManager.beginTransaction().setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out).replace(R.id.frameLayout, fragment).commit();
-
-                        }
-                    }
-
-                    @Override
-                    public void onDrawerClosed() {
-
-                    }
-
-                    @Override
-                    public void onDrawerStateChanged(int newState) {
-                        System.out.println("State "+newState);
-                    }
-                });
-            }
+                @Override
+                public void onDrawerStateChanged(int newState) {
+                    System.out.println("State "+newState);
+                }
+            });
         });
     }
 }
