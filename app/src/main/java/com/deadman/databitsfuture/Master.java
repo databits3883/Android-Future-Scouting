@@ -29,11 +29,8 @@ import com.travijuu.numberpicker.library.Enums.ActionEnum;
 import com.travijuu.numberpicker.library.Listener.DefaultValueChangedListener;
 import com.travijuu.numberpicker.library.NumberPicker;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
-import com.google.api.client.googleapis.extensions.android.gms.auth.GooglePlayServicesAvailabilityIOException;
 import com.google.api.client.googleapis.extensions.android.gms.auth.UserRecoverableAuthIOException;
 
 import com.google.api.client.http.HttpTransport;
@@ -336,52 +333,36 @@ public class Master extends Fragment {
          */
         private List<String> writeDatatoApi() throws IOException {
             String spreadsheetId = "1prtvkrh64TG_9wgz51o2N6GwJhwGK3-03Jcuw0HvMJo";
-            String range = "Sheet1!A1:T150";
+            String range = "Sheet1!A1:T700";
 
+            List<String> results = new ArrayList<>();
             ValueRange valueRange = new ValueRange();
             String[][] dataArr;
             try {
                 File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator +"FRC"+File.separator+"stats.csv");
                 CSVReader csvReader = new CSVReader(new FileReader(file));
                 List<String[]> list = csvReader.readAll();
-                dataArr = new String[list.size()][];
-                dataArr = list.toArray(dataArr);
-                Object a1 = dataArr[0][0];
-                Object b1 = dataArr[0][1];
-                Object c1 = dataArr[0][2];
-                Object d1 = dataArr[0][3];
-                Object e1 = dataArr[0][4];
-                Object f1 = dataArr[0][5];
-                Object g1 = dataArr[0][6];
-                Object h1 = dataArr[0][7];
-                Object i1 = dataArr[0][8];
-                Object j1 = dataArr[0][9];
-                Object k1 = dataArr[0][10];
-                Object l1 = dataArr[0][11];
-                Object m1 = dataArr[0][12];
-                Object n1 = dataArr[0][13];
-                Object o1 = dataArr[0][14];
-                Object p1 = dataArr[0][15];
-                Object q1 = dataArr[0][16];
-                Object r1 = dataArr[0][17];
-                Object s1 = dataArr[0][18];
-                Object t1 = dataArr[0][19];
 
-                Object a2 = dataArr[1][0];
-                Object b2 = dataArr[1][1];
+                if (list.size() > 0){
+                    dataArr = new String[list.size()][];
+                    dataArr = list.toArray(dataArr);
+                    List upload = new ArrayList<String>();
 
-                valueRange.setValues(Arrays.asList(
-                        Arrays.asList(a1, b1, c1, d1, e1, f1, g1, h1, i1, j1, k1, l1, m1, n1, o1, p1, q1, r1, s1, t1),
-                        Arrays.asList(a2, b2)));
+                    for (String[] aDataArr : dataArr) {
+                        upload.add(Arrays.asList(aDataArr));
+                    }
+
+                    valueRange.setValues(upload);
+
+
+                    this.mService.spreadsheets().values().update(spreadsheetId, range, valueRange)
+                            .setValueInputOption("RAW")
+                            .execute();
+                }
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-            List<String> results = new ArrayList<>();
-            this.mService.spreadsheets().values().update(spreadsheetId, range, valueRange)
-                    .setValueInputOption("RAW")
-                    .execute();
-
             return results;
         }
 
