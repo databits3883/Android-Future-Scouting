@@ -77,6 +77,13 @@
     <string name="cancel">I have more data to enter</string>
     <string name="crowd_header">Team,Match,Top Hatch,Middle Hatch,Bottom Hatch,Ship Hatch,Top Cargo,Middle Cargo,Bottom Cargo,Ship Cargo,Total Hatches,Total Cargo,All Cargo/Hatches,Launch Position,Climb Level,Moving in Sandstorm,Played Defense,Failed to climb,Data Entered by,Match Comments</string>
 
+    <!-- Master Text -->
+    <string name="master_placeholder">Team</string>
+    <string name="teams_for_this_match">Teams for this match</string>
+    <string name="import_data">Import Data</string>
+    <string name="upload_data">Upload Data</string>
+    <string name="scan_qr_code">Scan QR Code</string>
+
     <!-- Settings Text -->
     <string name="pressing_this_button_will_wupe_all_scouting_data_on_this_device">Pressing this button will wipe all scouting data on this device</string>
     <string name="remove_all_data">Remove all data</string>
