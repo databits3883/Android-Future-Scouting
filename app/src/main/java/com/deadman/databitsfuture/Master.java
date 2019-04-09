@@ -337,24 +337,25 @@ public class Master extends Fragment {
 
             List<String> results = new ArrayList<>();
             ValueRange valueRange = new ValueRange();
-            String[][] dataArr;
             try {
+                // Reading CSV into a list
                 File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator +"FRC"+File.separator+"stats.csv");
                 CSVReader csvReader = new CSVReader(new FileReader(file));
                 List<String[]> list = csvReader.readAll();
 
+                // Make sure the list has values
                 if (list.size() > 0){
-                    dataArr = new String[list.size()][];
-                    dataArr = list.toArray(dataArr);
                     List upload = new ArrayList<String>();
 
-                    for (String[] aDataArr : dataArr) {
+                    // Reformatting from String Array to Array of Strings
+                    for (String[] aDataArr : list) {
                         upload.add(Arrays.asList(aDataArr));
                     }
 
+                    // Set the value range to our data
                     valueRange.setValues(upload);
 
-
+                    // Command to upload the data to google sheets
                     this.mService.spreadsheets().values().update(spreadsheetId, range, valueRange)
                             .setValueInputOption("RAW")
                             .execute();
