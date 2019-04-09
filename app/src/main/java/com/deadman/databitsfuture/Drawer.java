@@ -65,7 +65,6 @@ public class Drawer extends AppCompatActivity {
         menuItems.add(new MenuItem("Settings",R.drawable.news_bg));
 
         // Add them to navigation drawer
-
         sNavigationDrawer.setMenuItemList(menuItems);
         fragmentClass =  Welcome.class;
         try {
@@ -79,9 +78,8 @@ public class Drawer extends AppCompatActivity {
         }
 
         // Listener to handle the menu item click. It returns the position of the menu item clicked. Based on that you can switch between the fragments.
-
         sNavigationDrawer.setOnMenuItemClickListener(position -> {
-            System.out.println("Position "+position);
+//            System.out.println("Position "+position);
 
             switch (position){
                 case 0:{
@@ -122,7 +120,7 @@ public class Drawer extends AppCompatActivity {
 
                 @Override
                 public void onDrawerClosing(){
-                    System.out.println("Drawer closed");
+//                    System.out.println("Drawer closed");
 
                     try {
                         fragment = (Fragment) fragmentClass.newInstance();
@@ -144,7 +142,7 @@ public class Drawer extends AppCompatActivity {
 
                 @Override
                 public void onDrawerStateChanged(int newState) {
-                    System.out.println("State "+newState);
+//                    System.out.println("State "+newState);
                 }
             });
         });
