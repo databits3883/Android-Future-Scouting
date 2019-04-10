@@ -292,6 +292,7 @@ public class Crowd extends Fragment {
         + total_cargo() + ","
         + all_total()
         + getselectors()
+        + getselectors_no_addition()
         + climb_failed()
         + name()
         + comments();
@@ -327,15 +328,31 @@ public class Crowd extends Fragment {
         return String.valueOf(button.getPosition() + 1);
     }
 
+    // Selectors start at 0 so keep it at 0
+    private String selector_no_addition(int id){
+        SegmentedButtonGroup button = Objects.requireNonNull(getView()).findViewById(id);
+        return String.valueOf(button.getPosition());
+    }
+
     private String getselectors(){
         AtomicReference<String> result = new AtomicReference<>("");
         List<Integer> list = new ArrayList<>();
         list.add(R.id.buttonGroup_crowd_launch);
         list.add(R.id.buttonGroup_climb);
+
+        list.forEach(
+                (name) -> result.set(result + selector(name) + ",")
+        );
+        return result.get();
+    }
+
+    private String getselectors_no_addition(){
+        AtomicReference<String> result = new AtomicReference<>("");
+        List<Integer> list = new ArrayList<>();
         list.add(R.id.buttonGroup_sandstorm);
         list.add(R.id.buttonGroup_crowd_defense);
         list.forEach(
-                (name) -> result.set(result + selector(name) + ",")
+                (name) -> result.set(result + selector_no_addition(name) + ",")
         );
         return result.get();
     }
