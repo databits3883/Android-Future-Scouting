@@ -28,6 +28,8 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class Welcome extends Fragment {
 
+    private boolean alreadyExecuted;
+
     public Welcome() {
         // Required empty public constructor
     }
@@ -49,7 +51,28 @@ public class Welcome extends Fragment {
 
         spinnerinit();
         mkdirs();
+    }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        Spinner spinner1 =  Objects.requireNonNull(getView()).findViewById(R.id.spinner1);
+        SharedPreferences.Editor editor = Objects.requireNonNull(getActivity()).getSharedPreferences("CurrentUser", MODE_PRIVATE).edit();
+        editor.putInt("pos", spinner1.getSelectedItemPosition());
+        editor.apply();
+    }
+
+    public void onResume() {
+        super.onResume();
+        Spinner spinner1 =  Objects.requireNonNull(getView()).findViewById(R.id.spinner1);
+        SharedPreferences prefs = Objects.requireNonNull(getActivity()).getSharedPreferences("CurrentUser", MODE_PRIVATE);
+        int pos = prefs.getInt("pos", 0);
+        spinner1.setSelection(pos);
+
+        if(!alreadyExecuted) {
+            teams_nag();
+            alreadyExecuted = true;
+        }
     }
 
     private void spinnerinit(){
