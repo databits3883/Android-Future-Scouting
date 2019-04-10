@@ -89,6 +89,11 @@ public class Crowd extends Fragment {
         return match.getValue();
     }
 
+    private void setmatch(int val){
+        NumberPicker match =  Objects.requireNonNull(getView()).findViewById(R.id.match_counter);
+        match.setValue(val);
+    }
+
     private void incrementmatch(){
         NumberPicker match =  Objects.requireNonNull(getView()).findViewById(R.id.match_counter);
         match.setValue(match.getValue() + 1);
@@ -216,7 +221,12 @@ public class Crowd extends Fragment {
                 List<String[]> list = csvReader.readAll();
                 dataArr = new String[list.size()][];
                 dataArr = list.toArray(dataArr);
-                test = dataArr[match][pos];
+                if (match < list.size())
+                    test = dataArr[match][pos];
+                else {
+                    setmatch(list.size() - 1);
+                    test = dataArr[list.size() - 1][pos];
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
