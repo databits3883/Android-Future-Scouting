@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -26,9 +27,7 @@ import java.util.Objects;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class Welcome extends Fragment {
-
-    private boolean alreadyExecuted;
+public class Welcome extends Fragment implements AdapterView.OnItemSelectedListener {
 
     public Welcome() {
         // Required empty public constructor
@@ -68,12 +67,27 @@ public class Welcome extends Fragment {
         SharedPreferences prefs = Objects.requireNonNull(getActivity()).getSharedPreferences("CurrentUser", MODE_PRIVATE);
         int pos = prefs.getInt("pos", 0);
         spinner1.setSelection(pos);
-
-        if(!alreadyExecuted) {
-            teams_nag();
-            alreadyExecuted = true;
-        }
     }
+
+    public void onItemSelected(AdapterView<?> parent, View view, int pos,long id) {
+        File position = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC" + File.separator + "misc" + File.separator + "device_position.txt");
+        try {
+            FileOutputStream stream = new FileOutputStream(position);
+            stream.write(Integer.toString(pos).getBytes());
+            stream.close();
+        } catch (FileNotFoundException e){
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        teams_nag();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> arg0) {
+        // Auto-generated method stub
+    }
+
 
     private void spinnerinit(){
         Spinner spinner1 =  Objects.requireNonNull(getView()).findViewById(R.id.spinner1);
@@ -90,7 +104,7 @@ public class Welcome extends Fragment {
         dataAdapter.setDropDownViewResource(R.layout.spinner_item);
         spinner1.setAdapter(dataAdapter);
 
-        spinner1.setOnItemSelectedListener(new CustomOnItemSelectedListener());
+        spinner1.setOnItemSelectedListener(this);
 
         File position = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC" + File.separator + "misc" + File.separator + "device_position.txt");
         try {

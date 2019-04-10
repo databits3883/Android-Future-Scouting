@@ -133,8 +133,6 @@ public class Pit extends Fragment {
         dataAdapter.setDropDownViewResource(R.layout.spinner_item);
         spinner1.setAdapter(dataAdapter);
 
-        spinner1.setOnItemSelectedListener(new CustomOnItemSelectedListener());
-
         spinner1.setSelection(0);
     }
 
