@@ -1,1 +1,2 @@
-include ':app'
+include ':app', ':AwesomeQRCode'
+project(':AwesomeQRCode').projectDir = new File('libs/AwesomeQRCode')

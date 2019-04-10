@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.MediaScannerConnection;
@@ -19,12 +20,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.addisonelliott.segmentedbutton.SegmentedButtonGroup;
 import com.ceylonlabs.imageviewpopup.ImagePopup;
 import com.github.kimkevin.cachepot.CachePot;
-import com.github.sumimakito.awesomeqr.AwesomeQRCode;
+import com.github.sumimakito.awesomeqr.AwesomeQrRenderer;
+import com.github.sumimakito.awesomeqr.RenderResult;
+import com.github.sumimakito.awesomeqr.option.color.ColorQR;
+import com.github.sumimakito.awesomeqr.option.logo.Logo;
+import com.github.sumimakito.awesomeqr.option.RenderOption;
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 import com.travijuu.numberpicker.library.Enums.ActionEnum;
@@ -112,72 +117,88 @@ public class Crowd extends Fragment {
         imagePopup.viewPopup();
     }
 
-    private void generateQrCode(){
-        Bitmap logo = BitmapFactory.decodeResource(Objects.requireNonNull(getContext()).getResources(), R.drawable.logo);
-        new AwesomeQRCode.Renderer()
-                .contents(datastring())
-                .size(800).margin(20)
-                .logo(logo)
-                .logoScale(0.3f)
-                .renderAsync(new AwesomeQRCode.Callback() {
-                    @Override
-                    public void onRendered(AwesomeQRCode.Renderer renderer, final Bitmap bitmap) {
-                        Objects.requireNonNull(getActivity()).runOnUiThread(() -> {
-                            // Tip: here we use runOnUiThread(...) to avoid the problems caused by operating UI elements from a non-UI thread.
-                            File f = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC" + File.separator + "QR" + File.separator + Integer.toString(getmatch()) + ".png");
-                            try {
-                                FileOutputStream  bytes = new FileOutputStream(f);
-                                bitmap.compress(Bitmap.CompressFormat.PNG, 100, bytes);
-                                bytes.flush();
-                                bytes.close();
-                                MediaScannerConnection.scanFile(getContext(),
-                                        new String[] {f.getAbsolutePath()}, null,
-                                        (path, uri) -> {
-                                            Log.i("ExternalStorage", "Scanned " + path + ":");
-                                            Log.i("ExternalStorage", "-> uri=" + uri);
-                                        });
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                            // Generate the confirmation to make the QR Code
-                            new AlertDialog.Builder(getContext())
-                                    .setMessage(R.string.confirm_export_dialog_message)
-                                    .setTitle(R.string.confirm_export_dialog_title)
-                                    .setPositiveButton(R.string.confirm_export, (dialog, id) -> {
-                                        // Generates the QR Code
-                                        Drawable d = new BitmapDrawable(getResources(), bitmap);
-                                        ImagePopup imagePopup = new ImagePopup(getContext());
-                                        imagePopup.setImageOnClickClose(true);
-                                        imagePopup.setHideCloseIcon(true);
-                                        imagePopup.setFullScreen(true);
-                                        imagePopup.initiatePopup(d);
-                                        imagePopup.viewPopup();
+    private void generateQrCode() {
+        Bitmap logobit = BitmapFactory.decodeResource(Objects.requireNonNull(getContext()).getResources(), R.drawable.logo);
+        Logo logo = new Logo();
+        logo.setBitmap(logobit);
+        logo.setBorderRadius(10); // radius for logo's corners
+        logo.setBorderWidth(10); // width of the border to be added around the logo
+        logo.setScale(0.3f); // scale for the logo in the QR code
+        logo.setClippingRect(new RectF(0, 0, 200, 200)); // crop the logo image before applying it to the QR code
 
-                                        // Write to the backup CSV file
-                                        write_data();
+        ColorQR color = new ColorQR();
+        color.setLight(0xFFFFFFFF); // for blank spaces
+        color.setDark(0xFFFF8C8C); // for non-blank spaces
+        color.setBackground(0xFFFFFFFF); // for the background (will be overridden by background images, if set)
+        color.setAuto(false); // set to true to automatically pick out colors from the background image (will only work if background image is present)
 
-                                        // Reset all fields to defaults
-                                        reset_info();
+        RenderOption renderOption = new RenderOption();
+        renderOption.setContent(datastring()); // content to encode
+        renderOption.setSize(800); // size of the final QR code image
+        renderOption.setBorderWidth(20); // width of the empty space around the QR code
+        renderOption.setEcl(ErrorCorrectionLevel.M); // (optional) specify an error correction level
+        renderOption.setPatternScale(0.35f); // (optional) specify a scale for patterns
+        renderOption.setRoundedPatterns(false); // (optional) if true, blocks will be drawn as dots instead
+        renderOption.setClearBorder(true); // if set to true, the background will NOT be drawn on the border area
+        renderOption.setColorQR(color); // set a colorQR palette for the QR code
+        renderOption.setLogo(logo); // set a logo, keep reading to find more about it
 
-                                        // Increment the match number
-                                        incrementmatch();
+        try {
+            RenderResult render = AwesomeQrRenderer.render(renderOption);
+            if (render.getBitmap() != null) {
+                File f = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC" + File.separator + "QR" + File.separator + Integer.toString(getmatch()) + ".png");
+                try {
+                    FileOutputStream  bytes = new FileOutputStream(f);
+                    render.getBitmap().compress(Bitmap.CompressFormat.PNG, 100, bytes);
+                    bytes.flush();
+                    bytes.close();
+                    MediaScannerConnection.scanFile(getContext(),
+                            new String[] {f.getAbsolutePath()}, null,
+                            (path, uri) -> {
+                                Log.i("ExternalStorage", "Scanned " + path + ":");
+                                Log.i("ExternalStorage", "-> uri=" + uri);
+                            });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                // Generate the confirmation to make the QR Code
+                new AlertDialog.Builder(getContext())
+                        .setMessage(R.string.confirm_export_dialog_message)
+                        .setTitle(R.string.confirm_export_dialog_title)
+                        .setPositiveButton(R.string.confirm_export, (dialog, id) -> {
+                            // Generates the QR Code
+                            Drawable d = new BitmapDrawable(getResources(), render.getBitmap());
+                            ImagePopup imagePopup = new ImagePopup(getContext());
+                            imagePopup.setImageOnClickClose(true);
+                            imagePopup.setHideCloseIcon(true);
+                            imagePopup.setFullScreen(true);
+                            imagePopup.initiatePopup(d);
+                            imagePopup.viewPopup();
 
-                                        // Set the team number based on the match number
-                                        teams();
+                            // Write to the backup CSV file
+                            write_data();
 
-                                    })
-                                    .setNegativeButton(R.string.cancel, (dialog, id) -> {
-                                        // CANCEL
-                                    })
-                                    .show();
-                        });
-                    }
+                            // Reset all fields to defaults
+                            reset_info();
 
-                    @Override
-                    public void onError(AwesomeQRCode.Renderer renderer, Exception e) {
-                        e.printStackTrace();
-                    }
-                });
+                            // Increment the match number
+                            incrementmatch();
+
+                            // Set the team number based on the match number
+                            teams();
+
+                        })
+                        .setNegativeButton(R.string.cancel, (dialog, id) -> {
+                            // CANCEL
+                        })
+                        .show();
+            }
+            else {
+                Log.i("QR", "Bad Bitmap in QR");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     // Function to create the backup csv file
