@@ -17,6 +17,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -49,24 +52,6 @@ public class Welcome extends Fragment {
 
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        Spinner spinner1 =  Objects.requireNonNull(getView()).findViewById(R.id.spinner1);
-        SharedPreferences.Editor editor = Objects.requireNonNull(getActivity()).getSharedPreferences("CurrentUser", MODE_PRIVATE).edit();
-        editor.putInt("pos", spinner1.getSelectedItemPosition());
-        editor.apply();
-    }
-
-    public void onResume() {
-        super.onResume();
-        Spinner spinner1 =  Objects.requireNonNull(getView()).findViewById(R.id.spinner1);
-        SharedPreferences prefs = Objects.requireNonNull(getActivity()).getSharedPreferences("CurrentUser", MODE_PRIVATE);
-        int pos = prefs.getInt("pos", 0);
-        spinner1.setSelection(pos);
-        teams_nag();
-    }
-
     private void spinnerinit(){
         Spinner spinner1 =  Objects.requireNonNull(getView()).findViewById(R.id.spinner1);
         List<String> list = new ArrayList<>();
@@ -83,6 +68,17 @@ public class Welcome extends Fragment {
         spinner1.setAdapter(dataAdapter);
 
         spinner1.setOnItemSelectedListener(new CustomOnItemSelectedListener());
+
+        File position = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC" + File.separator + "misc" + File.separator + "device_position.txt");
+        try {
+            FileOutputStream stream = new FileOutputStream(position);
+            stream.write(Integer.toString(spinner1.getSelectedItemPosition()).getBytes());
+            stream.close();
+        } catch (FileNotFoundException e){
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private boolean practice_mode(){

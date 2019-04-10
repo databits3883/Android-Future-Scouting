@@ -108,8 +108,6 @@ public class Crowd extends Fragment {
         }
         String contents = new String(bytes);
 
-        rescan(position.getAbsolutePath());
-
         return Integer.parseInt(contents);
     }
 
