@@ -23,7 +23,6 @@ import android.widget.EditText;
 
 import com.addisonelliott.segmentedbutton.SegmentedButtonGroup;
 import com.ceylonlabs.imageviewpopup.ImagePopup;
-import com.github.kimkevin.cachepot.CachePot;
 import com.github.sumimakito.awesomeqr.AwesomeQrRenderer;
 import com.github.sumimakito.awesomeqr.RenderResult;
 import com.github.sumimakito.awesomeqr.option.color.ColorQR;
@@ -38,6 +37,8 @@ import com.travijuu.numberpicker.library.NumberPicker;
 import vn.luongvo.widget.iosswitchview.SwitchView;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -49,7 +50,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class Crowd extends Fragment {
 
-    private int pos = CachePot.getInstance().pop(1);
+    private int pos = getposition();
 
     public Crowd() {
         // Required empty public constructor
@@ -87,6 +88,27 @@ public class Crowd extends Fragment {
         button_transform();
 
         reset_info();
+    }
+
+    private int getposition(){
+        File position = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC" + File.separator + "device_position.txt");
+        int length = (int) position.length();
+
+        byte[] bytes = new byte[length];
+
+        try {
+            FileInputStream in = new FileInputStream(position);
+            in.read(bytes);
+            in.close();
+        } catch (
+                FileNotFoundException e){
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String contents = new String(bytes);
+
+        return Integer.parseInt(contents);
     }
 
     private int getmatch(){

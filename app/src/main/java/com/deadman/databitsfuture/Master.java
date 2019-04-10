@@ -22,7 +22,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.github.kimkevin.cachepot.CachePot;
 import com.opencsv.CSVReader;
 import com.travijuu.numberpicker.library.Enums.ActionEnum;
 import com.travijuu.numberpicker.library.Listener.DefaultValueChangedListener;
@@ -41,6 +40,9 @@ import com.google.api.services.sheets.v4.SheetsScopes;
 import com.google.api.services.sheets.v4.model.*;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -71,9 +73,6 @@ public class Master extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        String obj = "";
-        CachePot.getInstance().push(3,obj);
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.master, container, false);
@@ -162,47 +161,54 @@ public class Master extends Fragment {
     }
 
     private void color_teams() {
-        try {
-            TextView redone = Objects.requireNonNull(getView()).findViewById(R.id.red1);
-            TextView redtwo = getView().findViewById(R.id.red2);
-            TextView redthree = getView().findViewById(R.id.red3);
-            TextView blueone = getView().findViewById(R.id.blue1);
-            TextView bluetwo = getView().findViewById(R.id.blue2);
-            TextView bluethree = getView().findViewById(R.id.blue3);
-            String[][] dataArr;
-            File temp = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "FRC" + File.separator + "temp.csv");
-            if (temp.exists()) {
-                CSVReader teamReader = new CSVReader(new FileReader(temp));
-                List<String[]> team_num = teamReader.readAll();
-                dataArr = new String[team_num.size()][];
-                dataArr = team_num.toArray(dataArr);
-                String team = (dataArr[0][0]);
+        TextView redone = Objects.requireNonNull(getView()).findViewById(R.id.red1);
+        TextView redtwo = getView().findViewById(R.id.red2);
+        TextView redthree = getView().findViewById(R.id.red3);
+        TextView blueone = getView().findViewById(R.id.blue1);
+        TextView bluetwo = getView().findViewById(R.id.blue2);
+        TextView bluethree = getView().findViewById(R.id.blue3);
 
-                if (team.contentEquals(redone.getText())) {
-                    redone.setBackgroundTintList(getResources().getColorStateList(R.color.green,null));
+        File master_team = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC" + File.separator + "master_team.txt");
 
-                } else if (team.contentEquals(redtwo.getText()))
-                    redtwo.setBackgroundTintList(getResources().getColorStateList(R.color.green,null));
-                else if (team.contentEquals(redthree.getText()))
-                    redthree.setBackgroundTintList(getResources().getColorStateList(R.color.green,null));
-                else if (team.contentEquals(blueone.getText()))
-                    blueone.setBackgroundTintList(getResources().getColorStateList(R.color.green,null));
-                else if (team.contentEquals(bluetwo.getText()))
-                    bluetwo.setBackgroundTintList(getResources().getColorStateList(R.color.green,null));
-                else if (team.contentEquals(bluethree.getText()))
-                    bluethree.setBackgroundTintList(getResources().getColorStateList(R.color.green,null));
-                if (blueone.getBackgroundTintList() == getResources().getColorStateList(R.color.green,null)
-                        & bluetwo.getBackgroundTintList() == getResources().getColorStateList(R.color.green,null)
-                        & bluethree.getBackgroundTintList() == getResources().getColorStateList(R.color.green,null)
-                        & redone.getBackgroundTintList() == getResources().getColorStateList(R.color.green,null)
-                        & redtwo.getBackgroundTintList() == getResources().getColorStateList(R.color.green,null)
-                        & redthree.getBackgroundTintList() == getResources().getColorStateList(R.color.green,null)) {
-                    incrementmatch();
-                    temp.delete();
-                }
+        if (master_team.exists()) {
+            int length = (int) master_team.length();
+
+            byte[] bytes = new byte[length];
+
+            try {
+                FileInputStream in = new FileInputStream(master_team);
+                in.read(bytes);
+                in.close();
+            } catch (
+                    FileNotFoundException e){
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+            String team = new String(bytes);
+
+            if (team.contentEquals(redone.getText())) {
+                redone.setBackgroundTintList(getResources().getColorStateList(R.color.green,null));
+
+            } else if (team.contentEquals(redtwo.getText()))
+                redtwo.setBackgroundTintList(getResources().getColorStateList(R.color.green,null));
+            else if (team.contentEquals(redthree.getText()))
+                redthree.setBackgroundTintList(getResources().getColorStateList(R.color.green,null));
+            else if (team.contentEquals(blueone.getText()))
+                blueone.setBackgroundTintList(getResources().getColorStateList(R.color.green,null));
+            else if (team.contentEquals(bluetwo.getText()))
+                bluetwo.setBackgroundTintList(getResources().getColorStateList(R.color.green,null));
+            else if (team.contentEquals(bluethree.getText()))
+                bluethree.setBackgroundTintList(getResources().getColorStateList(R.color.green,null));
+            if (blueone.getBackgroundTintList() == getResources().getColorStateList(R.color.green,null)
+                    & bluetwo.getBackgroundTintList() == getResources().getColorStateList(R.color.green,null)
+                    & bluethree.getBackgroundTintList() == getResources().getColorStateList(R.color.green,null)
+                    & redone.getBackgroundTintList() == getResources().getColorStateList(R.color.green,null)
+                    & redtwo.getBackgroundTintList() == getResources().getColorStateList(R.color.green,null)
+                    & redthree.getBackgroundTintList() == getResources().getColorStateList(R.color.green,null)) {
+                incrementmatch();
+            }
+            master_team.delete();
         }
     }
 

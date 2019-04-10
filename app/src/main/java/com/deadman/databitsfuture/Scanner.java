@@ -11,6 +11,8 @@ import com.google.zxing.Result;
 import com.opencsv.CSVWriter;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -86,29 +88,20 @@ public class Scanner extends Activity implements ZXingScannerView.ResultHandler 
         }
         String splitted[] = results.split(",",2);
         String team = splitted[0];
-        File team_num = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator +"FRC"+File.separator+"temp.csv");
+        File master_team = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC" + File.separator + "master_team.txt");
         try {
-            FileWriter outputfile = new FileWriter(team_num, false);
-
-            CSVWriter writer = new CSVWriter(outputfile, ',',
-                    CSVWriter.NO_QUOTE_CHARACTER,
-                    CSVWriter.DEFAULT_ESCAPE_CHARACTER,
-                    "\r\n");
-            List<String[]> data = new ArrayList<>();
-            data.add(new String[] {team});
-            writer.writeAll(data);
-            writer.flush();
-            writer.close();
-
-        }
-        catch (IOException e)
-        {
+            FileOutputStream stream = new FileOutputStream(master_team);
+            stream.write(team.getBytes());
+            stream.close();
+        } catch (FileNotFoundException e){
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
         rescan(file.getAbsolutePath());
         rescan(upload.getAbsolutePath());
-        rescan(team_num.getAbsolutePath());
+        rescan(master_team.getAbsolutePath());
 
         this.onBackPressed();
     }

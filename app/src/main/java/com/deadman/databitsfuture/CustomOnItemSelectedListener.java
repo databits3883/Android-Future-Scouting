@@ -1,17 +1,28 @@
 package com.deadman.databitsfuture;
 
+import android.os.Environment;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 
-import com.github.kimkevin.cachepot.CachePot;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class CustomOnItemSelectedListener implements OnItemSelectedListener {
 
     public void onItemSelected(AdapterView<?> parent, View view, int pos,long id) {
-        Integer intobj = pos;
-        CachePot.getInstance().push(1,intobj);
-        CachePot.getInstance().push(2,intobj);
+        File position = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC" + File.separator + "device_position.txt");
+        try {
+            FileOutputStream stream = new FileOutputStream(position);
+            stream.write(Integer.toString(pos).getBytes());
+            stream.close();
+        } catch (FileNotFoundException e){
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

@@ -38,7 +38,6 @@ dependencies {
     implementation 'com.github.Mohammed-Alaa:RangeSeekBar:1.0.2'
     implementation 'com.github.travijuu:numberpicker:1.0.7'
     implementation 'com.github.chathuralakmal:AndroidImagePopup:1.2.1'
-    implementation 'com.github.kimkevin:cachepot:1.2.0'
     implementation group: 'com.opencsv', name: 'opencsv', version: '3.3'
     implementation 'me.dm7.barcodescanner:zxing:1.9.8'
     implementation 'com.google.android.gms:play-services-auth:16.0.1'

@@ -16,8 +16,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-import com.github.kimkevin.cachepot.CachePot;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -85,9 +83,6 @@ public class Welcome extends Fragment {
         spinner1.setAdapter(dataAdapter);
 
         spinner1.setOnItemSelectedListener(new CustomOnItemSelectedListener());
-
-        Integer intobj = spinner1.getSelectedItemPosition();
-        CachePot.getInstance().push(1,intobj);
     }
 
     private boolean practice_mode(){
