@@ -127,9 +127,9 @@ public class Crowd extends Fragment {
         logo.setClippingRect(new RectF(0, 0, 200, 200)); // crop the logo image before applying it to the QR code
 
         ColorQR color = new ColorQR();
-        color.setLight(0xFFFFFFFF); // for blank spaces
-        color.setDark(0xFFFF8C8C); // for non-blank spaces
-        color.setBackground(0xFFFFFFFF); // for the background (will be overridden by background images, if set)
+        color.setLight(getResources().getColor(R.color.white,null)); // for blank spaces
+        color.setDark(getResources().getColor(R.color.green_900,null)); // for non-blank spaces
+        color.setBackground(getResources().getColor(R.color.white,null)); // for the background (will be overridden by background images, if set)
         color.setAuto(false); // set to true to automatically pick out colors from the background image (will only work if background image is present)
 
         RenderOption renderOption = new RenderOption();
@@ -137,7 +137,7 @@ public class Crowd extends Fragment {
         renderOption.setSize(800); // size of the final QR code image
         renderOption.setBorderWidth(20); // width of the empty space around the QR code
         renderOption.setEcl(ErrorCorrectionLevel.M); // (optional) specify an error correction level
-        renderOption.setPatternScale(0.35f); // (optional) specify a scale for patterns
+        renderOption.setPatternScale(0.85f); // (optional) specify a scale for patterns
         renderOption.setRoundedPatterns(false); // (optional) if true, blocks will be drawn as dots instead
         renderOption.setClearBorder(true); // if set to true, the background will NOT be drawn on the border area
         renderOption.setColorQR(color); // set a colorQR palette for the QR code
