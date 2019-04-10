@@ -41,7 +41,7 @@ public class Welcome extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-        // Go Full screen and hide navbar
+        // Go Full screen
         View decorView = Objects.requireNonNull(getActivity()).getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
         decorView.setSystemUiVisibility(uiOptions);

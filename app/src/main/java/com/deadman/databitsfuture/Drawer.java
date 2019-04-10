@@ -48,6 +48,7 @@ public class Drawer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.drawer);
 
+        // Go Full screen
         View decorView = getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
         decorView.setSystemUiVisibility(uiOptions);
