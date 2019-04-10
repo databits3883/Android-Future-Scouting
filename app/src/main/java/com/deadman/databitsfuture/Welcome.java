@@ -2,12 +2,14 @@ package com.deadman.databitsfuture;
 
 import android.app.AlertDialog;
 import android.content.SharedPreferences;
+import android.media.MediaScannerConnection;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.os.Environment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -64,6 +66,7 @@ public class Welcome extends Fragment {
         SharedPreferences prefs = Objects.requireNonNull(getActivity()).getSharedPreferences("CurrentUser", MODE_PRIVATE);
         int pos = prefs.getInt("pos", 0);
         spinner1.setSelection(pos);
+        teams_nag();
     }
 
     private void spinnerinit(){
@@ -85,7 +88,6 @@ public class Welcome extends Fragment {
 
         Integer intobj = spinner1.getSelectedItemPosition();
         CachePot.getInstance().push(1,intobj);
-        CachePot.getInstance().push(2,intobj);
     }
 
     private boolean practice_mode(){
@@ -93,13 +95,23 @@ public class Welcome extends Fragment {
         return spinner1.getSelectedItemPosition() == 0;
     }
 
-    private void mkdirs(){
+    private void teams_nag(){
+        File teams = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC" + File.separator + "teams.csv");
+        if(!teams.exists() & (!practice_mode())){
+            new AlertDialog.Builder(getContext())
+                    .setMessage(R.string.confirm_missing_team_dialog_message)
+                    .setTitle(R.string.confirm_missing_team_dialog_title)
+                    .setPositiveButton(R.string.missing_team_export, (dialog, id) -> {
+                    })
+                    .show();
+        }
+    }
 
+    private void mkdirs(){
         // Create the FRC folders in case they are missing, complain if teams.csv is missing as well
         File frc = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC");
         File robots = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC" + File.separator + "Robots");
         File qr = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC" + File.separator + "QR");
-        File teams = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC" + File.separator + "teams.csv");
         if (!frc.exists()) {
             frc.mkdirs();
         }
@@ -109,13 +121,19 @@ public class Welcome extends Fragment {
         if (!qr.exists()) {
             qr.mkdirs();
         }
-        if(!teams.exists() & (practice_mode())){
-            new AlertDialog.Builder(getContext())
-                    .setMessage(R.string.confirm_missing_team_dialog_message)
-                    .setTitle(R.string.confirm_missing_team_dialog_title)
-                    .setPositiveButton(R.string.missing_team_export, (dialog, id) -> {
-                    })
-                    .show();
-        }
+
+        rescan(frc.getAbsolutePath());
+        rescan(robots.getAbsolutePath());
+        rescan(qr.getAbsolutePath());
+    }
+
+    // Function to scan the edited file so it shows up right away in MTP/OTG
+    private void rescan(String file){
+        MediaScannerConnection.scanFile(getContext(),
+                new String[] {file}, null,
+                (path, uri) -> {
+                    Log.i("ExternalStorage", "Scanned " + path + ":");
+                    Log.i("ExternalStorage", "-> uri=" + uri);
+                });
     }
 }
