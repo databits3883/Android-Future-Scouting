@@ -346,40 +346,58 @@ public class Master extends Fragment {
          * Write to the sheet
          */
         private List<String> writeDatatoApi() {
-            String spreadsheetId = "1prtvkrh64TG_9wgz51o2N6GwJhwGK3-03Jcuw0HvMJo";
-            String range = "Sheet1!A1:T700";
 
+            File upload_id = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC" + File.separator + "misc" + File.separator + "upload_id.txt");
             List<String> results = new ArrayList<>();
-            ValueRange valueRange = new ValueRange();
-            try {
-                // Reading CSV into a list
-                File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator + "FRC" + File.separator + "misc" + File.separator + "upload.csv");
-                if (file.exists()) {
-                    CSVReader csvReader = new CSVReader(new FileReader(file));
-                    List<String[]> list = csvReader.readAll();
+            if (upload_id.exists()) {
+                int length = (int) upload_id.length();
 
-                    // Make sure the list has values
-                    if (list.size() > 0) {
-                        List upload = new ArrayList<String>();
+                byte[] bytes = new byte[length];
 
-                        // Reformatting from String Array to Array of Strings
-                        for (String[] aDataArr : list) {
-                            upload.add(Arrays.asList(aDataArr));
-                        }
-
-                        // Set the value range to our data
-                        valueRange.setValues(upload);
-
-                        // Command to upload the data to google sheets
-                        this.mService.spreadsheets().values().append(spreadsheetId, range, valueRange)
-                                .setValueInputOption("RAW")
-                                .execute();
-                        file.delete();
-                    }
+                try {
+                    FileInputStream in = new FileInputStream(upload_id);
+                    in.read(bytes);
+                    in.close();
+                } catch (
+                        FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
+                String spreadsheetId = new String(bytes);
 
-            } catch (IOException e) {
-                e.printStackTrace();
+                String range = "RawData!A1:T700";
+                ValueRange valueRange = new ValueRange();
+                try {
+                    // Reading CSV into a list
+                    File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "FRC" + File.separator + "misc" + File.separator + "upload.csv");
+                    if (file.exists()) {
+                        CSVReader csvReader = new CSVReader(new FileReader(file));
+                        List<String[]> list = csvReader.readAll();
+
+                        // Make sure the list has values
+                        if (list.size() > 0) {
+                            List upload = new ArrayList<String>();
+
+                            // Reformatting from String Array to Array of Strings
+                            for (String[] aDataArr : list) {
+                                upload.add(Arrays.asList(aDataArr));
+                            }
+
+                            // Set the value range to our data
+                            valueRange.setValues(upload);
+
+                            // Command to upload the data to google sheets
+                            this.mService.spreadsheets().values().append(spreadsheetId, range, valueRange)
+                                    .setValueInputOption("RAW")
+                                    .execute();
+                            file.delete();
+                        }
+                    }
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
             return results;
         }

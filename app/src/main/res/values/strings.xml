@@ -12,6 +12,11 @@
     <string name="position_title">Select the devices position</string>
     <string name="choose_position">Choose the position for the tablet</string>
 
+    <!-- NumberPicker Text -->
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="one">1</string>
+
     <!-- Pit Scouting Text -->
     <string name="pit_general_info">General Info</string>
     <string name="pit_expected_perf">Expected Performance</string>
@@ -89,13 +94,15 @@
     <string name="scan_qr_code">Scan QR Code</string>
 
     <!-- Settings Text -->
-    <string name="pressing_this_button_will_wupe_all_scouting_data_on_this_device">Pressing this button will wipe all scouting data on this device</string>
-    <string name="remove_all_data">Remove all data</string>
-    <string name="confirm_dialog_message">Are you sure you want to do this? Make sure all collected data
-    has been saved elsewhere before doing this</string>
-    <string name="confirm_dialog_title">Remove all collected scouting data</string>
+    <string name="config_id_button">Test/Set config Spreadsheet</string>
+    <string name="config_id_title">Please enter your config spreadsheet ID below</string>
     <string name="confirm">I\'m Sorry</string>
-    <string name="plus">+</string>
-    <string name="minus">-</string>
-    <string name="one">1</string>
+    <string name="confirm_dialog_message">Are you sure you want to do this? Make sure all collected data
+        has been saved elsewhere before doing this</string>
+    <string name="confirm_dialog_title">Remove all collected scouting data</string>
+    <string name="delete_data_button">Remove all data</string>
+    <string name="delete_data_title">Pressing this button will wipe all scouting data on this device</string>
+    <string name="download_teams_button">Download latest Team Info</string>
+    <string name="download_teams_title">Requires a vaild config spreadsheet</string>
+    <string name="spreadsheet_id">Spreadsheet ID</string>
 </resources>
