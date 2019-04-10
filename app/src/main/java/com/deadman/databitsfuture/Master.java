@@ -42,7 +42,6 @@ import com.google.api.services.sheets.v4.model.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -168,7 +167,7 @@ public class Master extends Fragment {
         TextView bluetwo = getView().findViewById(R.id.blue2);
         TextView bluethree = getView().findViewById(R.id.blue3);
 
-        File master_team = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC" + File.separator + "master_team.txt");
+        File master_team = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC" + File.separator + "misc" + File.separator + "master_team.txt");
 
         if (master_team.exists()) {
             int length = (int) master_team.length();
@@ -354,7 +353,7 @@ public class Master extends Fragment {
             ValueRange valueRange = new ValueRange();
             try {
                 // Reading CSV into a list
-                File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator +"FRC"+File.separator+"upload.csv");
+                File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator + "FRC" + File.separator + "misc" + File.separator + "upload.csv");
                 if (file.exists()) {
                     CSVReader csvReader = new CSVReader(new FileReader(file));
                     List<String[]> list = csvReader.readAll();

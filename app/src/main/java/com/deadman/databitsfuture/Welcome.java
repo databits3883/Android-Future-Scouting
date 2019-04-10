@@ -107,6 +107,7 @@ public class Welcome extends Fragment {
         File frc = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC");
         File robots = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC" + File.separator + "Robots");
         File qr = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC" + File.separator + "QR");
+        File misc = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC" + File.separator + "misc");
         if (!frc.exists()) {
             frc.mkdirs();
         }
@@ -116,10 +117,14 @@ public class Welcome extends Fragment {
         if (!qr.exists()) {
             qr.mkdirs();
         }
+        if (!misc.exists()) {
+            misc.mkdirs();
+        }
 
         rescan(frc.getAbsolutePath());
         rescan(robots.getAbsolutePath());
         rescan(qr.getAbsolutePath());
+        rescan(misc.getAbsolutePath());
     }
 
     // Function to scan the edited file so it shows up right away in MTP/OTG

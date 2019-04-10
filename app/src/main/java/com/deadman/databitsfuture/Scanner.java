@@ -53,8 +53,8 @@ public class Scanner extends Activity implements ZXingScannerView.ResultHandler 
     public void handleResult(Result rawResult) {
 
         String results = rawResult.getText();
-        File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator +"FRC"+File.separator+"stats.csv");
-        File upload = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator +"FRC"+File.separator+"upload.csv");
+        File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator +"FRC"+ File.separator + "stats.csv");
+        File upload = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator +"FRC" + File.separator + "misc" + File.separator + "upload.csv");
         try {
             FileWriter outputfile = new FileWriter(file, true);
             FileWriter uploadfile = new FileWriter(upload, true);
@@ -88,7 +88,7 @@ public class Scanner extends Activity implements ZXingScannerView.ResultHandler 
         }
         String splitted[] = results.split(",",2);
         String team = splitted[0];
-        File master_team = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC" + File.separator + "master_team.txt");
+        File master_team = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC" + File.separator + "misc" + File.separator + "master_team.txt");
         try {
             FileOutputStream stream = new FileOutputStream(master_team);
             stream.write(team.getBytes());

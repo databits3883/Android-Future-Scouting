@@ -91,7 +91,7 @@ public class Crowd extends Fragment {
     }
 
     private int getposition(){
-        File position = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC" + File.separator + "device_position.txt");
+        File position = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC" + File.separator + "misc" + File.separator + "device_position.txt");
         int length = (int) position.length();
 
         byte[] bytes = new byte[length];
@@ -107,6 +107,8 @@ public class Crowd extends Fragment {
             e.printStackTrace();
         }
         String contents = new String(bytes);
+
+        rescan(position.getAbsolutePath());
 
         return Integer.parseInt(contents);
     }

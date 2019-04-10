@@ -13,7 +13,7 @@ import java.io.IOException;
 public class CustomOnItemSelectedListener implements OnItemSelectedListener {
 
     public void onItemSelected(AdapterView<?> parent, View view, int pos,long id) {
-        File position = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC" + File.separator + "device_position.txt");
+        File position = new File(Environment.getExternalStorageDirectory() + File.separator + "FRC" + File.separator + "misc" + File.separator + "device_position.txt");
         try {
             FileOutputStream stream = new FileOutputStream(position);
             stream.write(Integer.toString(pos).getBytes());
