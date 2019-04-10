@@ -118,21 +118,34 @@ public class Settings extends Fragment {
     }
 
 
-    // Remove the stats.csv file to prepare for the next competition
+    // Remove the FRC folder
     private void delete() {
         new AlertDialog.Builder(getContext())
                 .setMessage(R.string.confirm_dialog_message)
                 .setTitle(R.string.confirm_dialog_title)
                 .setPositiveButton(R.string.confirm, (dialog, id) -> {
-                    File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "Download" + File.separator + "stats.csv");
-                    File file2 = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "Download" + File.separator + "crowd_data.csv");
-                    file.delete();
-                    file2.delete();
+                    File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "FRC");
+                    // Delete the files
+                    deleteRecursive(file);
+                    // Relaunch the app so the basic structure is made
+                    Intent intent = getActivity().getBaseContext().getPackageManager().getLaunchIntentForPackage(
+                            getActivity().getBaseContext().getPackageName() );
+                    intent .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
                 })
                 .setNegativeButton(R.string.cancel, (dialog, id) -> {
                     // CANCEL
                 })
                 .show();
+    }
+
+    private void deleteRecursive(File fileOrDirectory) {
+        if (fileOrDirectory.isDirectory())
+            for (File child : fileOrDirectory.listFiles())
+                deleteRecursive(child);
+
+        fileOrDirectory.delete();
     }
 
     // Function to scan the edited file so it shows up right away in MTP/OTG

@@ -83,7 +83,6 @@
     <string name="confirm_export_dialog_message">Are you sure you want export the data?</string>
     <string name="confirm_export_dialog_title">Exporting your collected data</string>
     <string name="confirm_export">Yes i am ready</string>
-    <string name="cancel">I have more data to enter</string>
     <string name="crowd_header">Team,Match,Top Hatch,Middle Hatch,Bottom Hatch,Ship Hatch,Top Cargo,Middle Cargo,Bottom Cargo,Ship Cargo,Total Hatches,Total Cargo,All Cargo/Hatches,Launch Position,Climb Level,Moving in Sandstorm,Played Defense,Failed to climb,Data Entered by,Match Comments</string>
 
     <!-- Master Text -->
@@ -96,10 +95,12 @@
     <!-- Settings Text -->
     <string name="config_id_button">Test/Set config Spreadsheet</string>
     <string name="config_id_title">Please enter your config spreadsheet ID below</string>
-    <string name="confirm">I\'m Sorry</string>
-    <string name="confirm_dialog_message">Are you sure you want to do this? Make sure all collected data
-        has been saved elsewhere before doing this</string>
-    <string name="confirm_dialog_title">Remove all collected scouting data</string>
+    <string name="confirm">Yes I am sure!</string>
+    <string name="cancel">No! Cancel I didn\'t know</string>
+    <string name="confirm_dialog_message">Are you sure you want to do this? Make sure all collected
+        data has been saved elsewhere this will reset the app to new installed state.\n\nThe app will
+        restart itself after pressing this.</string>
+    <string name="confirm_dialog_title">Remove all Application data including scouting data</string>
     <string name="delete_data_button">Remove all data</string>
     <string name="delete_data_title">Pressing this button will wipe all scouting data on this device</string>
     <string name="download_teams_button">Download latest Team Info</string>
