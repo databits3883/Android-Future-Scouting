@@ -516,7 +516,7 @@
             android:layout_weight="1"
             android:padding="8dp"
             app:selectedTextColor="@color/white"
-            app:text="@string/nothing"
+            app:text="@string/none_newline"
             app:textColor="@color/black"
             app:textSize="13sp" />
 
@@ -526,7 +526,7 @@
             android:layout_weight="1"
             android:padding="8dp"
             app:selectedTextColor="@color/white"
-            app:text="@string/cams"
+            app:text="@string/cam"
             app:textColor="@color/black"
             app:textSize="13sp" />
 
@@ -775,12 +775,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/pit_save"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline12" />
 
     <View
         android:id="@+id/view6"
@@ -807,9 +809,8 @@
         android:id="@+id/view8"
         style="@style/dividerVertical"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
         android:background="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/guideline12"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline8" />
@@ -885,5 +886,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline12" />
+
+    <Button
+        android:id="@+id/pit_upload_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/upload_data"
+        app:layout_constraintBaseline_toBaselineOf="@+id/save_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
