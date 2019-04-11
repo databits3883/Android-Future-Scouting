@@ -1,109 +1,109 @@
 <resources>
-    <string name="app_name">Databits Scouting</string>
+  <string name="app_name">Databits Scouting</string>
 
-    <!-- Welcome Page Text -->
-    <string name="Intro_text">Select the 3 lines in the top left to open the menu</string>
-    <string name="intro_welcome">Welcome to the Team 3883 Scouting App</string>
-    <string name="confirm_missing_team_dialog_title">Missing file!</string>
-    <string name="confirm_missing_team_dialog_message">You are missing the teams.csv file in /sdcard/FRC\n\nPlease go to Settings and download the latest one</string>
-    <string name="missing_team_export">OK Sounds good</string>
+  <!-- Welcome Page Text -->
+  <string name="Intro_text">Select the 3 lines in the top left to open the menu</string>
+  <string name="intro_welcome">Welcome to the Team 3883 Scouting App</string>
+  <string name="confirm_missing_team_dialog_title">Missing file!</string>
+  <string name="confirm_missing_team_dialog_message">You are missing the teams.csv file in /sdcard/FRC\n\nPlease go to Settings and download the latest one</string>
+  <string name="missing_team_export">OK Sounds good</string>
 
-    <!-- Position Selector Text -->
-    <string name="position_title">Select the devices position</string>
-    <string name="choose_position">Choose the position for the tablet</string>
+  <!-- Position Selector Text -->
+  <string name="position_title">Select the devices position</string>
+  <string name="choose_position">Choose the position for the tablet</string>
 
-    <!-- NumberPicker Text -->
-    <string name="plus">+</string>
-    <string name="minus">-</string>
-    <string name="one">1</string>
+  <!-- NumberPicker Text -->
+  <string name="plus">+</string>
+  <string name="minus">-</string>
+  <string name="one">1</string>
 
-    <!-- Pit Scouting Text -->
-    <string name="pit_general_info">General Info</string>
-    <string name="pit_expected_perf">Expected Performance</string>
-    <string name="pit_team_number">Team Number</string>
-    <string name="pit_person">Person entering data</string>
-    <string name="pit_drivetrain">Drive Train Style</string>
-    <string name="pit_style">Choose one</string>
-    <string name="pit_hatches">Hatches</string>
-    <string name="pit_cargo">Cargo</string>
-    <string name="pit_launch">Launch Position</string>
-    <string name="pit_vision">Type of Vision</string>
-    <string name="pit_sandstorm">Sandstorm Control Method</string>
-    <string name="pit_max_rocket">Max Level Rocket</string>
-    <string name="pit_max_climb">Max Level Climb</string>
-    <string name="pit_comments">Comments</string>
-    <string name="pit_picture">Robot Picture</string>
-    <string name="pit_save">Save collected data</string>
-    <string name="levelone">Level 1</string>
-    <string name="leveltwo">Level 2</string>
-    <string name="levelthree">Level 3</string>
-    <string name="levelone_phone">Lvl 1</string>
-    <string name="leveltwo_phone">Lvl 2</string>
-    <string name="levelthree_phone">Lvl 3</string>
-    <string name="nothing">Nothing</string>
-    <string name="none">None</string>
-    <string name="none_newline">No\nVision</string>
-    <string name="auto">Autonomous</string>
-    <string name="auto_phone">Auto</string>
-    <string name="autocamera">Auto/Camera</string>
-    <string name="autocamera_phone">Both</string>
-    <string name="cam">Camera\nOnly</string>
-    <string name="cams">Camera</string>
-    <string name="multicam">Multi\ncam</string>
-    <string name="limelight">Lime\nlight</string>
-    <string name="station">Station</string>
-    <string name="ground">Ground</string>
-    <string name="pit_header">Team,Drive Train,Launch Position,Type of Vision,Sandstorm Control Method,Max level on the rocket,Max climb level,Hatch from Ground, Hatch from station,Cargo from ground, Cargo from station, Number of hatches,Number of cargo,Person Entering data, Comments</string>
+  <!-- Pit Scouting Text -->
+  <string name="pit_general_info">General Info</string>
+  <string name="pit_expected_perf">Expected Performance</string>
+  <string name="pit_team_number">Team Number</string>
+  <string name="pit_person">Person entering data</string>
+  <string name="pit_drivetrain">Drive Train Style</string>
+  <string name="pit_style">Choose one</string>
+  <string name="pit_hatches">Hatches</string>
+  <string name="pit_cargo">Cargo</string>
+  <string name="pit_launch">Launch Position</string>
+  <string name="pit_vision">Type of Vision</string>
+  <string name="pit_sandstorm">Sandstorm Control Method</string>
+  <string name="pit_max_rocket">Max Level Rocket</string>
+  <string name="pit_max_climb">Max Level Climb</string>
+  <string name="pit_comments">Comments</string>
+  <string name="pit_picture">Robot Picture</string>
+  <string name="pit_save">Save collected data</string>
+  <string name="levelone">Level 1</string>
+  <string name="leveltwo">Level 2</string>
+  <string name="levelthree">Level 3</string>
+  <string name="levelone_phone">Lvl 1</string>
+  <string name="leveltwo_phone">Lvl 2</string>
+  <string name="levelthree_phone">Lvl 3</string>
+  <string name="nothing">Nothing</string>
+  <string name="none">None</string>
+  <string name="none_newline">No\nVision</string>
+  <string name="auto">Autonomous</string>
+  <string name="auto_phone">Auto</string>
+  <string name="autocamera">Auto/Camera</string>
+  <string name="autocamera_phone">Both</string>
+  <string name="cam">Camera\nOnly</string>
+  <string name="cams">Camera</string>
+  <string name="multicam">Multi\ncam</string>
+  <string name="limelight">Lime\nlight</string>
+  <string name="station">Station</string>
+  <string name="ground">Ground</string>
+  <string name="pit_header">Team,Drive Train,Launch Position,Type of Vision,Sandstorm Control Method,Max level on the rocket,Max climb level,Hatch from Ground, Hatch from station,Cargo from ground, Cargo from station, Number of hatches,Number of cargo,Person Entering data, Comments</string>
 
-    <!-- Crowd Scouting Text -->
-    <string name="playing_defense">Playing Defense</string>
-    <string name="failed">Failed</string>
-    <string name="comments">Comments</string>
-    <string name="export_to_master_device">Export to Master\n %1$s</string>
-    <string name="cargo_ship_cargo">Cargo Ship Cargo</string>
-    <string name="rocket_top_cargo">Rocket Top Cargo</string>
-    <string name="rocket_middle_cargo">Rocket Middle Cargo</string>
-    <string name="rocket_bottom_cargo">Rocket Bottom Cargo</string>
-    <string name="climb_level">Climb Level</string>
-    <string name="name">Name</string>
-    <string name="team">Team</string>
-    <string name="match">Match</string>
-    <string name="launch_position">Launch Position</string>
-    <string name="rocket_top_hatch">Rocket Top Hatch</string>
-    <string name="rocket_middle_hatch">Rocket Middle Hatch</string>
-    <string name="rocket_bottom_hatch">Rocket Bottom Hatch</string>
-    <string name="cargo_ship_hatch">Cargo Ship Hatch</string>
-    <string name="moving_in_sandstorm">Moving in Sandstorm</string>
-    <string name="Initial_name">Enter your name</string>
-    <string name="comment_initial">Any extra info</string>
-    <string name="yes">Yes</string>
-    <string name="no">No</string>
-    <string name="team_hint">Enter your team</string>
-    <string name="display_qr_code">Display the last QR Code</string>
-    <string name="confirm_export_dialog_message">Are you sure you want export the data?</string>
-    <string name="confirm_export_dialog_title">Exporting your collected data</string>
-    <string name="confirm_export">Yes i am ready</string>
-    <string name="crowd_header">Team,Match,Top Hatch,Middle Hatch,Bottom Hatch,Ship Hatch,Top Cargo,Middle Cargo,Bottom Cargo,Ship Cargo,Total Hatches,Total Cargo,All Cargo/Hatches,Launch Position,Climb Level,Moving in Sandstorm,Played Defense,Failed to climb,Data Entered by,Match Comments</string>
+  <!-- Crowd Scouting Text -->
+  <string name="playing_defense">Playing Defense</string>
+  <string name="failed">Failed</string>
+  <string name="comments">Comments</string>
+  <string name="export_to_master_device">Export to Master\n %1$s</string>
+  <string name="cargo_ship_cargo">Cargo Ship Cargo</string>
+  <string name="rocket_top_cargo">Rocket Top Cargo</string>
+  <string name="rocket_middle_cargo">Rocket Middle Cargo</string>
+  <string name="rocket_bottom_cargo">Rocket Bottom Cargo</string>
+  <string name="climb_level">Climb Level</string>
+  <string name="name">Name</string>
+  <string name="team">Team</string>
+  <string name="match">Match</string>
+  <string name="launch_position">Launch Position</string>
+  <string name="rocket_top_hatch">Rocket Top Hatch</string>
+  <string name="rocket_middle_hatch">Rocket Middle Hatch</string>
+  <string name="rocket_bottom_hatch">Rocket Bottom Hatch</string>
+  <string name="cargo_ship_hatch">Cargo Ship Hatch</string>
+  <string name="moving_in_sandstorm">Moving in Sandstorm</string>
+  <string name="Initial_name">Enter your name</string>
+  <string name="comment_initial">Any extra info</string>
+  <string name="yes">Yes</string>
+  <string name="no">No</string>
+  <string name="team_hint">Enter your team</string>
+  <string name="display_qr_code">Display the last QR Code</string>
+  <string name="confirm_export_dialog_message">Are you sure you want export the data?</string>
+  <string name="confirm_export_dialog_title">Exporting your collected data</string>
+  <string name="confirm_export">Yes i am ready</string>
+  <string name="crowd_header">Team,Match,Top Hatch,Middle Hatch,Bottom Hatch,Ship Hatch,Top Cargo,Middle Cargo,Bottom Cargo,Ship Cargo,Total Hatches,Total Cargo,All Cargo/Hatches,Launch Position,Climb Level,Moving in Sandstorm,Played Defense,Failed to climb,Data Entered by,Match Comments</string>
 
-    <!-- Master Text -->
-    <string name="master_placeholder">Team</string>
-    <string name="teams_for_this_match">Teams for this match</string>
-    <string name="import_data">Import Data</string>
-    <string name="upload_data">Upload Data</string>
-    <string name="scan_qr_code">Scan QR Code</string>
+  <!-- Master Text -->
+  <string name="master_placeholder">Team</string>
+  <string name="teams_for_this_match">Teams for this match</string>
+  <string name="import_data">Import Data</string>
+  <string name="upload_data">Upload Data</string>
+  <string name="scan_qr_code">Scan QR Code</string>
 
-    <!-- Settings Text -->
-    <string name="config_id_button">Test/Set config Spreadsheet</string>
-    <string name="config_id_title">Please enter your config spreadsheet ID below</string>
-    <string name="confirm">Yes I am sure!</string>
-    <string name="cancel">No! Cancel I didn\'t know</string>
-    <string name="confirm_dialog_message">Are you sure you want to do this? Make sure all collected
+  <!-- Settings Text -->
+  <string name="config_id_button">Test/Set config Spreadsheet</string>
+  <string name="config_id_title">Please enter your config spreadsheet ID below</string>
+  <string name="confirm">Yes I am sure!</string>
+  <string name="cancel">No! Cancel I didn\'t know</string>
+  <string name="confirm_dialog_message">Are you sure you want to do this? Make sure all collected
         data has been saved elsewhere this will reset the app to new installed state.\n\nThe app will
         restart itself after pressing this.</string>
-    <string name="confirm_dialog_title">Remove all Application data including scouting data</string>
-    <string name="delete_data_button">Remove all data</string>
-    <string name="delete_data_title">Pressing this button will wipe all scouting data on this device</string>
-    <string name="download_teams_button">Download latest Team Info</string>
-    <string name="download_teams_title">Requires a vaild config spreadsheet</string>
-    <string name="spreadsheet_id">Spreadsheet ID</string>
+  <string name="confirm_dialog_title">Remove all Application data including scouting data</string>
+  <string name="delete_data_button">Remove all data</string>
+  <string name="delete_data_title">Pressing this button will wipe all scouting data on this device</string>
+  <string name="download_teams_button">Download latest Team Info</string>
+  <string name="download_teams_title">Requires a vaild config spreadsheet</string>
+  <string name="spreadsheet_id">Spreadsheet ID</string>
 </resources>

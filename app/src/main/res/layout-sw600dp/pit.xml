@@ -1,901 +1,901 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Pit">
-
-    <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
-        android:id="@+id/comment_text"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:hasClearButton="true"
-        app:labelText="Any Additional comments"
-        app:layout_constraintBottom_toTopOf="@+id/guideline12"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toTopOf="@+id/guideline11">
-
-        <studio.carbonylgroup.textfieldboxes.ExtendedEditText
-            android:id="@+id/comment_extended_edit_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:imeOptions="actionDone" />
-
-    </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.50" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp"
-        app:layout_constraintGuide_percent="0.05" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.15" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp"
-        app:layout_constraintGuide_percent="0.30" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp"
-        app:layout_constraintGuide_percent="0.35" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp"
-        app:layout_constraintGuide_percent="0.50" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp"
-        app:layout_constraintGuide_percent="0.65" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp"
-        app:layout_constraintGuide_percent="0.80" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp"
-        app:layout_constraintGuide_percent="0.90" />
-
-    <TextView
-        android:id="@+id/info_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/pit_general_info"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/team_num"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/pit_team_number"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/meterView"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="0.47"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <com.alexzaitsev.meternumberpicker.MeterView
-        android:id="@+id/meterView"
-        style="@style/Tablet_team_MeterViewStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline6"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline5"
-        app:layout_constraintVertical_bias="0.92" />
-
-    <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
-        android:id="@+id/name_text"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="8dp"
-        app:hasClearButton="true"
-        app:labelText="Enter your name"
-        app:layout_constraintBottom_toTopOf="@+id/guideline6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toTopOf="@+id/guideline5">
-
-        <studio.carbonylgroup.textfieldboxes.ExtendedEditText
-            android:id="@+id/extended_edit_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:imeOptions="actionDone" />
-
-    </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
-
-    <TextView
-        android:id="@+id/pit_drivetrain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/pit_drivetrain"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/spinner1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline6"
-        app:layout_constraintVertical_bias="0.288" />
-
-    <Spinner
-        android:id="@+id/spinner1"
-        android:layout_width="200dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="28dp"
-        android:background="@android:color/darker_gray"
-        android:prompt="@string/pit_style"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/guideline7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/perf_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/pit_expected_perf"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/hatch_station"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/station"
-        android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/pit_hatches"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintStart_toEndOf="@+id/pit_hatches" />
-
-    <vn.luongvo.widget.iosswitchview.SwitchView
-        android:id="@+id/hatch_station_switch"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        app:checked="false"
-        app:color_off="@color/switchon"
-        app:color_on="@color/switchoff"
-        app:layout_constraintBottom_toTopOf="@+id/guideline9"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="0.841"
-        app:layout_constraintStart_toEndOf="@+id/hatch_ground_switch"
-        app:layout_constraintTop_toBottomOf="@+id/hatch_station"
-        app:layout_constraintVertical_bias="0.253" />
-
-    <TextView
-        android:id="@+id/hatch_ground"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/ground"
-        android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/pit_hatches"
-        app:layout_constraintEnd_toStartOf="@+id/pit_hatches"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <vn.luongvo.widget.iosswitchview.SwitchView
-        android:id="@+id/hatch_ground_switch"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        app:checked="false"
-        app:color_off="@color/switchon"
-        app:color_on="@color/switchoff"
-        app:layout_constraintBottom_toTopOf="@+id/guideline9"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="0.116"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hatch_ground"
-        app:layout_constraintVertical_bias="0.253" />
-
-    <TextView
-        android:id="@+id/pit_hatches"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/pit_hatches"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline8" />
-
-    <com.mohammedalaa.seekbar.RangeSeekBarView
-        android:id="@+id/hatch_seekbar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="8dp"
-        app:barHeight="@dimen/value_bar_barHeight"
-        app:baseColor="@color/navy"
-        app:circleRadius="@dimen/value_bar_circleRadius"
-        app:circleTextColor="@color/white"
-        app:circleTextSize="@dimen/value_bar_circleTextSize"
-        app:currentValue="0"
-        app:fillColor="@color/red"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pit_hatches"
-        app:maxValue="20"
-        app:minValue="0"
-        app:stepValue="1" />
-
-
-    <TextView
-        android:id="@+id/cargo_ground"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/ground"
-        android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/pit_cargo"
-        app:layout_constraintEnd_toStartOf="@+id/pit_cargo"
-        app:layout_constraintStart_toStartOf="@+id/guideline4" />
-
-    <vn.luongvo.widget.iosswitchview.SwitchView
-        android:id="@+id/cargo_ground_switch"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        app:checked="false"
-        app:color_off="@color/switchon"
-        app:color_on="@color/switchoff"
-        app:layout_constraintBottom_toTopOf="@+id/guideline9"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.148"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/cargo_ground"
-        app:layout_constraintVertical_bias="0.253" />
-
-    <TextView
-        android:id="@+id/cargo_station"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/station"
-        android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/pit_cargo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/pit_cargo" />
-
-    <vn.luongvo.widget.iosswitchview.SwitchView
-        android:id="@+id/cargo_station_switch"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        app:checked="false"
-        app:color_off="@color/switchon"
-        app:color_on="@color/switchoff"
-        app:layout_constraintBottom_toTopOf="@+id/guideline9"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.792"
-        app:layout_constraintStart_toEndOf="@+id/cargo_ground_switch"
-        app:layout_constraintTop_toBottomOf="@+id/cargo_station"
-        app:layout_constraintVertical_bias="0.253" />
-
-    <com.mohammedalaa.seekbar.RangeSeekBarView
-        android:id="@+id/cargo_seekbar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="8dp"
-        app:barHeight="@dimen/value_bar_barHeight"
-        app:baseColor="@color/navy"
-        app:circleRadius="@dimen/value_bar_circleRadius"
-        app:circleTextColor="@color/white"
-        app:circleTextSize="@dimen/value_bar_circleTextSize"
-        app:currentValue="0"
-        app:fillColor="@color/red"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/pit_cargo"
-        app:maxValue="20"
-        app:minValue="0"
-        app:stepValue="1" />
-
-    <TextView
-        android:id="@+id/pit_cargo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/pit_cargo"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/pit_hatches"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline4" />
-
-    <!-- app:progressText="xxx" -->
-
-    <TextView
-        android:id="@+id/pit_launch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/pit_launch"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonGroup_launch"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline9" />
-
-    <com.addisonelliott.segmentedbutton.SegmentedButtonGroup
-        android:id="@+id/buttonGroup_launch"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="20dp"
-        android:elevation="2dp"
-        app:background="@color/White"
-        app:divider="@color/grey_900"
-        app:dividerPadding="10dp"
-        app:dividerWidth="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline10"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:position="1"
-        app:radius="2dp"
-        app:ripple="true"
-        app:rippleColor="@color/grey_500"
-        app:selectedBackground="@color/green_900"
-        app:selectionAnimationDuration="250"
-        app:selectionAnimationInterpolator="fastOutSlowIn">
-
-        <com.addisonelliott.segmentedbutton.SegmentedButton
-            android:layout_width="6dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="8dp"
-            app:selectedTextColor="@color/white"
-            app:text="@string/levelone"
-            app:textColor="@color/black"
-            app:textSize="13sp" />
-
-        <com.addisonelliott.segmentedbutton.SegmentedButton
-            android:layout_width="7dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="8dp"
-            app:selectedTextColor="@color/white"
-            app:text="@string/leveltwo"
-            app:textColor="@color/black"
-            app:textSize="13sp" />
-
-        <com.addisonelliott.segmentedbutton.SegmentedButton
-            android:layout_width="7dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="8dp"
-            app:selectedTextColor="@color/white"
-            app:text="@string/levelthree"
-            app:textColor="@color/black"
-            app:textSize="13sp" />
-
-    </com.addisonelliott.segmentedbutton.SegmentedButtonGroup>
-
-
-    <TextView
-        android:id="@+id/pit_vision"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/pit_vision"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonGroup_vision"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toTopOf="@+id/guideline9" />
-
-    <com.addisonelliott.segmentedbutton.SegmentedButtonGroup
-        android:id="@+id/buttonGroup_vision"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="20dp"
-        android:elevation="2dp"
-        app:background="@color/White"
-        app:divider="@color/grey_900"
-        app:dividerPadding="10dp"
-        app:dividerWidth="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:position="1"
-        app:radius="2dp"
-        app:ripple="true"
-        app:rippleColor="@color/grey_500"
-        app:selectedBackground="@color/green_900"
-        app:selectionAnimationDuration="250"
-        app:selectionAnimationInterpolator="fastOutSlowIn">
-
-        <com.addisonelliott.segmentedbutton.SegmentedButton
-            android:layout_width="6dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="8dp"
-            app:selectedTextColor="@color/white"
-            app:text="@string/none_newline"
-            app:textColor="@color/black"
-            app:textSize="13sp" />
-
-        <com.addisonelliott.segmentedbutton.SegmentedButton
-            android:layout_width="7dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="8dp"
-            app:selectedTextColor="@color/white"
-            app:text="@string/cam"
-            app:textColor="@color/black"
-            app:textSize="13sp" />
-
-        <com.addisonelliott.segmentedbutton.SegmentedButton
-            android:layout_width="7dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="8dp"
-            app:selectedTextColor="@color/white"
-            app:text="@string/multicam"
-            app:textColor="@color/black"
-            app:textSize="13sp" />
-
-        <com.addisonelliott.segmentedbutton.SegmentedButton
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="8dp"
-            app:selectedTextColor="@color/white"
-            app:text="@string/limelight"
-            app:textColor="@color/black"
-            app:textSize="13sp" />
-
-    </com.addisonelliott.segmentedbutton.SegmentedButtonGroup>
-
-    <TextView
-        android:id="@+id/pit_sandstorm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/pit_sandstorm"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonGroup_pit_sandstorm"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline10" />
-
-    <com.addisonelliott.segmentedbutton.SegmentedButtonGroup
-        android:id="@+id/buttonGroup_pit_sandstorm"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="20dp"
-        android:elevation="2dp"
-        app:background="@color/White"
-        app:divider="@color/grey_900"
-        app:dividerPadding="10dp"
-        app:dividerWidth="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline11"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:position="1"
-        app:radius="2dp"
-        app:ripple="true"
-        app:rippleColor="@color/grey_500"
-        app:selectedBackground="@color/green_900"
-        app:selectionAnimationDuration="250"
-        app:selectionAnimationInterpolator="fastOutSlowIn">
-
-        <com.addisonelliott.segmentedbutton.SegmentedButton
-            android:layout_width="6dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="8dp"
-            app:selectedTextColor="@color/white"
-            app:text="@string/auto"
-            app:textColor="@color/black"
-            app:textSize="13sp" />
-
-        <com.addisonelliott.segmentedbutton.SegmentedButton
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="8dp"
-            app:selectedTextColor="@color/white"
-            app:text="@string/cams"
-            app:textColor="@color/black"
-            app:textSize="13sp" />
-
-        <com.addisonelliott.segmentedbutton.SegmentedButton
-            android:layout_width="7dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="8dp"
-            app:selectedTextColor="@color/white"
-            app:text="@string/autocamera"
-            app:textColor="@color/black"
-            app:textSize="13sp" />
-
-    </com.addisonelliott.segmentedbutton.SegmentedButtonGroup>
-
-    <TextView
-        android:id="@+id/pit_max_rocket"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/pit_max_rocket"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/pit_sandstorm"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline4" />
-
-    <com.addisonelliott.segmentedbutton.SegmentedButtonGroup
-        android:id="@+id/buttonGroup_rocket"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="20dp"
-        android:elevation="2dp"
-        app:background="@color/White"
-        app:divider="@color/grey_900"
-        app:dividerPadding="10dp"
-        app:dividerWidth="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline11"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:position="1"
-        app:radius="2dp"
-        app:ripple="true"
-        app:rippleColor="@color/grey_500"
-        app:selectedBackground="@color/green_900"
-        app:selectionAnimationDuration="250"
-        app:selectionAnimationInterpolator="fastOutSlowIn">
-
-        <com.addisonelliott.segmentedbutton.SegmentedButton
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="8dp"
-            app:selectedTextColor="@color/white"
-            app:text="@string/nothing"
-            app:textColor="@color/black" />
-
-        <com.addisonelliott.segmentedbutton.SegmentedButton
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="8dp"
-            app:selectedTextColor="@color/white"
-            app:text="@string/levelone"
-            app:textColor="@color/black" />
-
-        <com.addisonelliott.segmentedbutton.SegmentedButton
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="8dp"
-            app:selectedTextColor="@color/white"
-            app:text="@string/leveltwo"
-            app:textColor="@color/black" />
-
-        <com.addisonelliott.segmentedbutton.SegmentedButton
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="8dp"
-            app:selectedTextColor="@color/white"
-            app:text="@string/levelthree"
-            app:textColor="@color/black" />
-    </com.addisonelliott.segmentedbutton.SegmentedButtonGroup>
-
-    <TextView
-        android:id="@+id/pit_max_climb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="10dp"
-        android:text="@string/pit_max_climb"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonGroup_climb"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline11" />
-
-    <com.addisonelliott.segmentedbutton.SegmentedButtonGroup
-        android:id="@+id/buttonGroup_climb"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="8dp"
-        android:elevation="2dp"
-        app:background="@color/White"
-        app:divider="@color/grey_900"
-        app:dividerPadding="10dp"
-        app:dividerWidth="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline12"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:position="1"
-        app:radius="2dp"
-        app:ripple="true"
-        app:rippleColor="@color/grey_500"
-        app:selectedBackground="@color/green_900"
-        app:selectionAnimationDuration="250"
-        app:selectionAnimationInterpolator="fastOutSlowIn">
-
-        <com.addisonelliott.segmentedbutton.SegmentedButton
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="8dp"
-            app:selectedTextColor="@color/white"
-            app:text="@string/levelone"
-            app:textColor="@color/black" />
-
-        <com.addisonelliott.segmentedbutton.SegmentedButton
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="8dp"
-            app:selectedTextColor="@color/white"
-            app:text="@string/leveltwo"
-            app:textColor="@color/black" />
-
-        <com.addisonelliott.segmentedbutton.SegmentedButton
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="8dp"
-            app:selectedTextColor="@color/white"
-            app:text="@string/levelthree"
-            app:textColor="@color/black" />
-    </com.addisonelliott.segmentedbutton.SegmentedButtonGroup>
-
-    <Button
-        android:id="@+id/save_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/pit_save"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline12" />
-
-    <View
-        android:id="@+id/view6"
-        style="@style/dividerHorizontal"
-        android:layout_width="0dp"
-        android:layout_height="3dp"
-        android:background="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:id="@+id/view7"
-        style="@style/dividerVertical"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/guideline6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/info_title" />
-
-    <View
-        android:id="@+id/view8"
-        style="@style/dividerVertical"
-        android:layout_height="0dp"
-        android:background="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline8" />
-
-    <View
-        android:id="@+id/view9"
-        style="@style/dividerHorizontal"
-        android:layout_width="0dp"
-        android:background="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/guideline5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <View
-        android:id="@+id/view10"
-        style="@style/dividerHorizontal"
-        android:layout_width="0dp"
-        android:background="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/guideline6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <View
-        android:id="@+id/view11"
-        style="@style/dividerHorizontal"
-        android:layout_width="0dp"
-        android:background="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/guideline7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <View
-        android:id="@+id/view12"
-        style="@style/dividerHorizontal"
-        android:layout_width="0dp"
-        android:background="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/guideline8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <View
-        android:id="@+id/view13"
-        style="@style/dividerHorizontal"
-        android:layout_width="0dp"
-        android:background="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline9" />
-
-    <View
-        android:id="@+id/view14"
-        style="@style/dividerHorizontal"
-        android:layout_width="0dp"
-        android:background="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline10" />
-
-    <View
-        android:id="@+id/view15"
-        style="@style/dividerHorizontal"
-        android:layout_width="0dp"
-        android:background="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline11" />
-
-    <View
-        android:id="@+id/view16"
-        style="@style/dividerHorizontal"
-        android:layout_width="0dp"
-        android:background="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline12" />
-
-    <Button
-        android:id="@+id/pit_upload_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/upload_data"
-        app:layout_constraintBaseline_toBaselineOf="@+id/save_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline4" />
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".Pit">
+
+  <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+    android:id="@+id/comment_text"
+    android:layout_width="200dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    app:hasClearButton="true"
+    app:labelText="Any Additional comments"
+    app:layout_constraintBottom_toTopOf="@+id/guideline12"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.505"
+    app:layout_constraintStart_toStartOf="@+id/guideline4"
+    app:layout_constraintTop_toTopOf="@+id/guideline11">
+
+    <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+      android:id="@+id/comment_extended_edit_text"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:imeOptions="actionDone"/>
+
+  </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
+  <androidx.constraintlayout.widget.Guideline
+    android:id="@+id/guideline4"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:layout_constraintGuide_percent="0.50"/>
+
+  <androidx.constraintlayout.widget.Guideline
+    android:id="@+id/guideline5"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintGuide_begin="20dp"
+    app:layout_constraintGuide_percent="0.05"/>
+
+  <androidx.constraintlayout.widget.Guideline
+    android:id="@+id/guideline6"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintGuide_percent="0.15"/>
+
+  <androidx.constraintlayout.widget.Guideline
+    android:id="@+id/guideline7"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintGuide_begin="20dp"
+    app:layout_constraintGuide_percent="0.30"/>
+
+  <androidx.constraintlayout.widget.Guideline
+    android:id="@+id/guideline8"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintGuide_begin="20dp"
+    app:layout_constraintGuide_percent="0.35"/>
+
+  <androidx.constraintlayout.widget.Guideline
+    android:id="@+id/guideline9"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintGuide_begin="20dp"
+    app:layout_constraintGuide_percent="0.50"/>
+
+  <androidx.constraintlayout.widget.Guideline
+    android:id="@+id/guideline10"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintGuide_begin="20dp"
+    app:layout_constraintGuide_percent="0.65"/>
+
+  <androidx.constraintlayout.widget.Guideline
+    android:id="@+id/guideline11"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintGuide_begin="20dp"
+    app:layout_constraintGuide_percent="0.80"/>
+
+  <androidx.constraintlayout.widget.Guideline
+    android:id="@+id/guideline12"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintGuide_begin="20dp"
+    app:layout_constraintGuide_percent="0.90"/>
+
+  <TextView
+    android:id="@+id/info_title"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:text="@string/pit_general_info"
+    android:textAlignment="center"
+    android:textColor="@color/black"
+    android:textSize="24sp"
+    app:layout_constraintBottom_toTopOf="@+id/guideline5"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"/>
+
+  <TextView
+    android:id="@+id/team_num"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:text="@string/pit_team_number"
+    android:textAlignment="center"
+    android:textColor="@color/black"
+    android:textSize="24sp"
+    app:layout_constraintBottom_toTopOf="@+id/meterView"
+    app:layout_constraintEnd_toStartOf="@+id/guideline4"
+    app:layout_constraintHorizontal_bias="0.47"
+    app:layout_constraintStart_toStartOf="parent"/>
+
+  <com.alexzaitsev.meternumberpicker.MeterView
+    android:id="@+id/meterView"
+    style="@style/Tablet_team_MeterViewStyle"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    app:layout_constraintBottom_toTopOf="@+id/guideline6"
+    app:layout_constraintEnd_toStartOf="@+id/guideline4"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="@+id/guideline5"
+    app:layout_constraintVertical_bias="0.92"/>
+
+  <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+    android:id="@+id/name_text"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginStart="50dp"
+    android:layout_marginEnd="50dp"
+    app:hasClearButton="true"
+    app:labelText="Enter your name"
+    app:layout_constraintBottom_toTopOf="@+id/guideline6"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="@+id/guideline4"
+    app:layout_constraintTop_toTopOf="@+id/guideline5">
+
+    <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+      android:id="@+id/extended_edit_text"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:imeOptions="actionDone"/>
+
+  </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
+  <TextView
+    android:id="@+id/pit_drivetrain"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:text="@string/pit_drivetrain"
+    android:textAlignment="center"
+    android:textColor="@color/black"
+    android:textSize="24sp"
+    app:layout_constraintBottom_toTopOf="@+id/spinner1"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="@+id/guideline6"
+    app:layout_constraintVertical_bias="0.288"/>
+
+  <Spinner
+    android:id="@+id/spinner1"
+    android:layout_width="200dp"
+    android:layout_height="43dp"
+    android:layout_marginBottom="28dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:background="@android:color/darker_gray"
+    android:prompt="@string/pit_style"
+    android:textAlignment="center"
+    app:layout_constraintBottom_toTopOf="@+id/guideline7"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"/>
+
+  <TextView
+    android:id="@+id/perf_title"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:text="@string/pit_expected_perf"
+    android:textAlignment="center"
+    android:textColor="@color/black"
+    android:textSize="24sp"
+    app:layout_constraintBottom_toTopOf="@+id/guideline8"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"/>
+
+  <TextView
+    android:id="@+id/hatch_station"
+    android:textStyle="bold"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:text="@string/station"
+    app:layout_constraintBaseline_toBaselineOf="@+id/pit_hatches"
+    app:layout_constraintEnd_toStartOf="@+id/guideline4"
+    app:layout_constraintStart_toEndOf="@+id/pit_hatches"/>
+
+  <vn.luongvo.widget.iosswitchview.SwitchView
+    android:id="@+id/hatch_station_switch"
+    android:layout_width="50dp"
+    android:layout_height="wrap_content"
+    app:checked="false"
+    app:color_off="@color/switchon"
+    app:color_on="@color/switchoff"
+    app:layout_constraintBottom_toTopOf="@+id/guideline9"
+    app:layout_constraintEnd_toStartOf="@+id/guideline4"
+    app:layout_constraintHorizontal_bias="0.841"
+    app:layout_constraintStart_toEndOf="@+id/hatch_ground_switch"
+    app:layout_constraintTop_toBottomOf="@+id/hatch_station"
+    app:layout_constraintVertical_bias="0.253"/>
+
+  <TextView
+    android:id="@+id/hatch_ground"
+    android:textStyle="bold"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:text="@string/ground"
+    app:layout_constraintBaseline_toBaselineOf="@+id/pit_hatches"
+    app:layout_constraintEnd_toStartOf="@+id/pit_hatches"
+    app:layout_constraintStart_toStartOf="parent"/>
+
+  <vn.luongvo.widget.iosswitchview.SwitchView
+    android:id="@+id/hatch_ground_switch"
+    android:layout_width="50dp"
+    android:layout_height="wrap_content"
+    app:checked="false"
+    app:color_off="@color/switchon"
+    app:color_on="@color/switchoff"
+    app:layout_constraintBottom_toTopOf="@+id/guideline9"
+    app:layout_constraintEnd_toStartOf="@+id/guideline4"
+    app:layout_constraintHorizontal_bias="0.116"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/hatch_ground"
+    app:layout_constraintVertical_bias="0.253"/>
+
+  <TextView
+    android:id="@+id/pit_hatches"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:text="@string/pit_hatches"
+    android:textAlignment="center"
+    android:textColor="@color/black"
+    android:textSize="24sp"
+    app:layout_constraintEnd_toStartOf="@+id/guideline4"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="@+id/guideline8"/>
+
+  <com.mohammedalaa.seekbar.RangeSeekBarView
+    android:id="@+id/hatch_seekbar"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="56dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    app:barHeight="@dimen/value_bar_barHeight"
+    app:baseColor="@color/navy"
+    app:circleRadius="@dimen/value_bar_circleRadius"
+    app:circleTextColor="@color/white"
+    app:circleTextSize="@dimen/value_bar_circleTextSize"
+    app:currentValue="0"
+    app:fillColor="@color/red"
+    app:layout_constraintEnd_toStartOf="@+id/guideline4"
+    app:layout_constraintHorizontal_bias="1.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/pit_hatches"
+    app:maxValue="20"
+    app:minValue="0"
+    app:stepValue="1"/>
+
+
+  <TextView
+    android:id="@+id/cargo_ground"
+    android:textStyle="bold"
+    android:layout_width="wrap_content"
+    android:layout_height="0dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:text="@string/ground"
+    app:layout_constraintBaseline_toBaselineOf="@+id/pit_cargo"
+    app:layout_constraintEnd_toStartOf="@+id/pit_cargo"
+    app:layout_constraintStart_toStartOf="@+id/guideline4"/>
+
+  <vn.luongvo.widget.iosswitchview.SwitchView
+    android:id="@+id/cargo_ground_switch"
+    android:layout_width="50dp"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    app:checked="false"
+    app:color_off="@color/switchon"
+    app:color_on="@color/switchoff"
+    app:layout_constraintBottom_toTopOf="@+id/guideline9"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.148"
+    app:layout_constraintStart_toStartOf="@+id/guideline4"
+    app:layout_constraintTop_toBottomOf="@+id/cargo_ground"
+    app:layout_constraintVertical_bias="0.253"/>
+
+  <TextView
+    android:id="@+id/cargo_station"
+    android:textStyle="bold"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:text="@string/station"
+    app:layout_constraintBaseline_toBaselineOf="@+id/pit_cargo"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@+id/pit_cargo"/>
+
+  <vn.luongvo.widget.iosswitchview.SwitchView
+    android:id="@+id/cargo_station_switch"
+    android:layout_width="50dp"
+    android:layout_height="wrap_content"
+    app:checked="false"
+    app:color_off="@color/switchon"
+    app:color_on="@color/switchoff"
+    app:layout_constraintBottom_toTopOf="@+id/guideline9"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.792"
+    app:layout_constraintStart_toEndOf="@+id/cargo_ground_switch"
+    app:layout_constraintTop_toBottomOf="@+id/cargo_station"
+    app:layout_constraintVertical_bias="0.253"/>
+
+  <com.mohammedalaa.seekbar.RangeSeekBarView
+    android:id="@+id/cargo_seekbar"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="56dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    app:barHeight="@dimen/value_bar_barHeight"
+    app:baseColor="@color/navy"
+    app:circleRadius="@dimen/value_bar_circleRadius"
+    app:circleTextColor="@color/white"
+    app:circleTextSize="@dimen/value_bar_circleTextSize"
+    app:currentValue="0"
+    app:fillColor="@color/red"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintStart_toStartOf="@+id/guideline4"
+    app:layout_constraintTop_toBottomOf="@+id/pit_cargo"
+    app:maxValue="20"
+    app:minValue="0"
+    app:stepValue="1"/>
+
+  <TextView
+    android:id="@+id/pit_cargo"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:text="@string/pit_cargo"
+    android:textAlignment="center"
+    android:textColor="@color/black"
+    android:textSize="24sp"
+    app:layout_constraintBaseline_toBaselineOf="@+id/pit_hatches"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="@+id/guideline4"/>
+
+  <!-- app:progressText="xxx" -->
+
+  <TextView
+    android:id="@+id/pit_launch"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:text="@string/pit_launch"
+    android:textAlignment="center"
+    android:textColor="@color/black"
+    android:textSize="24sp"
+    app:layout_constraintBottom_toTopOf="@+id/buttonGroup_launch"
+    app:layout_constraintEnd_toStartOf="@+id/guideline4"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="@+id/guideline9"/>
+
+  <com.addisonelliott.segmentedbutton.SegmentedButtonGroup
+    android:id="@+id/buttonGroup_launch"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:layout_gravity="center_vertical"
+    android:elevation="2dp"
+    app:background="@color/White"
+    app:divider="@color/grey_900"
+    app:dividerPadding="10dp"
+    app:dividerWidth="1dp"
+    app:layout_constraintBottom_toTopOf="@+id/guideline10"
+    app:layout_constraintEnd_toStartOf="@+id/guideline4"
+    app:layout_constraintStart_toStartOf="parent"
+    app:position="1"
+    app:radius="2dp"
+    app:ripple="true"
+    app:rippleColor="@color/grey_500"
+    app:selectedBackground="@color/green_900"
+    app:selectionAnimationDuration="250"
+    app:selectionAnimationInterpolator="fastOutSlowIn">
+
+    <com.addisonelliott.segmentedbutton.SegmentedButton
+      android:layout_width="6dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:padding="8dp"
+      app:selectedTextColor="@color/white"
+      app:text="@string/levelone"
+      app:textColor="@color/black"
+      app:textSize="13sp"/>
+
+    <com.addisonelliott.segmentedbutton.SegmentedButton
+      android:layout_width="7dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:padding="8dp"
+      app:selectedTextColor="@color/white"
+      app:text="@string/leveltwo"
+      app:textColor="@color/black"
+      app:textSize="13sp"/>
+
+    <com.addisonelliott.segmentedbutton.SegmentedButton
+      android:layout_width="7dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:padding="8dp"
+      app:selectedTextColor="@color/white"
+      app:text="@string/levelthree"
+      app:textColor="@color/black"
+      app:textSize="13sp"/>
+
+  </com.addisonelliott.segmentedbutton.SegmentedButtonGroup>
+
+
+  <TextView
+    android:id="@+id/pit_vision"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:text="@string/pit_vision"
+    android:textAlignment="center"
+    android:textColor="@color/black"
+    android:textSize="24sp"
+    app:layout_constraintBottom_toTopOf="@+id/buttonGroup_vision"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="@+id/guideline4"
+    app:layout_constraintTop_toTopOf="@+id/guideline9"/>
+
+  <com.addisonelliott.segmentedbutton.SegmentedButtonGroup
+    android:id="@+id/buttonGroup_vision"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:layout_gravity="center_vertical"
+    android:elevation="2dp"
+    app:background="@color/White"
+    app:divider="@color/grey_900"
+    app:dividerPadding="10dp"
+    app:dividerWidth="1dp"
+    app:layout_constraintBottom_toTopOf="@+id/guideline10"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="@+id/guideline4"
+    app:position="1"
+    app:radius="2dp"
+    app:ripple="true"
+    app:rippleColor="@color/grey_500"
+    app:selectedBackground="@color/green_900"
+    app:selectionAnimationDuration="250"
+    app:selectionAnimationInterpolator="fastOutSlowIn">
+
+    <com.addisonelliott.segmentedbutton.SegmentedButton
+      android:layout_width="6dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:padding="8dp"
+      app:selectedTextColor="@color/white"
+      app:text="@string/none_newline"
+      app:textColor="@color/black"
+      app:textSize="13sp"/>
+
+    <com.addisonelliott.segmentedbutton.SegmentedButton
+      android:layout_width="7dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:padding="8dp"
+      app:selectedTextColor="@color/white"
+      app:text="@string/cam"
+      app:textColor="@color/black"
+      app:textSize="13sp"/>
+
+    <com.addisonelliott.segmentedbutton.SegmentedButton
+      android:layout_width="7dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:padding="8dp"
+      app:selectedTextColor="@color/white"
+      app:text="@string/multicam"
+      app:textColor="@color/black"
+      app:textSize="13sp"/>
+
+    <com.addisonelliott.segmentedbutton.SegmentedButton
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:padding="8dp"
+      app:selectedTextColor="@color/white"
+      app:text="@string/limelight"
+      app:textColor="@color/black"
+      app:textSize="13sp"/>
+
+  </com.addisonelliott.segmentedbutton.SegmentedButtonGroup>
+
+  <TextView
+    android:id="@+id/pit_sandstorm"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:text="@string/pit_sandstorm"
+    android:textAlignment="center"
+    android:textColor="@color/black"
+    android:textSize="24sp"
+    app:layout_constraintBottom_toTopOf="@+id/buttonGroup_pit_sandstorm"
+    app:layout_constraintEnd_toStartOf="@+id/guideline4"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="@+id/guideline10"/>
+
+  <com.addisonelliott.segmentedbutton.SegmentedButtonGroup
+    android:id="@+id/buttonGroup_pit_sandstorm"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+    android:layout_marginEnd="8dp"
+    android:layout_gravity="center_vertical"
+    android:elevation="2dp"
+    app:background="@color/White"
+    app:divider="@color/grey_900"
+    app:dividerPadding="10dp"
+    app:dividerWidth="1dp"
+    app:layout_constraintBottom_toTopOf="@+id/guideline11"
+    app:layout_constraintEnd_toStartOf="@+id/guideline4"
+    app:layout_constraintHorizontal_bias="1.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:position="1"
+    app:radius="2dp"
+    app:ripple="true"
+    app:rippleColor="@color/grey_500"
+    app:selectedBackground="@color/green_900"
+    app:selectionAnimationDuration="250"
+    app:selectionAnimationInterpolator="fastOutSlowIn">
+
+    <com.addisonelliott.segmentedbutton.SegmentedButton
+      android:layout_width="6dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:padding="8dp"
+      app:selectedTextColor="@color/white"
+      app:text="@string/auto"
+      app:textColor="@color/black"
+      app:textSize="13sp"/>
+
+    <com.addisonelliott.segmentedbutton.SegmentedButton
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:padding="8dp"
+      app:selectedTextColor="@color/white"
+      app:text="@string/cams"
+      app:textColor="@color/black"
+      app:textSize="13sp"/>
+
+    <com.addisonelliott.segmentedbutton.SegmentedButton
+      android:layout_width="7dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:padding="8dp"
+      app:selectedTextColor="@color/white"
+      app:text="@string/autocamera"
+      app:textColor="@color/black"
+      app:textSize="13sp"/>
+
+  </com.addisonelliott.segmentedbutton.SegmentedButtonGroup>
+
+  <TextView
+    android:id="@+id/pit_max_rocket"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:text="@string/pit_max_rocket"
+    android:textAlignment="center"
+    android:textColor="@color/black"
+    android:textSize="24sp"
+    app:layout_constraintBaseline_toBaselineOf="@+id/pit_sandstorm"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="@+id/guideline4"/>
+
+  <com.addisonelliott.segmentedbutton.SegmentedButtonGroup
+    android:id="@+id/buttonGroup_rocket"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:layout_gravity="center_vertical"
+    android:elevation="2dp"
+    app:background="@color/White"
+    app:divider="@color/grey_900"
+    app:dividerPadding="10dp"
+    app:dividerWidth="1dp"
+    app:layout_constraintBottom_toTopOf="@+id/guideline11"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="1.0"
+    app:layout_constraintStart_toStartOf="@+id/guideline4"
+    app:position="1"
+    app:radius="2dp"
+    app:ripple="true"
+    app:rippleColor="@color/grey_500"
+    app:selectedBackground="@color/green_900"
+    app:selectionAnimationDuration="250"
+    app:selectionAnimationInterpolator="fastOutSlowIn">
+
+    <com.addisonelliott.segmentedbutton.SegmentedButton
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:padding="8dp"
+      app:selectedTextColor="@color/white"
+      app:text="@string/nothing"
+      app:textColor="@color/black"/>
+
+    <com.addisonelliott.segmentedbutton.SegmentedButton
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:padding="8dp"
+      app:selectedTextColor="@color/white"
+      app:text="@string/levelone"
+      app:textColor="@color/black"/>
+
+    <com.addisonelliott.segmentedbutton.SegmentedButton
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:padding="8dp"
+      app:selectedTextColor="@color/white"
+      app:text="@string/leveltwo"
+      app:textColor="@color/black"/>
+
+    <com.addisonelliott.segmentedbutton.SegmentedButton
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:padding="8dp"
+      app:selectedTextColor="@color/white"
+      app:text="@string/levelthree"
+      app:textColor="@color/black"/>
+  </com.addisonelliott.segmentedbutton.SegmentedButtonGroup>
+
+  <TextView
+    android:id="@+id/pit_max_climb"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="10dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:text="@string/pit_max_climb"
+    android:textAlignment="center"
+    android:textColor="@color/black"
+    android:textSize="24sp"
+    app:layout_constraintBottom_toTopOf="@+id/buttonGroup_climb"
+    app:layout_constraintEnd_toStartOf="@+id/guideline4"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="@+id/guideline11"/>
+
+  <com.addisonelliott.segmentedbutton.SegmentedButtonGroup
+    android:id="@+id/buttonGroup_climb"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:layout_marginStart="40dp"
+    android:layout_marginEnd="40dp"
+    android:layout_gravity="center_vertical"
+    android:elevation="2dp"
+    app:background="@color/White"
+    app:divider="@color/grey_900"
+    app:dividerPadding="10dp"
+    app:dividerWidth="1dp"
+    app:layout_constraintBottom_toTopOf="@+id/guideline12"
+    app:layout_constraintEnd_toStartOf="@+id/guideline4"
+    app:layout_constraintStart_toStartOf="parent"
+    app:position="1"
+    app:radius="2dp"
+    app:ripple="true"
+    app:rippleColor="@color/grey_500"
+    app:selectedBackground="@color/green_900"
+    app:selectionAnimationDuration="250"
+    app:selectionAnimationInterpolator="fastOutSlowIn">
+
+    <com.addisonelliott.segmentedbutton.SegmentedButton
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:padding="8dp"
+      app:selectedTextColor="@color/white"
+      app:text="@string/levelone"
+      app:textColor="@color/black"/>
+
+    <com.addisonelliott.segmentedbutton.SegmentedButton
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:padding="8dp"
+      app:selectedTextColor="@color/white"
+      app:text="@string/leveltwo"
+      app:textColor="@color/black"/>
+
+    <com.addisonelliott.segmentedbutton.SegmentedButton
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:padding="8dp"
+      app:selectedTextColor="@color/white"
+      app:text="@string/levelthree"
+      app:textColor="@color/black"/>
+  </com.addisonelliott.segmentedbutton.SegmentedButtonGroup>
+
+  <Button
+    android:id="@+id/save_button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:text="@string/pit_save"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toStartOf="@+id/guideline4"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="@+id/guideline12"/>
+
+  <View
+    android:id="@+id/view6"
+    style="@style/dividerHorizontal"
+    android:layout_width="0dp"
+    android:layout_height="3dp"
+    android:background="@color/black"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"/>
+
+  <View
+    android:id="@+id/view7"
+    style="@style/dividerVertical"
+    android:layout_height="0dp"
+    android:layout_marginTop="8dp"
+    android:background="@color/black"
+    app:layout_constraintBottom_toTopOf="@+id/guideline6"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/info_title"/>
+
+  <View
+    android:id="@+id/view8"
+    style="@style/dividerVertical"
+    android:layout_height="0dp"
+    android:background="@color/black"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="@+id/guideline8"/>
+
+  <View
+    android:id="@+id/view9"
+    style="@style/dividerHorizontal"
+    android:layout_width="0dp"
+    android:background="@color/black"
+    app:layout_constraintBottom_toTopOf="@+id/guideline5"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"/>
+
+  <View
+    android:id="@+id/view10"
+    style="@style/dividerHorizontal"
+    android:layout_width="0dp"
+    android:background="@color/black"
+    app:layout_constraintBottom_toTopOf="@+id/guideline6"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"/>
+
+  <View
+    android:id="@+id/view11"
+    style="@style/dividerHorizontal"
+    android:layout_width="0dp"
+    android:background="@color/black"
+    app:layout_constraintBottom_toTopOf="@+id/guideline7"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"/>
+
+  <View
+    android:id="@+id/view12"
+    style="@style/dividerHorizontal"
+    android:layout_width="0dp"
+    android:background="@color/black"
+    app:layout_constraintBottom_toTopOf="@+id/guideline8"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"/>
+
+  <View
+    android:id="@+id/view13"
+    style="@style/dividerHorizontal"
+    android:layout_width="0dp"
+    android:background="@color/black"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="@+id/guideline9"/>
+
+  <View
+    android:id="@+id/view14"
+    style="@style/dividerHorizontal"
+    android:layout_width="0dp"
+    android:background="@color/black"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="@+id/guideline10"/>
+
+  <View
+    android:id="@+id/view15"
+    style="@style/dividerHorizontal"
+    android:layout_width="0dp"
+    android:background="@color/black"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="@+id/guideline11"/>
+
+  <View
+    android:id="@+id/view16"
+    style="@style/dividerHorizontal"
+    android:layout_width="0dp"
+    android:background="@color/black"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="@+id/guideline12"/>
+
+  <Button
+    android:id="@+id/pit_upload_button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:text="@string/upload_data"
+    app:layout_constraintBaseline_toBaselineOf="@+id/save_button"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="@+id/guideline4"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

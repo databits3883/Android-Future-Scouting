@@ -1,160 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Master">
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".Master">
 
-    <TextView
-        android:id="@+id/delete_title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/delete_data_title"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/guideline25"
-        app:layout_constraintEnd_toStartOf="@+id/guideline27"
-        app:layout_constraintStart_toStartOf="@+id/guideline26"
-        app:layout_constraintTop_toTopOf="@+id/guideline24"
-        app:layout_constraintVertical_bias="0.6" />
+  <TextView
+    android:id="@+id/delete_title"
+    android:textStyle="bold"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginEnd="8dp"
+    android:text="@string/delete_data_title"
+    android:textAlignment="center"
+    android:textColor="@color/black"
+    android:textSize="18sp"
+    app:layout_constraintBottom_toTopOf="@+id/guideline25"
+    app:layout_constraintEnd_toStartOf="@+id/guideline27"
+    app:layout_constraintStart_toStartOf="@+id/guideline26"
+    app:layout_constraintTop_toTopOf="@+id/guideline24"
+    app:layout_constraintVertical_bias="0.6"/>
 
-    <Button
-        android:id="@+id/delete_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@color/red"
-        android:text="@string/delete_data_button"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toStartOf="@+id/guideline27"
-        app:layout_constraintStart_toStartOf="@+id/guideline26"
-        app:layout_constraintTop_toTopOf="@+id/guideline25" />
+  <Button
+    android:id="@+id/delete_button"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:background="@color/red"
+    android:text="@string/delete_data_button"
+    android:textColor="@color/white"
+    app:layout_constraintEnd_toStartOf="@+id/guideline27"
+    app:layout_constraintStart_toStartOf="@+id/guideline26"
+    app:layout_constraintTop_toTopOf="@+id/guideline25"/>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp"
-        app:layout_constraintGuide_percent="0.15" />
+  <androidx.constraintlayout.widget.Guideline
+    android:id="@+id/guideline24"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintGuide_begin="20dp"
+    app:layout_constraintGuide_percent="0.15"/>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline25"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp"
-        app:layout_constraintGuide_percent="0.25" />
+  <androidx.constraintlayout.widget.Guideline
+    android:id="@+id/guideline25"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintGuide_begin="20dp"
+    app:layout_constraintGuide_percent="0.25"/>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline28"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp"
-        app:layout_constraintGuide_percent="0.45" />
+  <androidx.constraintlayout.widget.Guideline
+    android:id="@+id/guideline28"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintGuide_begin="20dp"
+    app:layout_constraintGuide_percent="0.45"/>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline29"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp"
-        app:layout_constraintGuide_percent="0.75" />
+  <androidx.constraintlayout.widget.Guideline
+    android:id="@+id/guideline29"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintGuide_begin="20dp"
+    app:layout_constraintGuide_percent="0.75"/>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline26"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp"
-        app:layout_constraintGuide_percent="0.25" />
+  <androidx.constraintlayout.widget.Guideline
+    android:id="@+id/guideline26"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:layout_constraintGuide_begin="20dp"
+    app:layout_constraintGuide_percent="0.25"/>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline27"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp"
-        app:layout_constraintGuide_percent="0.75" />
+  <androidx.constraintlayout.widget.Guideline
+    android:id="@+id/guideline27"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:layout_constraintGuide_begin="20dp"
+    app:layout_constraintGuide_percent="0.75"/>
 
-    <Button
-        android:id="@+id/download_team"
-        android:layout_width="190dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/download_teams_button"
-        app:layout_constraintEnd_toStartOf="@+id/guideline27"
-        app:layout_constraintStart_toStartOf="@+id/guideline26"
-        app:layout_constraintTop_toBottomOf="@+id/req_title" />
+  <Button
+    android:id="@+id/download_team"
+    android:layout_width="190dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:text="@string/download_teams_button"
+    app:layout_constraintEnd_toStartOf="@+id/guideline27"
+    app:layout_constraintStart_toStartOf="@+id/guideline26"
+    app:layout_constraintTop_toBottomOf="@+id/req_title"/>
 
-    <TextView
-        android:id="@+id/spreadsheet_title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/config_id_title"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/guideline27"
-        app:layout_constraintStart_toStartOf="@+id/guideline26"
-        app:layout_constraintTop_toTopOf="@+id/guideline28" />
+  <TextView
+    android:id="@+id/spreadsheet_title"
+    android:textStyle="bold"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginStart="8dp"
+    android:text="@string/config_id_title"
+    android:textAlignment="center"
+    android:textColor="@color/black"
+    android:textSize="18sp"
+    app:layout_constraintEnd_toStartOf="@+id/guideline27"
+    app:layout_constraintStart_toStartOf="@+id/guideline26"
+    app:layout_constraintTop_toTopOf="@+id/guideline28"/>
 
-    <EditText
-        android:id="@+id/spreadsheet_id"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/spreadsheet_id"
-        android:textAlignment="center"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline27"
-        app:layout_constraintStart_toStartOf="@+id/guideline26"
-        app:layout_constraintTop_toBottomOf="@+id/spreadsheet_title"
-        tools:ignore="Autofill,LabelFor" />
+  <EditText
+    android:id="@+id/spreadsheet_id"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="8dp"
+    android:ems="10"
+    android:inputType="textPersonName"
+    android:text="@string/spreadsheet_id"
+    android:textAlignment="center"
+    android:textSize="14sp"
+    app:layout_constraintEnd_toStartOf="@+id/guideline27"
+    app:layout_constraintStart_toStartOf="@+id/guideline26"
+    app:layout_constraintTop_toBottomOf="@+id/spreadsheet_title"
+    tools:ignore="Autofill,LabelFor"/>
 
-    <TextView
-        android:id="@+id/req_title"
-        android:layout_width="190dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/download_teams_title"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/guideline27"
-        app:layout_constraintStart_toStartOf="@+id/guideline26"
-        app:layout_constraintTop_toTopOf="@+id/guideline29" />
+  <TextView
+    android:id="@+id/req_title"
+    android:textStyle="bold"
+    android:layout_width="190dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:text="@string/download_teams_title"
+    android:textAlignment="center"
+    android:textColor="@color/black"
+    android:textSize="18sp"
+    app:layout_constraintEnd_toStartOf="@+id/guideline27"
+    app:layout_constraintStart_toStartOf="@+id/guideline26"
+    app:layout_constraintTop_toTopOf="@+id/guideline29"/>
 
-    <Button
-        android:id="@+id/get_config"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/config_id_button"
-        app:layout_constraintEnd_toStartOf="@+id/guideline27"
-        app:layout_constraintStart_toStartOf="@+id/guideline26"
-        app:layout_constraintTop_toBottomOf="@+id/spreadsheet_id" />
+  <Button
+    android:id="@+id/get_config"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:text="@string/config_id_button"
+    app:layout_constraintEnd_toStartOf="@+id/guideline27"
+    app:layout_constraintStart_toStartOf="@+id/guideline26"
+    app:layout_constraintTop_toBottomOf="@+id/spreadsheet_id"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
