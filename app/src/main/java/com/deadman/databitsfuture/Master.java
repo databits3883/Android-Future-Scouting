@@ -369,7 +369,7 @@ public class Master extends Fragment {
         }
         String spreadsheetId = new String(bytes);
 
-        String range = "RawData!A1:T700";
+        String range = "StatsRaw!A1:T700";
         ValueRange valueRange = new ValueRange();
         try {
           // Reading CSV into a list
