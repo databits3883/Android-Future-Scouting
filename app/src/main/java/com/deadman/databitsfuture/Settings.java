@@ -130,10 +130,10 @@ public class Settings extends Fragment {
           // Delete the files
           deleteRecursive(file);
           // Relaunch the app so the basic structure is made
-          Intent intent = getActivity().getBaseContext().getPackageManager()
+          Intent intent = Objects.requireNonNull(getActivity()).getBaseContext().getPackageManager()
               .getLaunchIntentForPackage(
                   getActivity().getBaseContext().getPackageName());
-          intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+          Objects.requireNonNull(intent).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
           intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
           startActivity(intent);
         })
