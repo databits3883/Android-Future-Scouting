@@ -87,6 +87,10 @@ public class Master extends Fragment {
     Button api_button = getView().findViewById(R.id.upload_button);
     api_button.setOnClickListener(v -> getResultsFromApi());
 
+    if (!isDeviceOnline()) {
+      api_button.setEnabled(false);
+    }
+
     Button btn = getView().findViewById(R.id.scan_qr_button);
     btn.setOnClickListener(v -> scanner());
 

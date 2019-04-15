@@ -93,6 +93,10 @@ public class Pit extends Fragment {
     final Button uploadButton = view.findViewById(R.id.pit_upload_button);
     uploadButton.setOnClickListener(v -> getResultsFromApi());
 
+    if (!isDeviceOnline()) {
+      uploadButton.setEnabled(false);
+    }
+
     mProgress = new ProgressDialog(getContext());
     mProgress.setMessage("Calling Google Sheets API ...");
 

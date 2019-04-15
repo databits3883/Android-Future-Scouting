@@ -85,6 +85,11 @@ public class Settings extends Fragment {
     Button uploadButton = Objects.requireNonNull(getView()).findViewById(R.id.get_config);
     uploadButton.setOnClickListener(v -> getResultsFromApi());
 
+    if (!isDeviceOnline()) {
+      uploadButton.setEnabled(false);
+      downloadButton.setEnabled(false);
+    }
+
     mProgress = new ProgressDialog(getContext());
     mProgress.setMessage("Calling Google Sheets API ...");
 
