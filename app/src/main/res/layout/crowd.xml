@@ -240,7 +240,7 @@
     app:layout_constraintTop_toTopOf="@+id/guideline19"/>
 
   <com.addisonelliott.segmentedbutton.SegmentedButtonGroup
-    android:id="@+id/buttonGroup_crowd_defense"
+    android:id="@+id/buttonGroup_red_blue"
     android:layout_width="0dp"
     android:layout_height="wrap_content"
     android:layout_marginBottom="8dp"
